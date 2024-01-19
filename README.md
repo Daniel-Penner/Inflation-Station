@@ -5,7 +5,10 @@
 - Daniel Penner - 54925359
 - Sai Kottagajula - 63097810
 ## Project Proposal:
-Grocery Price Tracker<br/>
+### Description:<br/>
+A full-stack web application that tracks grocery prices across different store locations. Allows to track products in specific categories, or to browse through good deals or new items. Users can post and interact with reviews/ratings on products.
+### Information:
+<ins>Grocery Price Tracker</ins><br/>
 Name: Inflation Station<br/>
 ## Requirements
 ### Users:
