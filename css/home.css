@@ -1,0 +1,115 @@
+body {
+    background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
+}
+
+.e46_11 { /*header banner position*/
+	width:1440px;
+	height:104px;
+	position:absolute;
+	left:0px;
+	top:103.99993896484375px;
+}
+.e1_63 {  /*Green banner*/
+	box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+	background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+	width:1920px;
+	height:104px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.e65_421 { /*Header text position*/
+	width:483px;
+	height:97px;
+	position:absolute;
+	left:492px;
+	top:113px;
+	border-top-left-radius:24px;
+	border-top-right-radius:24px;
+	border-bottom-left-radius:24px;
+	border-bottom-right-radius:24px;
+}
+.e1_12 { /*Header text styling*/
+	color:rgba(255, 255, 255, 1);
+	width:463px;
+	height:77px;
+	position:absolute;
+	left:10px;
+	top:10px;
+	font-family:Inria Sans;
+	text-align:left;
+	font-size:64px;
+	letter-spacing:0;
+}
+.e1_57 { /*Nav bar stroke border*/
+	border:8px solid rgba(128.0000075697899, 158.00000578165054, 131.00000739097595, 1);
+}
+.e1_57 { /*Nav bar sizing/positioning*/
+	width:718px;
+	height:70px;
+	position:absolute;
+	left:361px;
+	top:15px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.e1_11 { /*Home Icon in Navbar*/
+	background-color:rgba(255, 255, 255, 1);
+	width:51.3482666015625px;
+	height:48.482913970947266px;
+	position:absolute;
+	left:10px;
+	top:11.258544921875px;
+}
+/*About, Contact Us, Products, Explore*/
+
+.e1_28 {  
+	color:rgba(255, 255, 255, 1);
+	width:73px;
+	height:29px;
+	position:absolute;
+	left:97.3482666015625px;
+	top:21px;
+	font-family:Inter;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:0;
+}
+.e1_30 { 
+	color:rgba(255, 255, 255, 1);
+	width:131px;
+	height:29px;
+	position:absolute;
+	left:206.3482666015625px;
+	top:21px;
+	font-family:Inter;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:0;
+}
+.e1_31 { 
+	color:rgba(255, 255, 255, 1);
+	width:107px;
+	height:29px;
+	position:absolute;
+	left:373.3482666015625px;
+	top:21px;
+	font-family:Inter;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:0;
+}
+.e1_34 { 
+	color:rgba(255, 255, 255, 1);
+	width:89px;
+	height:29px;
+	position:absolute;
+	left:509.3482666015625px;
+	top:21px;
+	font-family:Inter;
+	text-align:left;
+	font-size:24px;
+	letter-spacing:0;
+}
