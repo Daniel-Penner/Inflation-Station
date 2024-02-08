@@ -1,17 +1,16 @@
-h4 {
-    margin-left: 10%;
-    margin-top:2%
-}
-p {
-    margin-left:10%;
-    margin-top:1%;
-    margin-right:35%;
-}
-img {
+.farmer {
     border-top-left-radius:5px;
 	border-top-right-radius:5px;
 	border-bottom-left-radius:5px;
 	border-bottom-right-radius:5px;
-    width:20%;
     align-self: flex-start;
+    width:60%;
+}
+.farmer2 {
+    border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+    align-self: flex-start;
+    width:90%;
 }
