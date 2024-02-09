@@ -1,0 +1,94 @@
+/* Styles for the main container */
+.main-container {
+  width: 1440px;
+  height: 1024px;
+  position: absolute;
+  background: #B6D4BD;
+}
+
+/* Styles for the "Categories" heading */
+.categories-heading {
+  width: 321.80px;
+  left: 91px;
+  top: 234px;
+  position: absolute;
+  color: white;
+  font-size: 48px;
+  font-family: Abel;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+/* Styles for the category background divs */
+.category-background {
+  width: 205px;
+  height: 61px;
+  position: absolute;
+  background: #809E83;
+  z-index: auto;
+}
+
+/* Styles for the category headings */
+.category-heading {
+  width: 205px;
+  height: 64px;
+  position: absolute;
+  color: white;
+  font-size: 48px;
+  font-family: Abel;
+  font-weight: 400;
+  word-wrap: break-word;
+  z-index: auto;
+}
+
+
+
+.homehb {  /*Green banner*/
+  margin-top:25px;
+box-shadow:0px 4px 4px rgba(0, 0, 0, 0.25);
+background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+  height: 70px;
+  width: 1440px;
+}
+.navborder { /*Nav bar sizing/positioning/background*/
+border:8px solid rgba(128.0000075697899, 158.00000578165054, 131.00000739097595, 1);
+  margin-top:10px;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+}
+.navround {
+  border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom-left-radius:3px;
+border-bottom-right-radius:3px;
+}
+body, header {
+  background-color: rgb(182,212,189);
+  width: 1440px;
+}
+
+/* Styles for the background divs in "Recently Viewed" */
+.recently-viewed-containerc {
+  width: 278px;
+  height: 277px;
+  position: absolute;
+  background: #D9D9D9;
+}
+.recently-viewed-container {
+  width: 1283px;
+  height: 381px;
+  left: 78px;
+  top: 400px;
+  position: absolute;
+}
+
+/* Styles for the headings in "Recently Viewed" */
+.recently-viewed-heading {
+  color: white;
+  font-size: 48px;
+  font-family: Abel;
+  font-weight: 400;
+  word-wrap: break-word;
+}
