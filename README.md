@@ -12,7 +12,7 @@ A full-stack web application that tracks grocery prices across different store l
 Name: Inflation Station<br/>
 ## Requirements
 ### Users:
-- Categorical searching, other advanced search methods
+- Categorical and name-based searching for items 
 - Commenting on products/stores
 - Rating system (with or without comment)
 - Set alerts for price drops (ping a user’s email and notifications in-app)
