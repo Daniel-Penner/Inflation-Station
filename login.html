@@ -39,27 +39,40 @@
             <h5 style="text-align:center; color:white; font-size:50px;">Login</h5>
         </div>
     </header>
-    <br><br>
-    <form method="GET"></form>
+    <form method="GET" id="loginForm"></form>
     <fieldset style="text-align:center;">
         <legend></legend>
         <p>
-        <label><h3>Email</h3></label></p>
-        <p><input type="email" name="email" style="width:35%;" />
-        <label><h3>Password</h3></label></p>
-        <input type="password" name="password" style="width:35%;" />
+        <label><h3 style="margin-right:29%;">Email</h3></label></p>
+        <p><input type="email" name="email" style="width:35%;" required />
+        <label><h3 style="margin-right:24%;">Password</h3></label></p>
+        <input type="password" name="password" style="width:35%;" required />
     </fieldset>
     <br>
     <div class="container">
         <div class="row">
             <div class="col-6">
-                <button class="formtitle" style="text-align:center;"><strong>Login</strong></button>
+                <button onclick="" class="formtitle" style="text-align:center;"><strong>Login</strong></button>
                 <p></p>
             </div>
             <div class="col-6">
-                <button class="formtitle" style="text-align:center;"><strong>Sign up</strong></button>
+                <button onclick="reset()" class="formtitle" style="text-align:center;"><strong>Sign up</strong></button>
             </div>
         </div>
 </body>
-
+<script>
+    document.getElementById("loginForm").onsubmit = function(e) {
+        var fieldValue=document.getElementByID("email").value;
+        if(fieldValue==null || fieldValue=="") {
+//if field empty stop form
+        e.preventDefault();
+//Now tell user somethign went wrong
+        alert("you must enter username") //use a modal
+//or could use a modal
+}
+}
+function reset() {
+    document.getElementByID("loginform").reset();
+}
+</script>
 </html>
