@@ -3,7 +3,7 @@ body {
     text-align: center;
 }
 .sidecol {
-    width:50%;
+    width:80%;
     height:425px;
     background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
     border-top-left-radius:10px;
@@ -14,9 +14,27 @@ body {
     margin-right:auto;
 }
 .sidecol2 {
-    width:50%;
+    width:80%;
     height:425px;
     background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+    border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.hotcol {
+    width:80%;
+    height:250px;
+    background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+    border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.itembox {
+    width:40%;
+    height:125px;
+    background-color:rgb(255, 255, 255);
     border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-bottom-left-radius:10px;
