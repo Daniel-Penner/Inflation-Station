@@ -43,36 +43,40 @@
     <fieldset style="text-align:center;">
         <legend></legend>
         <p>
-        <label><h3 style="margin-right:29%;">Email</h3></label></p>
-        <p><input type="email" name="email" style="width:35%;" required />
-        <label><h3 style="margin-right:24%;">Password</h3></label></p>
-        <input type="password" name="password" style="width:35%;" required />
+        <label><h3 style="margin-right:30%;">Email</h3></label></p>
+        <p><input id="email" type="email" name="email" style="width:35%;" required/>
+        <label><h3 style="margin-right:27%;">Password</h3></label></p>
+        <input id="password" type="password" name="password" style="width:35%;" required/>
     </fieldset>
-    <br>
+    <br><br><br><br>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-                <button onclick="" class="formtitle" style="text-align:center;"><strong>Login</strong></button>
-                <p></p>
+            <div class="d-grid gap-0 col-3 mx-auto">
+                <button class="btn btn-outline-success btn-block" id="loginButton">Login</button>
             </div>
-            <div class="col-6">
-                <button onclick="reset()" class="formtitle" style="text-align:center;"><strong>Sign up</strong></button>
+            <div class="d-grid gap-0 col-3 mx-auto">
+                <button class="btn btn-outline-warning btn-block" id="loginButton">Clear</button>
+            </div>
+            <div class="d-grid gap-2 col-3 mx-auto">
+                <button class="btn btn-outline-success btn-block" id="signUpButton">Sign up</button>
             </div>
         </div>
 </body>
 <script>
-    document.getElementById("loginForm").onsubmit = function(e) {
-        var fieldValue=document.getElementByID("email").value;
-        if(fieldValue==null || fieldValue=="") {
-//if field empty stop form
-        e.preventDefault();
-//Now tell user somethign went wrong
-        alert("you must enter username") //use a modal
-//or could use a modal
-}
-}
-function reset() {
-    document.getElementByID("loginform").reset();
-}
+    //Form validation 
+    var loggedIn = false;
+    document.getElementById("loginButton").addEventListener("click", function() {
+  var email = document.getElementById("email").value.trim();
+  var pass = document.getElementById("password").value.trim();
+  if (email === "" && pass === "") {
+    alert("Unable to Sign in: Email and Password field cannot be left blank.");
+  } else if (email === "") {
+    alert("Unable to Sign in: Email field cannot be left blank.");
+  } else if (pass === "") {
+    alert("Unable to Sign in: Password field cannot be left blank.");
+  } else {
+    console.log("Email entered:", email);
+  }
+});
 </script>
 </html>
