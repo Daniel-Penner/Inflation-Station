@@ -26,7 +26,7 @@ body{
 }
 .hotcol {
     width:80%;
-    height:250px;
+    height:350px;
     background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
     border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -34,8 +34,7 @@ body{
 	border-bottom-right-radius:10px;
 }
 .itembox {
-    width:40%;
-    height:125px;
+    height:250px;
     background-color:rgb(255, 255, 255);
     border-top-left-radius:10px;
 	border-top-right-radius:10px;
