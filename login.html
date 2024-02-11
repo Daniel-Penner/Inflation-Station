@@ -41,20 +41,26 @@
     </header>
     <form method="GET" id="loginForm">
     <fieldset>
-        <legend></legend>
-        <p>
-            <label for="email">
-                <h3>Email</h3>
-            </label>
-        </p>
-        <p><input  type="email" id="email" name="email" style="width:35%;" required />
-            <label for="password">
-                <h3>Password</h3>
-            </label>
-        </p>
-        <input type="password" id="password" name="password" style="width:35%;" required />
+        <br>
+        <div class="row justify-content-center mx-auto">
+            <div class="col-4">
+                <label for="email">
+                    <p style="font-size:25px;"><i>Email</i></p>
+                </label><br>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required><br>
+            </div>
+        </div>
+            <div class="row justify-content-center mx-auto">
+            <div class="col-4">
+                <label for="password">
+                    <p style="font-size:25px;"><i>Password</i></p>
+                </label><br>
+                <input type="password" class="form-control" id="pass" placeholder="Password" required><br>
+            </div>
+            </div>
     </fieldset>
 </form>
+
     <br><br><br><br>
     <div class="container">
         <div class="row">
@@ -62,15 +68,17 @@
                 <button class="btn btn-outline-success btn-block" id="loginButton">Login</button>
             </div>
             <div class="d-grid gap-0 col-3 mx-auto">
-                <button class="btn btn-outline-warning btn-block" id="loginButton">Clear</button>
+                <button onclick="reset()"class="btn btn-outline-warning btn-block" id="loginButton">Clear Entry</button>
             </div>
+            <p style="text-align:center;">First time?</p>
             <div class="d-grid gap-2 col-3 mx-auto">
                 <a href="register.html" class="btn btn-outline-success btn-block">Register</a>
             </div>
         </div>
+    </div>
 </body>
 <script>
-    //Form validation 
+    //Form validation - Name: loginForm
     var loggedIn = false;
     document.getElementById("loginButton").addEventListener("click", function () {
         var email = document.getElementById("email").value.trim();
@@ -85,5 +93,11 @@
             console.log("Email entered:", email, "Password entered: ", pass);
         }
     });
+    function reset() {
+            //reset form
+            if(confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
+            document.getElementById("loginForm").reset();
+            }
+        }
 </script>
 </html>

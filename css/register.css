@@ -1,3 +1,6 @@
 form {
     margin: 0 auto;
 }
+p {
+    display:inline-block;
+}
