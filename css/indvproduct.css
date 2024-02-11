@@ -3,8 +3,9 @@ body{
     text-align: center;
 }
 .sidecol {
+    padding-top:5%;
     width:80%;
-    height:425px;
+    height:100%;
     background-color:rgb(146, 170, 151, 1);
     border-top-left-radius:10px;
 	border-top-right-radius:10px;
@@ -32,13 +33,90 @@ body{
 	border-bottom-right-radius:10px;
 }
 .productimage {
-    width: 75%;
+    width: 90%;
     border: 10px solid rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
     border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-bottom-left-radius:10px;
 	border-bottom-right-radius:10px;
 }
+.incol{
+    padding-left: 5%;
+    text-align: left;
+    color: white;
+}
 p {
     display: inline;
 }
+.button {
+    border: solid 1px;
+    border-color: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+    color: white;
+    background-color: rgb(182,212,189);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-top-left-radius:9px;
+	border-top-right-radius:9px;
+	border-bottom-left-radius:9px;
+	border-bottom-right-radius:9px;
+  }
+  .button:hover {
+    background-color: white;
+    color: gray;
+  }
+
+  nav ul{height:450px; 
+    width:100%;
+    overflow:hidden; 
+    overflow-y:scroll;}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(182,212,189);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.card{
+	width: 250px;
+	box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+	border-radius: 8px;
+}
+.maintxt{
+	color: #1f1f1f;
+	font-weight: 500;
+	font-size: 14.5px;
+}
+.name{
+	color: #000;
+	font-size: 16px;
+	font-weight: bold;
+}
+.para{
+	color: #8c8c8c;
+	font-size: 12px;
+	position: relative;
+	bottom: 3px;
+}
+
+  

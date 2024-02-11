@@ -3,6 +3,7 @@ body{
     text-align: center;
 }
 .sidecol {
+    padding-top:5%;
     width:80%;
     height:425px;
     background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
@@ -14,6 +15,7 @@ body{
     margin-right:auto;
 }
 .sidecol2 {
+    padding-top:5%;
     width:80%;
     height:425px;
     background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
