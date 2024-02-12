@@ -103,10 +103,10 @@
     var loggedIn = false;
     document.getElementById("registerButton").addEventListener("click", function () {
         var email = document.getElementById("email").value.trim();
-        var pass = document.getElementById("password").value.trim();
+        var pass = document.getElementById("pass").value.trim();
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
-        if (email === "" && pass === "" && (fname === "" || lname === "")) {
+        if (email === "" && pass === "") {
             alert("Unable to Log in: Email, Password and Name fields cannot be left blank.");
         } else if (email === "") {
             alert("Unable to Log in: Email field cannot be left blank.");
@@ -115,7 +115,7 @@
         } else if (fname === "" || lname === "") {
             alert("Unable to Log in: Name field cannot be left blank.")
         } else {
-
+            console.log("Success")
         }
     });
     function reset() {

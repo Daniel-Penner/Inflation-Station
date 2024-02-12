@@ -80,9 +80,9 @@
 <script>
     //Form validation - Name: loginForm
     var loggedIn = false;
-    document.getElementById("loginButton").addEventListener("click", function () {
+    document.getElementById("loginButton").addEventListener("click", function() {
         var email = document.getElementById("email").value.trim();
-        var pass = document.getElementById("password").value.trim();
+        var pass = document.getElementById("pass").value.trim();
         if (email === "" && pass === "") {
             alert("Unable to Log in: Email and Password field cannot be left blank.");
         } else if (email === "") {
