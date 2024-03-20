@@ -30,7 +30,9 @@
         while($row = mysqli_fetch_assoc($result))
         {
           echo $row['productName'];
+          echo "Hello";
         }
+        echo "Yo";
 
         $conn->close();
     ?>
