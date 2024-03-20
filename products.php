@@ -23,11 +23,16 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        echo "hi";
 
         // SQL query to fetch posts data with author information
-        $sql = "SELECT * FROM customers";
-        $result = $conn->query($sql); $conn->close();
+        $sql = "SELECT * FROM products";
+        $result = $conn->query($sql); 
+        while($row = mysqli_fetch_assoc($result))
+        {
+          echo $row['productName'];
+        }
+
+        $conn->close();
     ?>
 
 <body>
