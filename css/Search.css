@@ -3,7 +3,7 @@
   width: 1440px;
   height: 1024px;
   position: absolute;
-  background: #B6D4BD;
+  background: #ffffff;
 }
 
 /* Styles for the "Categories" heading */
@@ -14,9 +14,9 @@
   position: absolute;
   color: white;
   font-size: 48px;
-  font-family: Abel;
   font-weight: 400;
   word-wrap: break-word;
+  
 }
 
 /* Styles for the category background divs */
@@ -26,6 +26,10 @@
   position: absolute;
   background: #809E83;
   z-index: auto;
+  border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom-left-radius:10px;
+	border-bottom-right-radius:10px;
 }
 
 /* Styles for the category headings */
@@ -35,7 +39,6 @@
   position: absolute;
   color: white;
   font-size: 48px;
-  font-family: Abel;
   font-weight: 400;
   word-wrap: break-word;
   z-index: auto;
@@ -60,7 +63,6 @@
 .recently-viewed-heading {
   color: white;
   font-size: 48px;
-  font-family: Abel;
   font-weight: 400;
   word-wrap: break-word;
 }
