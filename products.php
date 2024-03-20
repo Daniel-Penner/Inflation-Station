@@ -25,14 +25,12 @@
         }
 
         // SQL query to fetch posts data with author information
-        $sql = "SELECT * FROM products";
+        $sql = "SELECT * FROM product";
         $result = $conn->query($sql); 
         while($row = mysqli_fetch_assoc($result))
         {
           echo $row['productName'];
-          echo "Hello";
         }
-        echo "Yo";
 
         $conn->close();
     ?>
