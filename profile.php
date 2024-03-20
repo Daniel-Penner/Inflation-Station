@@ -17,11 +17,11 @@
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
-                                    <a class="nav-link" href="index.html">Home</a>
-                                    <a class="nav-link" href="about.html">About</a>
-                                    <a class="nav-link" href="contact.html">Contact</a>
-                                    <a class="nav-link" href="products.html">Products</a>
-                                    <a class="nav-link" href="search.html">Explore</a>
+                                    <a class="nav-link" href="index.php">Home</a>
+                                    <a class="nav-link" href="about.php">About</a>
+                                    <a class="nav-link" href="contact.php">Contact</a>
+                                    <a class="nav-link" href="products.php">Products</a>
+                                    <a class="nav-link" href="search.php">Explore</a>
                                 </div>
                                 <form class="d-flex">
                                     <input class="form-control me-2" type="search" placeholder="Search"
