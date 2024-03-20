@@ -9,6 +9,26 @@
     <!--Bootsrap 5-->
 </head>
 
+<?php
+        // Database connection
+        $servername = "localhost"; 
+        $username = "54925359";
+        $password = "54925359"; 
+        $dbname = "db_54925359"; 
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        echo "hi";
+
+        // SQL query to fetch posts data with author information
+        $sql = "SELECT * FROM customers";
+        $result = $conn->query($sql); $conn->close();
+    ?>
 
 <body>
     <header>
