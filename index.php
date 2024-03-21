@@ -10,8 +10,8 @@
 </head>
 <body>
 <?php
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-        if (!empty($_POST['fname'])){
+        if($_SERVER['REQUEST_METHOD']=='GET'){
+        if (!empty($_GET['fname'])){
         try{
             $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
             $username = "54925359";
@@ -20,13 +20,13 @@
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
             
-            $fileContent=file_get_contents($_POST['pfp']);
+            $fileContent=file_get_contents($_GET['pfp']);
             $sql = "INSERT INTO customer (customerId, fname, lname, email, password, profilePicture) VALUES ((SELECT COUNT(*) FROM customers),?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
-            $statement->bindValue(1, $_POST['fname']);
-            $statement->bindValue(2, $_POST['lname']);
-            $statement->bindValue(3, $_POST['email']);
-            $statement->bindValue(4, $_POST['password']);
+            $statement->bindValue(1, $_GET['fname']);
+            $statement->bindValue(2, $_GET['lname']);
+            $statement->bindValue(3, $_GET['email']);
+            $statement->bindValue(4, $_GET['password']);
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
         }
