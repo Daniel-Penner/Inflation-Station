@@ -9,35 +9,6 @@
     <!--Bootsrap 5-->
 </head>
 
-<?php
-        // Database connection
-        $servername = "localhost"; 
-        $username = "54925359";
-        $password = "54925359"; 
-        $dbname = "db_54925359"; 
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // SQL query to fetch posts data with author information
-        $searchFor = "";
-        if(!empty($_GET['search'])){
-        $searchFor = '%' . $_GET['search'] . '%';
-        }
-        $sql = "SELECT * FROM product WHERE productName LIKE ?";
-        if($statement = mysqli_prepare($conn, $sql)){
-          mysqli_stmt_bindm($statement, 's', $searchFor);
-          $result = mysqli_stmt_execute($statement);
-        }
-
-        $conn->close();
-    ?>
-
 <body>
     <header>
         <div class="container">
@@ -73,9 +44,32 @@
             <br>
             <!--ROW 1-->
             <?php
+            // Database connection
+            $servername = "localhost"; 
+            $username = "54925359";
+            $password = "54925359"; 
+            $dbname = "db_54925359"; 
+    
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+    
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+    
+            // SQL query to fetch posts data with author information
+            $searchFor = "%";
+            if(!empty($_GET['search'])){
+            $searchFor = '%' . $_GET['search'] . '%';
+            }
+            $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ?");
+            $results = $stmt->bind_param("s", $searchFor);
+    
+            
             $count = 0;
             echo "<div class='row justify-content-center mx-auto'>";
-              while($row = mysqli_fetch_assoc($result))
+              while($row = $results->fetch())
               {
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
@@ -86,12 +80,13 @@
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
                           echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
-                          echo "<a href='indvproduct.php' class='button'>More Info</a>";
+                          echo "<a href='indvproduct.php?prod='" . $row['productId'] ." class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
                 echo "</div>";
                 $count++;
               }
+              $conn->close();
             ?>
     </div>
     <br>
