@@ -9,7 +9,7 @@
     <!--Bootstrap 5-->
 </head>
 <?php
-        if (!empty($_POST)){
+        if (!empty($_POST['fname'])){
         try{
             $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
             $username = "54925359";
