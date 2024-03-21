@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="POST" id="registerForm">
+        <form method="POST" id="registerForm" action="index.php">
             <fieldset>
                 <br>
                 <div class="container-fluid">
@@ -89,13 +89,13 @@
     <div class="container">
         <div class="row">
             <div class="d-grid gap-0 col-4 mx-auto">
-                <button class="btn btn-outline-success btn-block" id="registerButton">Register</button>
+                <button type="submit" class="btn btn-outline-success btn-block" id="registerButton">Register</button>
             </div>
-            <div class="d-grid gap-0 col-4 mx-auto">
-                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
-            </div> 
-</div>
         </form>
+        <div class="d-grid gap-0 col-4 mx-auto">
+                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
+            </div>
+            </div> 
 </body>
 <script>
     //Form validation 
