@@ -52,10 +52,6 @@
     
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
-            }
-            catch(PDOException $e){
-              die($e->getMessage());
-            }
 
     
             // SQL query to fetch posts data with author information
@@ -85,6 +81,10 @@
                 $count++;
               }
               $conn->close();
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
+            }
             ?>
     </div>
     <br>

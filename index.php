@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap 5-->
 </head>
+<body>
 <?php
         if (!empty($_POST['fname'])){
         try{
@@ -17,11 +18,7 @@
     
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
-            }
-            catch(PDOException $e){
-              die($e->getMessage());
-              echo "return false;"
-            }
+            
             $fileContent=file_get_contents($_POST['pfp']);
             $sql = "INSERT INTO customer (customerId, fname, lname, email, password, profilePicture) VALUES ((SELECT COUNT(*) FROM customers),?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
@@ -32,9 +29,13 @@
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
         }
+            catch(PDOException $e){
+                die($e->getMessage());
+                echo "return false;"
+              }
+        }
 
         ?>
-<body>
     <header>
         <div class="container">
             <div class="row justify-content-center">
