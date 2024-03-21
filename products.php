@@ -62,12 +62,15 @@
             $searchFor = '%' . $_GET['search'] . '%';
             $sql = "SELECT * FROM product WHERE productName LIKE ?";
             $statement = $pdo->prepare($sql);
+            $echo "hi";
             $statement->bindValue(1, $searchFor);
             $statement->execute();
+            $echo "hi";
             echo "<div class='row justify-content-center mx-auto'>";
             $count = 0;
               while($row = $stmt->fetch())
               {
+                $echo "hi";
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
