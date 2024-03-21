@@ -105,15 +105,20 @@
         var pass = document.getElementById("pass").value.trim();
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
+        var pfp = document.getElementById("pfp").value.trim();
         if (email === "" && pass === "") {
-            alert("Unable to Log in: Email, Password and Name fields cannot be left blank.");
+            alert("Unable to Register: Email, Password and Name fields cannot be left blank.");
         } else if (email === "") {
-            alert("Unable to Log in: Email field cannot be left blank.");
+            alert("Unable to Register: Email field cannot be left blank.");
         } else if (pass === "") {
-            alert("Unable to Log in: Password field cannot be left blank.");
+            alert("Unable to Register: Password field cannot be left blank.");
         } else if (fname === "" || lname === "") {
-            alert("Unable to Log in: Name field cannot be left blank.")
-        } else {
+            alert("Unable to Register: Name field cannot be left blank.")
+        } else if (pfp===""){
+            alert("Unable to Register: Must select a profile picture.")
+        }
+        else{
+            alert("hi");
         }
     });
     function formReset() {
