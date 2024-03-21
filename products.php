@@ -67,6 +67,7 @@
             <!--ROW 1-->
             <?php
             $count = 0;
+            echo "<div class='row justify-content-center mx-auto'>";
               while($row = mysqli_fetch_assoc($result))
               {
                 $count++;
