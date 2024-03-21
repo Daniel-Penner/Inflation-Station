@@ -59,33 +59,29 @@
             }
     
             // SQL query to fetch posts data with author information
-            $searchFor = "%";
+            $searchFor = "";
             if(!empty($_GET['search'])){
-            $searchFor = '%' . $_GET['search'] . '%';
+            $searchFor =$_GET['search'];
             }
-            $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE ?";
-            $statement = mysqli_prepare($conn, $sql);
-              mysqli_stmt_bindm($statement, 's', $searchFor);
-              mysqli_stmt_execute($statement);
-
-            mysqli_stmt_bind_result($statement, $id, $name, $price, $url);
-    
-            
+            $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE %?%";
+            $statement = $conn->prepare($sql);
+            $statement->bind_param("s", $searchFor);
+            $statement->execute();
+            $result = $statement->get_result();
             $count = 0;
-            echo "hello";
             echo "<div class='row justify-content-center mx-auto'>";
-              while(mysqli_stmt_fetch($statement))
+              while($row = $result->fetch_assoc())
               {
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
-                      echo "<img src=" . $url . " class='card-img-top'>";
+                      echo "<img src=" . $row[productImageURL] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
-                          echo "<h5 class='card-title'>" . $name . "</h5>";
-                          echo "<p class='card-text'>$" . $price ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod='" . $id ." class='button'>More Info</a>";
+                          echo "<h5 class='card-title'>" . $row[productName] . "</h5>";
+                          echo "<p class='card-text'>$" . $row[productPrice] ."/lb</p>";
+                          echo "<a href='indvproduct.php?prod='" . $row[productId] ." class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
                 echo "</div>";
