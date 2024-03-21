@@ -64,7 +64,7 @@
             $searchFor = '%' . $_GET['search'] . '%';
             }
             $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE ?";
-            if($statement = mysqli_prepare($conn, $sql)){
+            $statement = mysqli_prepare($conn, $sql);
               mysqli_stmt_bindm($statement, 's', $searchFor);
               mysqli_stmt_execute($statement);
 
@@ -90,7 +90,6 @@
                 echo "</div>";
                 $count++;
               }
-            }
               $conn->close();
             ?>
     </div>
