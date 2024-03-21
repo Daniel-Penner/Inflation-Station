@@ -11,9 +11,7 @@
 <body>
 <?php
         if($_SERVER['REQUEST_METHOD']=='POST'){
-        if (!empty($_POST['fname'])){
         
-        }
     }
         ?>
     <header>
