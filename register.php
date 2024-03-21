@@ -93,9 +93,8 @@
                 <button class="btn btn-outline-success btn-block" id="registerButton">Register</button>
             </div>
             <div class="d-grid gap-0 col-4 mx-auto">
-                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear
-                    Entry</button>
-            </div>
+                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
+            </div> 
         </form>
 </body>
 <script>
