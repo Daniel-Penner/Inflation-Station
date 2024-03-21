@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="POST" id="registerForm" action="index.php">
+        <form method="POST" id="registerForm" action="index.php" onsubmit="return addUser;">
             <fieldset>
                 <br>
                 <div class="container-fluid">
@@ -105,7 +105,7 @@
         var pass = document.getElementById("pass").value.trim();
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
-        var pfp = document.getElementById("pfp").value.trim();
+        var pfp = document.getElementById("pfp").value;
         if (email === "" && pass === "") {
             alert("Unable to Register: Email, Password and Name fields cannot be left blank.");
         } else if (email === "") {
@@ -113,12 +113,7 @@
         } else if (pass === "") {
             alert("Unable to Register: Password field cannot be left blank.");
         } else if (fname === "" || lname === "") {
-            alert("Unable to Register: Name field cannot be left blank.")
-        } else if (pfp===""){
-            alert("Unable to Register: Must select a profile picture.")
-        }
-        else{
-            alert("hi");
+            alert("Unable to Register: Name field cannot be left blank.");
         }
     });
     function formReset() {
@@ -126,6 +121,15 @@
         if (confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
             document.getElementById("registerForm").reset();
         }
+    }
+    function addUser(){
+        var email = document.getElementById("email").value.trim();
+        var pass = document.getElementById("pass").value.trim();
+        var fname = document.getElementById("fname").value.trim();
+        var lname = document.getElementById("lname").value.trim();
+        var pfp = document.getElementById("pfp").value;
+        alert(pfp);
+        return true;
     }
 </script>
 
