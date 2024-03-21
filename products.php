@@ -62,32 +62,35 @@
             $searchFor = "%";
             if(!empty($_GET['search'])){
             $searchFor = '%' . $_GET['search'] . '%';
-            echo $searchFor;
             }
-            $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ?");
-            $stmt->bind_param($searchFor);
-            $results = $stmt->execute();
+            $sql = "SELECT * FROM product WHERE productName LIKE ?";
+            if($statement = mysqli_prepare($conn $sql)){
+              mysqli_stmt_bindm($statement, 's', $searchFor);
+              mysqli_stmt_execute($statement);
+
+            mysqli stmt bind result($id, $name, $price, $url, $desc, $cid)
     
             
             $count = 0;
             echo "<div class='row justify-content-center mx-auto'>";
-              while($row = $results->fetch())
+              while(mysqli_stmt_fetch($statement))
               {
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
-                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
+                      echo "<img src=" . $url . " class='card-img-top'>";
                         echo "<div class='card-body'>";
-                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
-                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod='" . $row['productId'] ." class='button'>More Info</a>";
+                          echo "<h5 class='card-title'>" . $name . "</h5>";
+                          echo "<p class='card-text'>$" . $price ."/lb</p>";
+                          echo "<a href='indvproduct.php?prod='" . $id ." class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
                 echo "</div>";
                 $count++;
               }
+            }
               $conn->close();
             ?>
     </div>
