@@ -56,6 +56,7 @@
             catch(PDOException $e){
               die($e->getMessage());
             }
+
     
             // SQL query to fetch posts data with author information
             
@@ -73,11 +74,11 @@
                 }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
-                      echo "<img src=" . $row[productImageURL] . " class='card-img-top'>";
+                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
-                          echo "<h5 class='card-title'>" . $row[productName] . "</h5>";
-                          echo "<p class='card-text'>$" . $row[productPrice] ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod=" . $row[productId] ."' class='button'>More Info</a>";
+                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                          echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
                 echo "</div>";

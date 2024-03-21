@@ -8,7 +8,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap 5-->
 </head>
+<?php
+        if (!empty($_POST)){
+        try{
+            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+            $username = "54925359";
+            $password = "54925359"; 
+    
+            // Create connection
+            $pdo = new PDO($connectionString, $username, $password);
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
+              echo "return false;"
+            }
+            $fileContent=file_get_contents($_POST['pfp']);
+            $sql = "INSERT INTO customer (customerId, fname, lname, email, password, profilePicture) VALUES ((SELECT COUNT(*) FROM customers),?,?,?,?,?)";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(1, $_POST['fname']);
+            $statement->bindValue(2, $_POST['lname']);
+            $statement->bindValue(3, $_POST['email']);
+            $statement->bindValue(4, $_POST['password']);
+            $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+            $statement->execute();
+        }
 
+        ?>
 <body>
     <header>
         <div class="container">

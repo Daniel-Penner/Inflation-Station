@@ -50,14 +50,14 @@
                                 <label for="fname">
                                     <p style="font-size:25px;"><i>First Name</i></p>
                                 </label><br>
-                                <input id="fname"type="text" class="form-control" placeholder="First name" required><br>
+                                <input id="fname"type="text" class="form-control" placeholder="First name" name="fname" required><br>
 
                             </div>
                             <div class="col-6">
                                 <label for="lname">
                                     <p style="font-size:25px;"><i>Last Name</i></p>
                                 </label><br>
-                                <input id="lname"type="text" class="form-control" placeholder="Last name" required><br>
+                                <input id="lname"type="text" class="form-control" placeholder="Last name" name="lname" required><br>
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
@@ -65,13 +65,13 @@
                                 <label for="email">
                                     <p style="font-size:25px;"><i>Email</i></p>
                                 </label><br>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required><br><br>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required><br><br>
                             </div>
                             <div class="col-6">
                                 <label for="password">
                                     <p style="font-size:25px;"><i>Password</i></p>
                                 </label><br>
-                                <input type="password" class="form-control" id="pass" placeholder="Password" required><br>
+                                <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
@@ -120,15 +120,6 @@
         if (confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
             document.getElementById("registerForm").reset();
         }
-    }
-    function addUser(form){
-        var email = document.getElementById("email").value.trim();
-        var pass = document.getElementById("pass").value.trim();
-        var fname = document.getElementById("fname").value.trim();
-        var lname = document.getElementById("lname").value.trim();
-        var pfp = document.getElementById("pfp").value;
-        alert(pfp);
-        return true;
     }
 </script>
 
