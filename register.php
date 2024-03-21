@@ -85,7 +85,6 @@
                     </div>
                 </div>
             </fieldset>
-            </div>
     <br><br>
     <div class="container">
         <div class="row">
@@ -95,6 +94,7 @@
             <div class="d-grid gap-0 col-4 mx-auto">
                 <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
             </div> 
+</div>
         </form>
 </body>
 <script>
