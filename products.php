@@ -27,10 +27,6 @@
         // SQL query to fetch posts data with author information
         $sql = "SELECT * FROM product";
         $result = $conn->query($sql); 
-        while($row = mysqli_fetch_assoc($result))
-        {
-          echo $row['productName'];
-        }
 
         $conn->close();
     ?>
@@ -69,125 +65,26 @@
         <div class="mx-auto hotcol">
             <br>
             <!--ROW 1-->
-            <div class="row justify-content-center mx-auto">
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/tomato.jpg" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">Tomato</h5>
-                      <p class="card-text">$5.99/lb</p>
-                      <a href="indvproduct.php" class="button">More Info</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/apple.jpg" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">Apple</h5>
-                      <p class="card-text">$2.49/lb</p>
-                      <a href="indvproduct.php" class="button">More Info</a>
-                    </div>
-                  </div>
-                <br>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/carrots.png" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">Carrots</h5>
-                      <p class="card-text">$3.99/lb</p>
-                      <a href="indvproduct.php" class="button">More Info</a>
-                    </div>
-                  </div>
-                <br>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/pickles.png" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">Pickles</h5>
-                      <p class="card-text">$4.99/lb</p>
-                      <a href="indvproduct.php" class="button">More Info</a>
-                    </div>
-                  </div>
-                <br>
-            </div>
-            <div class="col-2">
-                <div class="card" style="width: 18rem;">
-                    <img src="images/beef.jpg" class="card-img-top">
-                    <div class="card-body">
-                      <h5 class="card-title">Ground Beef</h5>
-                      <p class="card-text">$8.99/lb</p>
-                      <a href="indvproduct.php" class="button">More Info</a>
-                    </div>
-                  </div>
-                <br>
-            </div>
-        </div>
-        <!--ROW 2-->
-        <div class="row justify-content-center mx-auto">
-        <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <img src="images/tomato.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Tomato</h5>
-                  <p class="card-text">$5.99/lb</p>
-                  <a href="indvproduct.php" class="button">More Info</a>
-                </div>
-              </div>
-            <div class="itembox"></div>
-            <br>
-        </div>
-        <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <img src="images/tomato.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Tomato</h5>
-                  <p class="card-text">$5.99/lb</p>
-                  <a href="indvproduct.php" class="button">More Info</a>
-                </div>
-              </div>
-            <div class="itembox"></div>
-            <br>
-        </div>
-        <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <img src="images/tomato.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Tomato</h5>
-                  <p class="card-text">$5.99/lb</p>
-                  <a href="indvproduct.php" class="button">More Info</a>
-                </div>
-              </div>
-            <div class="itembox"></div>
-            <br>
-        </div>
-        <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <img src="images/tomato.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Tomato</h5>
-                  <p class="card-text">$5.99/lb</p>
-                  <a href="indvproduct.php" class="button">More Info</a>
-                </div>
-              </div>
-            <div class="itembox"></div>
-            <br>
-        </div>
-        <div class="col-2">
-            <div class="card" style="width: 18rem;">
-                <img src="images/tomato.jpg" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title">Tomato</h5>
-                  <p class="card-text">$5.99/lb</p>
-                  <a href="indvproduct.php" class="button">More Info</a>
-                </div>
-              </div>
-            <div class="itembox"></div>
-            <br>
-        </div>
-        </div>
+            <?php
+            $count = 0;
+              while($row = mysqli_fetch_assoc($result))
+              {
+                $count++;
+                if(fmod($count, 5) == 0){
+                echo "<div class='row justify-content-center mx-auto'>";
+                }
+                echo "<div class='col-2'>";
+                  echo "<div class='card' style='width: 18rem;'>";
+                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
+                        echo "<div class='card-body'>";
+                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                          echo "<a href='indvproduct.php' class='button'>More Info</a>";
+                        echo "</div>";
+                      echo "</div>";
+                echo "</div>";
+              }
+            ?>
     </div>
         </div>
     </div>
