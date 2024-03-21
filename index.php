@@ -20,11 +20,18 @@
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
             
-            
+           /* $fileContent=file_get_contents($_POST['pfp']);
+            $sql = "INSERT INTO customer (customerId, fname, lname, email, password, profilePicture) VALUES ((SELECT COUNT(*) FROM customers),?,?,?,?,?)";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(1, $_POST['fname']);
+            $statement->bindValue(2, $_POST['lname']);
+            $statement->bindValue(3, $_POST['email']);
+            $statement->bindValue(4, $_POST['password']);
+            $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+            $statement->execute();*/
         }
             catch(PDOException $e){
                 die($e->getMessage());
-                echo "return false;"
               }
         }
     }
