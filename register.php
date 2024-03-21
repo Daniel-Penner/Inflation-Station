@@ -105,7 +105,6 @@
         var pass = document.getElementById("pass").value.trim();
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
-        var pfp = document.getElementById("pfp").value;
         if (email === "" && pass === "") {
             alert("Unable to Register: Email, Password and Name fields cannot be left blank.");
         } else if (email === "") {
