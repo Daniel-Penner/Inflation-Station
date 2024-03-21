@@ -21,7 +21,7 @@
             $pdo = new PDO($connectionString, $username, $password);
             
             //$fileContent=file_get_contents($_GET['pfp']);
-            $sql = "INSERT INTO customer (customerId, fname, lname, email, password) VALUES ((SELECT COUNT(*) FROM customer),?,?,?,?)";
+            $sql = "INSERT INTO customer (customerId, fname, lname, email, password) VALUES (0,?,?,?,?)";
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $_GET['fname']);
             $statement->bindValue(2, $_GET['lname']);
