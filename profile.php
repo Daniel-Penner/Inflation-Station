@@ -19,7 +19,7 @@
                             <div class="container-fluid">
                                 <div class="navbar-nav">
                                     <a class="navbar-brand" href="profile.php">
-                                        <img src="images/islogo.webp" alt="" width="30" height="30">
+                                        <img src="images/islogo.webp" alt="" width="30" height="30" />
                                     </a>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
@@ -41,13 +41,34 @@
         <div class=homehb>
             <h5 style="text-align:center; color:white; font-size:50px;">Profile</h5>
         </div>
-        <div class="container justify-content-center">
-            <div class="row">
-                <div class="col-3">
-                </div>
+    </header>
+    <div class="container justify-content-center">
+        <div class="row">
+            <div class="col-8">
+                <img src="images/islogo.webp" alt="" width="200rem" height="200rem"
+                    style="position: relative; top: 5rem;" />
+                    <!--Use user name from the database -->
+                <h1 style="position: relative; left:15rem; bottom: 5rem;">Hi, User!</h1>
             </div>
         </div>
-    </header>
+        <br><br>
+        <form action="/action_page.php" id="form1">
+            <label for="fname" class="form-label">First name</label>
+            <!--Replace placeholder with user information from the database-->
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="John"><br>
+            <label for="lname" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Doe"><br>
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="john.doe17@gmail.com"><br>
+            <label for="pass" class="form-label">Password</label>
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="***********">
+            <div id="passHelp" class="form-text">
+                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces,
+                special characters, or emoji.</div><br><br>
+            <input type="submit" value="Save Changes" class="btn btn-success">
+        </form>
+
+    </div>
 </body>
 
 </html>
