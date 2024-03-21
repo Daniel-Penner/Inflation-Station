@@ -25,7 +25,9 @@
         }
 
         // SQL query to fetch posts data with author information
+        if(!empty($_GET['search'])){
         $searchFor = '%' . $_GET['search'] . '%';
+        }
         $sql = "SELECT * FROM product WHERE productName LIKE ?";
         $sql->bindValue(1, $searchFor);
         $result = $conn->query($sql); 
