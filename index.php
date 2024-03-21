@@ -20,7 +20,7 @@
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
             $existingEmail = false;
-            //$fileContent=file_get_contents($_POST['pfp']);
+            $fileContent=file_get_contents($_POST['pfp']);
             $sql = "SELECT email FROM customer";
             $statement = $pdo->prepare($sql);
             $statement->execute();
@@ -31,13 +31,13 @@
                 }
               }
             if(!$existingEmail){
-            $sql = "INSERT INTO customer (customerId, fname, lname, email, password) VALUES (0,?,?,?,?)";
+            $sql = "INSERT INTO customer (fname, lname, email, password, profilePicture) VALUES (?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $_POST['fname']);
             $statement->bindValue(2, $_POST['lname']);
             $statement->bindValue(3, $_POST['email']);
             $statement->bindValue(4, $_POST['password']);
-            //$statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+            $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
         }
     }
