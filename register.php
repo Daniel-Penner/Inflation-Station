@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="GET" id="registerForm" action="index.php">
+        <form method="POST" id="registerForm" action="index.php">
             <fieldset>
                 <br>
                 <div class="container-fluid">

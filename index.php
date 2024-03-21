@@ -19,8 +19,18 @@
     
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
-            
+            $existingEmail = false;
             //$fileContent=file_get_contents($_GET['pfp']);
+            $sql = "SELECT email FROM customer";
+            $statement = $pdo->prepare($sql);
+            $statement->execute();
+            while($row = $statement->fetch())
+              {
+                if($_GET['email'] == $row['email']){
+                    $existingEmail = true;
+                }
+              }
+            if(!$existingEmail){
             $sql = "INSERT INTO customer (customerId, fname, lname, email, password) VALUES (0,?,?,?,?)";
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $_GET['fname']);
@@ -30,6 +40,7 @@
             //$statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
         }
+    }
             catch(PDOException $e){
                 die($e->getMessage());
               }
