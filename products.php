@@ -25,7 +25,7 @@
                                     <a class="nav-link" href="search.php">Explore</a>
                                 </div>
                                 <form class="d-flex" action="products.php" method ="get">
-                                <input class="form-control me-2" type="search" name ="search" placeholder="Search"
+                                <input class="form-control me-2" type="search" name ="search" placeholder="Search" <?php echo "value = " . $_GET['search'] . " "?>
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
@@ -45,33 +45,25 @@
             <!--ROW 1-->
             <?php
             // Database connection
-            $servername = "localhost"; 
+            try{
+            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
             $username = "54925359";
             $password = "54925359"; 
-            $dbname = "db_54925359"; 
     
             // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-    
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
+            $pdo = new PDO($connectionString, $username, $password);
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
             }
     
             // SQL query to fetch posts data with author information
-            $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE %?%";
-            echo "hello";
-            $statement = $conn->prepare($sql);
-            echo $searchFor;
-            $statement->bind_param('s', $searchFor);
-            if(!empty($_GET['search'])){
-              $searchFor = $_GET['search'];
-              }
-            else($searchFor = "");
-            echo "yo";
+            
+            $searchFor = '%' . $_GET['search'] . '%';
+            $sql = "SELECT * FROM product WHERE productName LIKE ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(1, $searchFor);
             $statement->execute();
-            $result = $statement->get_result();
-            $count = 0;
             echo "<div class='row justify-content-center mx-auto'>";
               while($row = $result->fetch_assoc())
               {
