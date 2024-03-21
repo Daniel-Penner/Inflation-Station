@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="POST" id="registerForm" action="index.php" onsubmit="return addUser;">
+        <form method="POST" id="registerForm" action="index.php" onSubmit="return addUser;">
             <fieldset>
                 <br>
                 <div class="container-fluid">
