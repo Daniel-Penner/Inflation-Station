@@ -63,12 +63,15 @@
             if(!empty($_GET['search'])){
             $searchFor =$_GET['search'];
             }
+            echo "hello";
             $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE %?%";
             $statement = $conn->prepare($sql);
             $statement->bind_param("s", $searchFor);
             $statement->execute();
+            echo "hi";
             $result = $statement->get_result();
             $count = 0;
+            echo "yo";
             echo "<div class='row justify-content-center mx-auto'>";
               while($row = $result->fetch_assoc())
               {
