@@ -67,11 +67,11 @@
             <!--ROW 1-->
             <?php
             $count = 0;
-            echo "<div class='row justify-content-left mx-center'>";
+            echo "<div class='row justify-content-center mx-auto'>";
               while($row = mysqli_fetch_assoc($result))
               {
                 if(fmod($count, 5) == 0){
-                echo "<div class='row justify-content-left mx-center'>";
+                echo "<div class='row justify-content-center mx-auto'>";
                 }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
