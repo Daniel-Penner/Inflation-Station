@@ -61,13 +61,13 @@
             // SQL query to fetch posts data with author information
             $searchFor = "";
             if(!empty($_GET['search'])){
-            $searchFor =$_GET['search'];
+            $searchFor = $_GET['search'];
             }
             $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE %?%";
             echo "hello";
             $statement = $conn->prepare($sql);
-            echo "hi";
-            $statement->bind_param("s", $searchFor);
+            echo $searchFor;
+            $statement->bind_param('s', $searchFor);
             echo "yo";
             $statement->execute();
             $result = $statement->get_result();
