@@ -77,7 +77,7 @@
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row[productName] . "</h5>";
                           echo "<p class='card-text'>$" . $row[productPrice] ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod='" . $row[productId] ." class='button'>More Info</a>";
+                          echo "<a href='indvproduct.php?prod=" . $row[productId] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
                 echo "</div>";
