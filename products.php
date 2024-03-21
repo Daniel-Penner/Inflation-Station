@@ -25,7 +25,7 @@
                                     <a class="nav-link" href="search.php">Explore</a>
                                 </div>
                                 <form class="d-flex" action="products.php" method ="get">
-                                <input class="form-control me-2" type="search" name ="search" placeholder="Search" <?php echo "value = " . $_GET['search'] . " "?>
+                                <input class="form-control me-2" type="search" name ="search" placeholder="Search" <?php echo if(!empty($_GET['search'])){"value = " . $_GET['search'] . " "}?>
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
@@ -68,7 +68,6 @@
             $count = 0;
               while($row = $statement->fetch())
               {
-                echo "ho";
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
@@ -84,7 +83,6 @@
                 echo "</div>";
                 $count++;
               }
-              echo "hi";
               $conn->close();
             ?>
     </div>
