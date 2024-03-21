@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="GET" id="registerForm">
+        <form method="POST" id="registerForm">
             <fieldset>
                 <br>
                 <div class="container-fluid">
@@ -79,14 +79,13 @@
                                 <label for="pfp">
                                     <p style="font-size:25px;"><i>Profile Picture</i></p>
                                 </label><br>
-                                <input id="pfp" type="file" name="pfp" required /><br><br>
+                                <input id="pfp" type="file" name="pfp" required accept="image/png, image/jpeg"/>/><br><br>
                             </div>
                         </div>
                     </div>
                 </div>
             </fieldset>
-        </form>
-    </div>
+            </div>
     <br><br>
     <div class="container">
         <div class="row">
@@ -97,6 +96,7 @@
                 <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear
                     Entry</button>
             </div>
+        </form>
 </body>
 <script>
     //Form validation 
@@ -115,7 +115,6 @@
         } else if (fname === "" || lname === "") {
             alert("Unable to Log in: Name field cannot be left blank.")
         } else {
-            console.log("Success")
         }
     });
     function reset() {
