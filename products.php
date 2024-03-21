@@ -66,9 +66,9 @@
             $statement->execute();
             echo "<div class='row justify-content-center mx-auto'>";
             $count = 0;
-            echo "hi";
-              while($row = $stmt->fetch())
+              while($row = $statement->fetch())
               {
+                echo "ho";
                 if(fmod($count, 5) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
