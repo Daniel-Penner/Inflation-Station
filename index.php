@@ -10,6 +10,7 @@
 </head>
 <body>
 <?php
+        if($_SERVER['REQUEST_METHOD']=='POST'){
         if (!empty($_POST['fname'])){
         try{
             $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
@@ -34,7 +35,7 @@
                 echo "return false;"
               }
         }
-
+    }
         ?>
     <header>
         <div class="container">
