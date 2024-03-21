@@ -24,7 +24,7 @@
                                     <a class="nav-link" href="products.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                 </div>
-                                <form class="d-flex">
+                                <form class="d-flex" action="products.php" method ="get">
                                     <input class="form-control me-2" type="search" placeholder="Search"
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
