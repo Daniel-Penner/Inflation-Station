@@ -63,12 +63,12 @@
             if(!empty($_GET['search'])){
             $searchFor = '%' . $_GET['search'] . '%';
             }
-            $sql = "SELECT * FROM product WHERE productName LIKE ?";
+            $sql = "SELECT productId, productName, productPrice, productImageURL FROM product WHERE productName LIKE ?";
             if($statement = mysqli_prepare($conn, $sql)){
               mysqli_stmt_bindm($statement, 's', $searchFor);
               mysqli_stmt_execute($statement);
 
-            mysqli_stmt_bind_result($statement, $id, $name, $price, $url, $desc, $cid)
+            mysqli_stmt_bind_result($statement, $id, $name, $price, $url)
     
             
             $count = 0;
