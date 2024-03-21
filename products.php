@@ -68,7 +68,7 @@
               mysqli_stmt_bindm($statement, 's', $searchFor);
               mysqli_stmt_execute($statement);
 
-            mysqli_stmt_bind_result($statement, $id, $name, $price, $url)
+            mysqli_stmt_bind_result($statement, $id, $name, $price, $url);
     
             
             $count = 0;
