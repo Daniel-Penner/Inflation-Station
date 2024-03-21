@@ -64,7 +64,7 @@
             $searchFor = '%' . $_GET['search'] . '%';
             }
             $sql = "SELECT * FROM product WHERE productName LIKE ?";
-            if($statement = mysqli_prepare($conn $sql)){
+            if($statement = mysqli_prepare($conn, $sql)){
               mysqli_stmt_bindm($statement, 's', $searchFor);
               mysqli_stmt_execute($statement);
 
