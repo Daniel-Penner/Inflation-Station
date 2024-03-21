@@ -93,7 +93,7 @@
             </div>
         </form>
         <div class="d-grid gap-0 col-4 mx-auto">
-                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
+                <button onclick="formReset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
             </div>
             </div> 
 </body>
@@ -116,7 +116,7 @@
         } else {
         }
     });
-    function reset() {
+    function formReset() {
         //reset form
         if (confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
             document.getElementById("registerForm").reset();
