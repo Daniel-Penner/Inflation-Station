@@ -31,6 +31,7 @@
             $statement->execute();
         }
             catch(PDOException $e){
+                echo("DIDNT WORK");
                 die($e->getMessage());
               }
         }
