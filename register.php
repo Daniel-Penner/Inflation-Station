@@ -40,7 +40,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="POST" id="registerForm" action="index.php" onSubmit="return addUser;">
+        <form method="POST" id="registerForm" action="index.php" onSubmit="return addUser(this);">
             <fieldset>
                 <br>
                 <div class="container-fluid">
@@ -122,14 +122,14 @@
             document.getElementById("registerForm").reset();
         }
     }
-    function addUser(){
+    function addUser(form){
         var email = document.getElementById("email").value.trim();
         var pass = document.getElementById("pass").value.trim();
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
         var pfp = document.getElementById("pfp").value;
         alert(pfp);
-        return true;
+        return false;
     }
 </script>
 
