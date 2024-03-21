@@ -65,6 +65,7 @@
             $statement->bindValue(1, $searchFor);
             $statement->execute();
             echo "<div class='row justify-content-center mx-auto'>";
+            $count = 0;
               while($row = $stmt->fetch())
               {
                 if(fmod($count, 5) == 0){
