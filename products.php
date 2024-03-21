@@ -67,7 +67,7 @@
             if(!empty($_GET['search'])){
               $searchFor = $_GET['search'];
               }
-            else($searchFor = "")
+            else($searchFor = "");
             echo "yo";
             $statement->execute();
             $result = $statement->get_result();
