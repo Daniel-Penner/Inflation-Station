@@ -64,7 +64,8 @@
             $searchFor = '%' . $_GET['search'] . '%';
             }
             $stmt = $conn->prepare("SELECT * FROM product WHERE productName LIKE ?");
-            $results = $stmt->bind_param("s", $searchFor);
+            $stmt->bind_param("s", $searchFor);
+            $results = $stmt->execute();
     
             
             $count = 0;
