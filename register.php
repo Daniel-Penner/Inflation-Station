@@ -79,7 +79,7 @@
                                 <label for="pfp">
                                     <p style="font-size:25px;"><i>Profile Picture</i></p>
                                 </label><br>
-                                <input id="pfp" type="file" name="pfp" required accept="image/png, image/jpeg"/>/><br><br>
+                                <input id="pfp" type="file" name="pfp" required accept="image/png, image/jpeg"/><br><br>
                             </div>
                         </div>
                     </div>
