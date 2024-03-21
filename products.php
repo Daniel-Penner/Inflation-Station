@@ -72,6 +72,7 @@
     
             
             $count = 0;
+            echo "hello";
             echo "<div class='row justify-content-center mx-auto'>";
               while(mysqli_stmt_fetch($statement))
               {
