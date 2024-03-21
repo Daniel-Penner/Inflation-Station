@@ -128,7 +128,7 @@
         var lname = document.getElementById("lname").value.trim();
         var pfp = document.getElementById("pfp").value;
         alert(pfp);
-        return false;
+        return true;
     }
 </script>
 
