@@ -34,6 +34,7 @@ session_start();
                 }
               }
             if(!$existingEmail){
+            echo "<script>alert('Your account has been successfully created!')</script>";
             $sql = "INSERT INTO customer (fname, lname, email, password, profilePicture) VALUES (?,?,?,?,?)";
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $_POST['fname']);
@@ -42,9 +43,6 @@ session_start();
             $statement->bindValue(4, $_POST['password']);
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
-            echo "<script>alert('Your account has been successfully created!')</script>";
-            header("Location: index.php");
-            exit();
         }
     }
             catch(PDOException $e){
