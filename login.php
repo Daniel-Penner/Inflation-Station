@@ -62,7 +62,6 @@
                 </div>
             </div>
         </fieldset>
-    </form>
 
     <br><br><br><br>
     <div class="container">
@@ -71,8 +70,7 @@
                 <button class="btn btn-outline-success btn-block" id="loginButton">Login</button>
             </div>
             <div class="d-grid gap-0 col-3 mx-auto">
-                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="loginButton">Clear
-                    Entry</button>
+                <button onclick="formReset()" class="btn btn-outline-warning btn-block" id="loginButton">Clear Entry</button>
             </div>
             <p style="text-align:center;">First time?</p>
             <div class="d-grid gap-2 col-3 mx-auto">
@@ -80,6 +78,7 @@
             </div>
         </div>
     </div>
+    </form>
 </body>
 <script>
     //Form validation - Name: loginForm
@@ -94,10 +93,10 @@
         } else if (pass === "") {
             alert("Unable to Log in: Password field cannot be left blank.");
         } else {
-            console.log("Email entered:", email, "Password entered: ", pass);
+            
         }
     });
-    function reset() {
+    function formReset() {
         //reset form
         if (confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
             document.getElementById("loginForm").reset();
