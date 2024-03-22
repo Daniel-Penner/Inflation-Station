@@ -101,7 +101,7 @@ session_start();
     else{
         echo '<p style="font-size:150%;">Log in</a></p>
     <p style="font-size:150%;">|</p>
-    <p style="font-size:150%;"><a href="logout.php">Log out</p>';
+    <p style="font-size:150%;"><a href="logout.php">Log out</a></p>';
     }
     ?>
     <br><br>
