@@ -20,9 +20,13 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
               <div class="container-fluid">
                 <div class="navbar-nav">
-                  <a class="navbar-brand" href="profile.php">
-                    <img src="images/islogo.webp" alt="" width="30" height="30">
-                  </a>
+                  <?php 
+                      if(isset($_SESSION['id'])) {
+                        echo '<a class="navbar-brand" href="profile.php">
+                        <img src="images/islogo.webp" alt="" width="30" height="30">
+                        </a>';
+                      }
+                  ?>
                   <a class="nav-link" href="index.php">Home</a>
                   <a class="nav-link" href="about.php">About</a>
                   <a class="nav-link" href="contact.php">Contact</a>
