@@ -42,15 +42,6 @@ session_start();
             $statement->bindValue(4, $_POST['password']);
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
-
-            $sql = "SELECT customerId, fname, profilePicture FROM customer WHERE email = ?";
-            $statement->bindValue(1, $_POST['email']);
-            $statement = $pdo->prepare($sql);
-            $statement->execute();
-            $row = $statement->fetch();
-            $_SESSION['id'] = $row['customerId'];
-            $_SESSION['fname'] = $row['fname'];
-            $_SESSION['pfp'] = $row['profilePicture'];
             echo "<script>alert('Your account has been successfully created!')</script>";
             header("Location: index.php");
             exit();
