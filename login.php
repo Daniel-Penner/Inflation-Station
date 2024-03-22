@@ -39,10 +39,11 @@
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }
                     }
-                    if (!$emailMatch){
-                        echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
-                    }
+                    
                   }
+                  if (!$emailMatch){
+                    echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
+                }
         }
                 catch(PDOException $e){
                     die($e->getMessage());
