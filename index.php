@@ -92,9 +92,18 @@ session_start();
         </div>
     </header>
     <br>
-    <p style="font-size:150%;"><a href="login.php">Log in</a></p>
+    <?php
+    if(!isset($_SESSION['id'])) {
+    echo '<p style="font-size:150%;"><a href="login.php">Log in</a></p>
     <p style="font-size:150%;">|</p>
-    <p style="font-size:150%;">Log out</p>
+    <p style="font-size:150%;">Log out</p>';
+    }
+    else{
+        echo '<p style="font-size:150%;">Log in</a></p>
+    <p style="font-size:150%;">|</p>
+    <p style="font-size:150%;"><a href="logout.php">Log out</p>';
+    }
+    ?>
     <br><br>
     <div class="container justify-content-center">
         <div class="row">
