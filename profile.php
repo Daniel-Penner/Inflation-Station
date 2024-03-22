@@ -52,6 +52,10 @@ session_start();
     <div class="container justify-content-center">
         <div class="row">
             <div class="col-8">
+                <?php 
+                    header("Content-type: image/png");
+                    echo($_SESSION['pfp']);
+                ?>
                 <img src="images/islogo.webp" alt="" width="200rem" height="200rem"
                     style="position: relative; top: 5rem;" />
                     <!--Use user name from the database -->
