@@ -53,7 +53,7 @@ session_start();
         <div class="row">
             <div class="col-8">
                 <?php 
-                    
+                    echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" width="200" style="border-radius: 50%;"/>';
                 ?>
                 <img src="images/islogo.webp" alt="" width="200rem" height="200rem"
                     style="position: relative; top: 5rem;" />
