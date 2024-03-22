@@ -42,7 +42,7 @@ session_start();
                             $statement->execute();
                             $result = $statement->fetch(PDO::FETCH_ASSOC);
                             $_SESSION['pfp'] = $result['profilePicture'];
-                            header("Content-type: image/jpeg");
+                            header("Content-type: image/png");
                             echo($_SESSION['pfp']);
                         }
                         else{
