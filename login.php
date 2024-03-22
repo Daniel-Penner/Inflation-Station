@@ -30,11 +30,11 @@
                   {
                     if($_POST['email'] == $row['email']){
                         $emailMatch == true;
-                        if($_POST['password']==$row['password']{
+                        if($_POST['password']==$row['password']){
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
                             $_SESSION['pfp'] = $row['profilePicture'];
-                        })
+                        }
                         else{
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }
