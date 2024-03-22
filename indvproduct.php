@@ -28,7 +28,7 @@
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1, $_GET['prod']);
         $statement->execute();
-          $row = $statement->fetch()
+          $row = $statement->fetch();
         $name = $row['productName'];
         $price = $row['productPrice'];
         $image = $row['productImageURL'];
