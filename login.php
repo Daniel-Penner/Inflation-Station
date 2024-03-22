@@ -34,8 +34,8 @@ session_start();
                     if($_POST['email'] == $row['email']){
                         $emailMatch = true;
                         if($_POST['password']==$row['password']){
-                            $_SESSION['pfp'] = data:image/jpeg;base64,.base64_encode($row['profilePicture']);
-                            echo '<img src=' . $_SESSION['pfp'] . ' width="200" style="border-radius: 50%;"/>';
+                            //$_SESSION['pfp'] = data:image/jpeg;base64,.base64_encode($row['profilePicture']);
+                            //echo '<img src=' . $_SESSION['pfp'] . ' width="200" style="border-radius: 50%;"/>';
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
                         }
