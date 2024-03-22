@@ -38,11 +38,11 @@ session_start();
                             $_SESSION['fname'] = $row['fname'];
                             $sql = "SELECT profilePicture FROM customer WHERE id = ?";
                             $statement = $pdo->prepare($sql);
-                            $statement->bindValue(1, $_POST['fname']);
+                            $statement->bindValue(1, $_SESSION['id']);
                             $statement->execute();
                             $result = $statement->fetch(PDO::FETCH_ASSOC);
                             $_SESSION['pfp'] = $result['profilePicture'];
-                            header("Content-type: image/png");
+                            header("Content-type: image/jpeg");
                             echo($_SESSION['pfp']);
                         }
                         else{
