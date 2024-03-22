@@ -24,7 +24,7 @@ session_start();
                                 <?php 
                                     if(isset($_SESSION['id'])) {
                                     echo '<a class="navbar-brand" href="profile.php">
-                                        <img src="images/islogo.webp" alt="" width="30" height="30">
+                                        <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30">
                                     </a>';
                                     }
                                     ?>
