@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -10,7 +13,6 @@
 </head>
 <body>
 <?php
-        session_start();
         if($_SERVER['REQUEST_METHOD']=='POST'){
         if (!empty($_POST['fname'])){
         try{
