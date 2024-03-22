@@ -55,13 +55,13 @@
         <form action="/action_page.php" id="form1">
             <label for="fname" class="form-label">First name</label>
             <!--Replace placeholder with user information from the database-->
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="John"><br>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Change First Name"><br>
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Doe"><br>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Change Last Name"><br>
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="john.doe17@gmail.com"><br>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Change Email"><br>
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="***********">
+            <input type="password" class="form-control" id="pass" name="pass" placeholder="Change Password">
             <div id="passHelp" class="form-text">
                 Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces,
                 special characters, or emoji.</div><br><br>
