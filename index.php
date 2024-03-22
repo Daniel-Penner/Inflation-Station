@@ -51,6 +51,9 @@ session_start();
             $_SESSION['id'] = $row['customerId'];
             $_SESSION['fname'] = $row['fname'];
             $_SESSION['pfp'] = $row['profilePicture'];
+            echo "<script>alert('Your account has been successfully created!')</script>";
+            header("Location: index.php");
+            exit();
         }
     }
             catch(PDOException $e){
