@@ -8,8 +8,45 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap 5-->
 </head>
-
 <body>
+<?php
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+        if (!empty($_POST['fname'])){
+        try{
+            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+            $username = "54925359";
+            $password = "54925359"; 
+    
+            // Create connection
+            $pdo = new PDO($connectionString, $username, $password);
+            $existingEmail = false;
+            $fileContent=file_get_contents($_POST['pfp']);
+            $sql = "SELECT email FROM customer";
+            $statement = $pdo->prepare($sql);
+            $statement->execute();
+            while($row = $statement->fetch())
+              {
+                if($_POST['email'] == $row['email']){
+                    $existingEmail = true;
+                }
+              }
+            if(!$existingEmail){
+            $sql = "INSERT INTO customer (fname, lname, email, password, profilePicture) VALUES (?,?,?,?,?)";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(1, $_POST['fname']);
+            $statement->bindValue(2, $_POST['lname']);
+            $statement->bindValue(3, $_POST['email']);
+            $statement->bindValue(4, $_POST['password']);
+            $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+            $statement->execute();
+        }
+    }
+            catch(PDOException $e){
+                die($e->getMessage());
+              }
+        }
+    }
+        ?>
     <header>
         <div class="container">
             <div class="row justify-content-center">

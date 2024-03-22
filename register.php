@@ -43,7 +43,7 @@
         </div>
     </header>
     <div class="d-flex justify-content-lg-center">
-        <form method="GET" id="registerForm">
+        <form method="POST" id="registerForm" action="index.php">
             <fieldset>
                 <br>
                 <div class="container-fluid">
@@ -53,15 +53,17 @@
                                 <label for="fname">
                                     <p style="font-size:25px;"><i>First Name</i></p>
                                 </label><br>
-                                <input id="fname" type="text" class="form-control" placeholder="First name"
-                                    required><br>
+
+                                <input id="fname"type="text" class="form-control" placeholder="First name" name="fname" required><br>
 
                             </div>
                             <div class="col-6">
                                 <label for="lname">
                                     <p style="font-size:25px;"><i>Last Name</i></p>
                                 </label><br>
-                                <input id="lname" type="text" class="form-control" placeholder="Last name" required><br>
+
+                                <input id="lname"type="text" class="form-control" placeholder="Last name" name="lname" required><br>
+
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
@@ -69,15 +71,16 @@
                                 <label for="email">
                                     <p style="font-size:25px;"><i>Email</i></p>
                                 </label><br>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email"
-                                    required><br><br>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required><br><br>
+
                             </div>
                             <div class="col-6">
                                 <label for="password">
                                     <p style="font-size:25px;"><i>Password</i></p>
                                 </label><br>
-                                <input type="password" class="form-control" id="pass" placeholder="Password"
-                                    required><br>
+                              
+                                <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
+
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
@@ -85,24 +88,23 @@
                                 <label for="pfp">
                                     <p style="font-size:25px;"><i>Profile Picture</i></p>
                                 </label><br>
-                                <input id="pfp" type="file" name="pfp" required /><br><br>
+                                <input id="pfp" type="file" name="pfp" required accept="image/png, image/jpeg"/><br><br>
                             </div>
                         </div>
                     </div>
                 </div>
             </fieldset>
-        </form>
-    </div>
     <br><br>
     <div class="container">
         <div class="row">
             <div class="d-grid gap-0 col-4 mx-auto">
-                <button class="btn btn-outline-success btn-block" id="registerButton">Register</button>
+                <button type="submit" class="btn btn-outline-success btn-block" id="registerButton">Register</button>
             </div>
-            <div class="d-grid gap-0 col-4 mx-auto">
-                <button onclick="reset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear
-                    Entry</button>
+        </form>
+        <div class="d-grid gap-0 col-4 mx-auto">
+                <button onclick="formReset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear Entry</button>
             </div>
+            </div> 
 </body>
 <script>
     //Form validation 
@@ -113,18 +115,16 @@
         var fname = document.getElementById("fname").value.trim();
         var lname = document.getElementById("lname").value.trim();
         if (email === "" && pass === "") {
-            alert("Unable to Log in: Email, Password and Name fields cannot be left blank.");
+            alert("Unable to Register: Email, Password and Name fields cannot be left blank.");
         } else if (email === "") {
-            alert("Unable to Log in: Email field cannot be left blank.");
+            alert("Unable to Register: Email field cannot be left blank.");
         } else if (pass === "") {
-            alert("Unable to Log in: Password field cannot be left blank.");
+            alert("Unable to Register: Password field cannot be left blank.");
         } else if (fname === "" || lname === "") {
-            alert("Unable to Log in: Name field cannot be left blank.")
-        } else {
-            console.log("Success")
+            alert("Unable to Register: Name field cannot be left blank.");
         }
     });
-    function reset() {
+    function formReset() {
         //reset form
         if (confirm("Are you sure you want to clear the form? Your information will not be saved if you continue.") == true) {
             document.getElementById("registerForm").reset();
