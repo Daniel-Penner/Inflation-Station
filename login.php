@@ -43,7 +43,7 @@ session_start();
                             $result = $statement->fetch(PDO::FETCH_ASSOC);
                             $_SESSION['pfp'] = $result['profilePicture'];
                             header("Content-type: image/png");
-                            echo($_SESSION['pfp']);
+                            echo($_result['profilePicture']);
                         }
                         else{
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
