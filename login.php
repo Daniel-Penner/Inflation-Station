@@ -25,25 +25,19 @@ session_start();
                 $pdo = new PDO($connectionString, $username, $password);
                 $existingEmail = false;
                 $fileContent=file_get_contents($_POST['pfp']);
-                $sql = "SELECT customerId, email, fname, password FROM customer";
+                $sql = "SELECT customerId, email, fname, password, profilePicture FROM customer";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 $emailMatch = false;
-                while($row = $statement->fetch())
+                while($row = $statement->fetch(PDO::FETCH_ASSOC))
                   {
                     if($_POST['email'] == $row['email']){
                         $emailMatch = true;
                         if($_POST['password']==$row['password']){
+                            header("Content-type: image/png");
+                            echo($_row['profilePicture']);
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
-                            $sql = "SELECT profilePicture FROM customer WHERE id = ?";
-                            $statement = $pdo->prepare($sql);
-                            $statement->bindValue(1, $_SESSION['id']);
-                            $statement->execute();
-                            $result = $statement->fetch(PDO::FETCH_ASSOC);
-                            $_SESSION['pfp'] = $result['profilePicture'];
-                            header("Content-type: image/png");
-                            echo($_result['profilePicture']);
                         }
                         else{
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
