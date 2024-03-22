@@ -84,7 +84,6 @@
                 echo "</div>";
                 $count++;
               }
-              $conn->close();
             }
             catch(PDOException $e){
               die($e->getMessage());

@@ -40,13 +40,14 @@
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
 
-            $sql = "SELECT customerId FROM customer WHERE email = ?";
+            $sql = "SELECT customerId, fname, profilePicture FROM customer WHERE email = ?";
             $statement->bindValue(1, $_POST['email']);
             $statement = $pdo->prepare($sql);
             $statement->execute();
             $row = $statement->fetch();
             $_SESSION['id'] = $row['customerId'];
-
+            $_SESSION['fname'] = $row['fname'];
+            $_SESSION['pfp'] = $row['profilePicture'];
         }
     }
             catch(PDOException $e){

@@ -22,7 +22,7 @@
                 $pdo = new PDO($connectionString, $username, $password);
                 $existingEmail = false;
                 $fileContent=file_get_contents($_POST['pfp']);
-                $sql = "SELECT userId, email, password FROM customer";
+                $sql = "SELECT customerId, email, fname, profilePicture, password FROM customer";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 $emailMatch = false;
@@ -31,7 +31,9 @@
                     if($_POST['email'] == $row['email']){
                         $emailMatch == true;
                         if($_POST['password']==$row['password']{
-                            $_SESSION['id'] = $row['userId'];
+                            $_SESSION['id'] = $row['customerId'];
+                            $_SESSION['fname'] = $row['fname'];
+                            $_SESSION['pfp'] = $row['profilePicture'];
                         })
                         else{
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
