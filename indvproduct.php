@@ -11,6 +11,35 @@
 </head>
 
 <body>
+    <?php
+    // Database connection
+    try{
+        $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+        $username = "54925359";
+        $password = "54925359"; 
+
+        // Create connection
+        $pdo = new PDO($connectionString, $username, $password);
+
+
+        // SQL query to fetch posts data with author information
+        
+        $sql = "SELECT * FROM product WHERE productId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $_GET['prod']);
+        $statement->execute();
+          $row = $statement->fetch()
+        $name = $row['productName'];
+        $price = $row['productPrice'];
+        $image = $row['productImageURL'];
+        $desc = $row['productDesc'];
+
+
+        }
+        catch(PDOException $e){
+          die($e->getMessage());
+        }
+    ?>
     <header>
         <div class="container">
             <div class="row justify-content-center">
@@ -44,7 +73,7 @@
             </div>
         </div>
         <div class=homehb>
-            <h5 style="text-align:center; color:white; font-size:50px;">Tomato</h5>
+            <h5 style="text-align:center; color:white; font-size:50px;"><?php echo $name;?></h5>
         </div>
     </header>
     <br>
@@ -66,16 +95,15 @@
                 <!--Left Bar-->
             </div>
             <div class="col-6">
-                <img src="images/tomato.jpg" class="productimage">
+                <img src="<?php echo $image;?>" class="productimage">
             </div>
             <div class="col-3">
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>Information</strong></p>
                     <hr style="color:white; height:8px;" />
                     <div class=incol>
-                        <li>Price: 5.99/lb</li>
-                        <li>Colour: Red</li>
-                        <li>Taste: Sweet/Sour, Acidic</li>
+                        <li>Price: $<?php echo $price;?>/lb</li>
+                        <li>Description: <?php echo $desc;?></li>
                     </div>
                     <br>
                     <p style="font-size:25px; color:white;"><strong>Price Change</strong></p>
