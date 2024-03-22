@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
+
 <head>
     <title>Community - Inflation Station</title>
     <link rel="stylesheet" href="css/global.css">
@@ -17,14 +18,17 @@
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
+                                    <a class="navbar-brand" href="profile.php">
+                                        <img src="images/islogo.webp" alt="" width="30" height="30">
+                                    </a>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
                                     <a class="nav-link" href="contact.php">Contact</a>
                                     <a class="nav-link" href="products.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                 </div>
-                                <form class="d-flex" action="products.php" method ="get">
-                                <input class="form-control me-2" type="search" name ="search" placeholder="Search"
+                                <form class="d-flex" action="products.php" method="get">
+                                    <input class="form-control me-2" type="search" name="search" placeholder="Search"
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
@@ -39,4 +43,5 @@
         </div>
     </header>
 </body>
+
 </html>

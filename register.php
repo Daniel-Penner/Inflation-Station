@@ -18,14 +18,17 @@
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
+                                    <a class="navbar-brand" href="profile.php">
+                                        <img src="images/islogo.webp" alt="" width="30" height="30">
+                                    </a>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
                                     <a class="nav-link" href="contact.php">Contact</a>
                                     <a class="nav-link" href="products.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                 </div>
-                                <form class="d-flex" action="products.php" method ="get">
-                                <input class="form-control me-2" type="search" name ="search" placeholder="Search"
+                                <form class="d-flex" action="products.php" method="get">
+                                    <input class="form-control me-2" type="search" name="search" placeholder="Search"
                                         aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit">Search</button>
                                 </form>
@@ -50,6 +53,7 @@
                                 <label for="fname">
                                     <p style="font-size:25px;"><i>First Name</i></p>
                                 </label><br>
+
                                 <input id="fname"type="text" class="form-control" placeholder="First name" name="fname" required><br>
 
                             </div>
@@ -57,7 +61,9 @@
                                 <label for="lname">
                                     <p style="font-size:25px;"><i>Last Name</i></p>
                                 </label><br>
+
                                 <input id="lname"type="text" class="form-control" placeholder="Last name" name="lname" required><br>
+
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
@@ -66,12 +72,15 @@
                                     <p style="font-size:25px;"><i>Email</i></p>
                                 </label><br>
                                 <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required><br><br>
+
                             </div>
                             <div class="col-6">
                                 <label for="password">
                                     <p style="font-size:25px;"><i>Password</i></p>
                                 </label><br>
+                              
                                 <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
+
                             </div>
                         </div>
                         <div class="row justify-content-center mx-auto">
