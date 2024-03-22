@@ -34,7 +34,7 @@ session_start();
                     if($_POST['email'] == $row['email']){
                         $emailMatch = true;
                         if($_POST['password']==$row['password']){
-                            $SESSION['pfp'] = $row['profilePicture'];
+                            $_SESSION['pfp'] = $row['profilePicture'];
                             echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp'])'" width="200" style="border-radius: 50%;"/>';
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
