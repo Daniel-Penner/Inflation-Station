@@ -29,7 +29,7 @@
                 while($row = $statement->fetch())
                   {
                     if($_POST['email'] == $row['email']){
-                        $emailMatch == true;
+                        $emailMatch = true;
                         if($_POST['password']==$row['password']){
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
