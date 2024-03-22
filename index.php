@@ -10,6 +10,9 @@
 </head>
 <body>
 <?php
+        if(!isset($_SESSION)) {
+            session_start();
+        }  
         if($_SERVER['REQUEST_METHOD']=='POST'){
         if (!empty($_POST['fname'])){
         try{
