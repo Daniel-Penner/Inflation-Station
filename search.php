@@ -81,6 +81,7 @@ session_start();
             $count = 0;
               while($row = $statement->fetch())
               {
+                else if($count == 3)
                   echo "<div class='card mb-4' style='width: 18rem;'>";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
@@ -89,6 +90,12 @@ session_start();
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
+                      if($count == 1){
+                        echo '<div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>';
+                      }
+                      if($count == 2){
+                        echo '<div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>';
+                      }
                 $count++;
               }
             }
