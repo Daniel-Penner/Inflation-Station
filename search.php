@@ -83,7 +83,7 @@ session_start();
               while($row = $statement->fetch())
               {
                 if(fmod($count, 4) == 0){
-                echo "<div class='row justify-content-center mx-auto'>";
+                echo "<div class='row justify-content-left mx-auto'>";
                 }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
