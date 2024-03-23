@@ -50,7 +50,7 @@ session_start();
             <h5 style="text-align:center; color:white; font-size:50px;">Products</h5>
         </div>
     </header>
-    <div class="container" style="margin-top: 50px;">
+    <div class="container">
     <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
@@ -82,15 +82,6 @@ session_start();
                 </div>
                 </div>
                 </div>";
-                  /*echo "<div class='card' style='width: 18rem;'";
-                  echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
-                        echo "<div class='card-body'>";
-                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
-                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
-                        echo "</div>";
-                      echo "</div>";
-                      echo "</div>";*/
               }
             }
             catch(PDOException $e){
