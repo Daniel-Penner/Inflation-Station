@@ -54,6 +54,7 @@ session_start();
     <div class="container">
     <div class="row">
         <div class="col">
+            <div class="card-deck">
             <?php
             // Database connection
             try{
@@ -86,7 +87,7 @@ session_start();
             }
             ?>
         </div>
-        <br>
+        </div>
     </div>
     </div>
 </body>
