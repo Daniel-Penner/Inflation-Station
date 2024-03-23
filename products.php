@@ -77,13 +77,10 @@ session_start();
                   echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" />
                   <div class="card-body">';
                   echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
-                    echo '<div class="card-text">
-                      Lorem ipsum lala longer text to see the equal height alignment. Hence you should not need h-100 or cols for a card-deck.
-                    </div>
-                  </div>
-                  <a class="card-footer btn btn-primary bg-primary" href="/shows/card-1"> Explore </a>
+                  echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>;
                 </div>
-                </div>';
+                </div>";
                   /*echo "<div class='card' style='width: 18rem;'";
                   echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
