@@ -73,6 +73,8 @@ session_start();
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $searchFor);
             $statement->execute();
+            while($row = $statement->fetch())
+            {
                   echo "<div class='card mb-3'";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
@@ -82,6 +84,7 @@ session_start();
                         echo "</div>";
                       echo "</div>";
               }
+            }
             catch(PDOException $e){
               die($e->getMessage());
             }
