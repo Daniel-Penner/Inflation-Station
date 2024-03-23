@@ -56,11 +56,9 @@ session_start();
   <a href="#">Services</a>
   <a href="#">Clients</a>
   <a href="#">Contact</a>
-</div>
-<div class="container" style="margin-top: 50px;">
-<div class="card-deck">
-            <br>
-            <!--ROW 1-->
+                    </div>
+  <div class="container">
+    <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
             try{
@@ -79,32 +77,24 @@ session_start();
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $searchFor);
             $statement->execute();
-            echo "<div class='row justify-content-center mx-auto'>";
-            $count = 0;
-              while($row = $statement->fetch())
-              {
-                if(fmod($count, 4) == 0){
-                echo "<div class='row justify-content-center mx-auto'>";
-                }
-                echo "<div class='col-2'>";
-                  echo "<div class='card' style='width: 18rem;'>";
-                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
-                        echo "<div class='card-body'>";
-                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
-                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
-                          echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
-                        echo "</div>";
-                      echo "</div>";
-                echo "</div>";
-                $count++;
+            while($row = $statement->fetch())
+            {
+                echo '<div class="col">';
+                echo "<div class='card' style='width: 18rem;'>";
+                  echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" />
+                  <div class="card-body">';
+                  echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                  echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>
+                </div>
+                </div>
+                </div>";
               }
             }
             catch(PDOException $e){
               die($e->getMessage());
             }
             ?>
-        </div>
-        <br>
     </div>
     </div>
 </body>
