@@ -81,7 +81,6 @@ session_start();
             $count = 0;
               while($row = $statement->fetch())
               {
-                echo "<div class='col-2'>";
                   echo "<div class='card mb-4' style='width: 18rem;'>";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
@@ -90,7 +89,6 @@ session_start();
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
-                echo "</div>";
                 $count++;
               }
             }
