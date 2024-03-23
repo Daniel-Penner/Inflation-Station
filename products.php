@@ -72,7 +72,7 @@ session_start();
             $statement->execute();
             while($row = $statement->fetch())
             {
-                echo '<div class="col">';
+                //echo '<div class="col">';
                 echo "<div class='card' style='width: 18rem;'";
                   echo '<img src="https://via.placeholder.com/350x150" class="card-img-top" alt="" />
                   <div class="card-body">
@@ -84,6 +84,7 @@ session_start();
                     </div>
                   </div>
                   <a class="card-footer btn btn-primary bg-primary" href="/shows/card-1"> Explore </a>
+                </div>
                 </div>';
                   /*echo "<div class='card' style='width: 18rem;'";
                   echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
