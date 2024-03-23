@@ -73,7 +73,7 @@ session_start();
             while($row = $statement->fetch())
             {
                 echo '<div class="col">';
-                echo "<div class='card mb-3'>";
+                echo "<div class='card'>";
                   echo '<img src="https://via.placeholder.com/350x150" class="card-img-top" alt="" />
                   <div class="card-body">
                     <h3 class="card-title">
