@@ -75,11 +75,9 @@ session_start();
                 echo '<div class="col">';
                 echo "<div class='card' style='width: 18rem;'>";
                   echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" />
-                  <div class="card-body">
-                    <h3 class="card-title">
-                      card 1
-                    </h3>
-                    <div class="card-text">
+                  <div class="card-body">';
+                  echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                    echo '<div class="card-text">
                       Lorem ipsum lala longer text to see the equal height alignment. Hence you should not need h-100 or cols for a card-deck.
                     </div>
                   </div>
