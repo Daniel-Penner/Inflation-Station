@@ -74,3 +74,9 @@ border-bottom-right-radius:9px;
   display: flex;
   flex-wrap: wrap;
 }
+
+@media (max-width: 500px) {
+  .card{
+   flex-direction: row;
+ }
+}

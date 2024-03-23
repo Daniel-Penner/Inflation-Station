@@ -56,8 +56,8 @@ session_start();
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 </div>
-  <div class="container-fluid">
-        <div class="mx-auto hotcol">
+<div class="container" style="margin-top: 50px;">
+  <div class="card-deck">
             <br>
             <!--ROW 1-->
             <?php
@@ -78,13 +78,9 @@ session_start();
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $searchFor);
             $statement->execute();
-            echo "<div class='row justify-content-center mx-auto'>";
             $count = 0;
               while($row = $statement->fetch())
               {
-                if(fmod($count, 4) == 0){
-                echo "<div class='row justify-content-center mx-auto'>";
-                }
                 echo "<div class='col-2'>";
                   echo "<div class='card' style='width: 18rem;'>";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
@@ -104,7 +100,6 @@ session_start();
             ?>
         </div>
         <br>
-    </div>
     </div>
 </body>
 
