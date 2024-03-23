@@ -70,6 +70,7 @@ session_start();
             catch(PDOException $e){
               die($e->getMessage());
             }
+            ?>
     </h5>
     </div>
   </header>
