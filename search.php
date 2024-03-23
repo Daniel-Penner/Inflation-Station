@@ -64,7 +64,7 @@ session_start();
               $statement->bindValue(1, $_GET['category']);
               $statement->execute();
               $result = $statement->fetch()
-              echo": " . $result['categoryName'];
+              echo ": " . $result['categoryName'];
               }
             }
             catch(PDOException $e){
