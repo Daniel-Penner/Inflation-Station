@@ -52,10 +52,12 @@ session_start();
     </div>
   </header>
   <div class="sidenav">
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <a href="search.php?category=0">Vegetables</a>
+  <a href="search.php?category=1">Fruits</a>
+  <a href="search.php?category=2">Meats</a>
+  <a href="search.php?category=3">Grains</a>
+  <a href="search.php?category=4">Dairy</a>
+  <a href="search.php?category=5">Beverages</a>
                     </div>
   <div class="container">
     <div class="row justify-content-center row-cols-auto">
@@ -71,11 +73,15 @@ session_start();
 
     
             // SQL query to fetch posts data with author information
-            
-            $searchFor = '%' . $_GET['search'] . '%';
-            $sql = "SELECT * FROM product WHERE productName LIKE ?";
+            if(!empty($_GET['category'])){
+            $sql = "SELECT * FROM product WHERE categoryId = ?";
             $statement = $pdo->prepare($sql);
-            $statement->bindValue(1, $searchFor);
+            $statement->bindValue(1, $_GET['category']);
+            }
+            else{
+              $sql = "SELECT * FROM product";
+              $statement = $pdo->prepare($sql);
+            }
             $statement->execute();
             while($row = $statement->fetch())
             {
