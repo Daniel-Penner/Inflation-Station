@@ -23,7 +23,11 @@ session_start();
             // Create connection
             $pdo = new PDO($connectionString, $username, $password);
             $existingEmail = false;
+<<<<<<< Updated upstream
             $fileContent=file_get_contents("images/apple.jpg");
+=======
+            $fileContent=$_POST['pfp'];
+>>>>>>> Stashed changes
             $sql = "SELECT email FROM customer";
             $statement = $pdo->prepare($sql);
             $statement->execute();
