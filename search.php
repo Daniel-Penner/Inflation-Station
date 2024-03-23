@@ -58,7 +58,7 @@ session_start();
   <a href="#">Contact</a>
 </div>
 <div class="container" style="margin-top: 50px;">
-  <div class="card-deck">
+<div class="card-deck">
             <br>
             <!--ROW 1-->
             <?php
@@ -79,23 +79,23 @@ session_start();
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $searchFor);
             $statement->execute();
+            echo "<div class='row justify-content-center mx-auto'>";
             $count = 0;
               while($row = $statement->fetch())
               {
-                  echo "<div class='card mb-4' style='width: 18rem;'>";
-                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top img-fluid'>";
+                if(fmod($count, 4) == 0){
+                echo "<div class='row justify-content-center mx-auto'>";
+                }
+                echo "<div class='col-2'>";
+                  echo "<div class='card' style='width: 18rem;'>";
+                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
                           echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
-                      if($count == 1){
-                        echo '<div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>';
-                      }
-                      if($count == 2){
-                        echo '<div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>';
-                      }
+                echo "</div>";
                 $count++;
               }
             }
@@ -105,6 +105,7 @@ session_start();
             ?>
         </div>
         <br>
+    </div>
     </div>
 </body>
 

@@ -49,13 +49,3 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
     width: 50px;
     align-content: center;
 }
-.card{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-@media (max-width: 500px) {
-    .card{
-     flex-direction: row;
-   }
-  }
