@@ -87,6 +87,13 @@ session_start();
             <?php
             // Database connection
             // SQL query to fetch posts data with author information
+            try{
+              $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+              $username = "54925359";
+              $password = "54925359"; 
+      
+              // Create connection
+              $pdo = new PDO($connectionString, $username, $password);
             if(isset($_GET['category'])){
             $sql = "SELECT * FROM product WHERE categoryId = ?";
             $statement = $pdo->prepare($sql);
@@ -110,6 +117,10 @@ session_start();
                 </div>
                 </div>";
               }
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
+            }
             ?>
     </div>
     </div>
