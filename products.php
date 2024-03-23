@@ -51,9 +51,7 @@ session_start();
         </div>
     </header>
     <div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="card-deck">
+    <div class="row row-cols-auto">
             <?php
             // Database connection
             try{
@@ -74,6 +72,7 @@ session_start();
             $statement->execute();
             while($row = $statement->fetch())
             {
+                echo '<div class="col">';
                   echo "<div class='card mb-3'";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top' alt=''>";
                         echo "<div class='card-body'>";
@@ -82,14 +81,13 @@ session_start();
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
+                      echo "</div>";
               }
             }
             catch(PDOException $e){
               die($e->getMessage());
             }
             ?>
-        </div>
-        </div>
     </div>
     </div>
 </body>
