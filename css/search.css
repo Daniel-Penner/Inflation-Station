@@ -15,10 +15,7 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
   margin-top: 1.5rem;
 }
 
-.container{
-  width: 80%;
-  margin-left: 200px;
-}
+
   
 .boxcaption{
   height: 40px;
@@ -74,4 +71,8 @@ border-bottom-right-radius:9px;
 
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.row{
+  margin-left: 200px;
 }
