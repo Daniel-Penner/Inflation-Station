@@ -69,3 +69,8 @@ border-bottom-right-radius:9px;
 .sidenav a:hover {
   color: #f1f1f1;
 }
+
+.card{
+  display: flex;
+  flex-wrap: wrap;
+}
