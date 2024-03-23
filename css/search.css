@@ -50,6 +50,7 @@ border-bottom-right-radius:9px;
 }
 
 .sidenav {
+  top: 0;
   height: 100%;
   position: fixed;
   width: 200px;
