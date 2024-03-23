@@ -72,7 +72,7 @@ session_start();
             $statement->execute();
             while($row = $statement->fetch())
             {
-                echo '<div class="col justify-content-flex-start;">';
+                echo '<div class="col">';
                   echo "<div class='card' style='width: 18rem;'";
                   echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
