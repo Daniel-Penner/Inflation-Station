@@ -80,7 +80,7 @@ session_start();
   <a href="search.php?category=2">Meats</a>
   <a href="search.php?category=3">Grains</a>
   <a href="search.php?category=4">Dairy</a>
-  <a href="search.php?category=5">Beverages</a>
+  <a href="search.php?category=6">Beverages</a>
                     </div>
   <div class="container">
     <div class="row justify-content-center row-cols-auto">
