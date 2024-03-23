@@ -73,7 +73,7 @@ session_start();
 
     
             // SQL query to fetch posts data with author information
-            if(!empty($_GET['category'])){
+            if(isset($_GET['category'])){
             $sql = "SELECT * FROM product WHERE categoryId = ?";
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $_GET['category']);
