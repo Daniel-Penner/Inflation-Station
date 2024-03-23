@@ -56,7 +56,7 @@ border-bottom-right-radius:9px;
   height: 100%;
   position: fixed;
   width: 200px;
-  background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
+  background-color: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -72,5 +72,5 @@ border-bottom-right-radius:9px;
 
 .sidenav a:hover {
   color: white;
-  background-color: grey;
+  background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
 }
