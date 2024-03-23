@@ -50,7 +50,7 @@ session_start();
             <h5 style="text-align:center; color:white; font-size:50px;">Products</h5>
         </div>
     </header>
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
     <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
