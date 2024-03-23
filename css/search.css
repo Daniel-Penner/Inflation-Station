@@ -9,8 +9,6 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
   border:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) solid 5px;
   background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
   border-top: none;
-  margin-left: 30rem;
-  margin-right: 30rem;
 
   
 }
@@ -25,6 +23,8 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
 border-top-right-radius:9px;
 border-bottom-left-radius:9px;
 border-bottom-right-radius:9px;
+margin-left: 30rem;
+  margin-right: 30rem;
 }
 .button {
   border: solid 1px;
