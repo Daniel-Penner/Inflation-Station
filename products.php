@@ -76,7 +76,7 @@ session_start();
             while($row = $statement->fetch())
             {
                   echo '<div class="card mb-3">
-                  <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="" />
+                  <img src=' . $row['productImageURL'] .' class="card-img-top" alt="" />
                   <div class="card-body">
                     <h3 class="card-title">
                       card 1
