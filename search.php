@@ -63,7 +63,7 @@ session_start();
               $statement = $pdo->prepare($sql);
               $statement->bindValue(1, $_GET['category']);
               $statement->execute();
-              $result = $statement->fetch()
+              $result = $statement->fetch();
               echo ": " . $result['categoryName'];
               }
             }
