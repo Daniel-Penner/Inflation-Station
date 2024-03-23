@@ -8,7 +8,7 @@ session_start();
 
 <head>
   <title>Search - Inflation Station</title>
-  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/search.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <!--Bootsrap 5-->
@@ -50,6 +50,12 @@ session_start();
       <h5 style="text-align:center; color:white; font-size:50px;">Explore</h5>
     </div>
   </header>
+  <div class="sidenav">
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
   <div class="container-fluid">
         <div class="mx-auto hotcol">
             <br>
@@ -76,7 +82,7 @@ session_start();
             $count = 0;
               while($row = $statement->fetch())
               {
-                if(fmod($count, 5) == 0){
+                if(fmod($count, 4) == 0){
                 echo "<div class='row justify-content-center mx-auto'>";
                 }
                 echo "<div class='col-2'>";
