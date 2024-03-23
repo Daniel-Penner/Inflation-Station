@@ -52,9 +52,8 @@ session_start();
         </div>
     </header>
     <div class="container">
+    <div class="row">
         <div class="col">
-            <br>
-            <!--ROW 1-->
             <?php
             // Database connection
             try{
