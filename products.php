@@ -51,7 +51,7 @@ session_start();
         </div>
     </header>
     <div class="container">
-    <div class="row row-cols-auto">
+    <div class="row justify-content-center mx-auto row-cols-auto">
             <?php
             // Database connection
             try{
