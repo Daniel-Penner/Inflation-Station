@@ -51,8 +51,8 @@ session_start();
             <h5 style="text-align:center; color:white; font-size:50px;">Products</h5>
         </div>
     </header>
-    <div class="container-fluid">
-        <div class="mx-auto hotcol">
+    <div class="container">
+        <div class="col">
             <br>
             <!--ROW 1-->
             <?php
@@ -73,15 +73,7 @@ session_start();
             $statement = $pdo->prepare($sql);
             $statement->bindValue(1, $searchFor);
             $statement->execute();
-            echo "<div class='row justify-content-center mx-auto'>";
-            $count = 0;
-              while($row = $statement->fetch())
-              {
-                if(fmod($count, 5) == 0){
-                echo "<div class='row justify-content-center mx-auto'>";
-                }
-                echo "<div class='col-2'>";
-                  echo "<div class='card' style='width: 18rem;'>";
+                  echo "<div class='card mb-3'";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
@@ -89,10 +81,8 @@ session_start();
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
-                echo "</div>";
                 $count++;
               }
-            }
             catch(PDOException $e){
               die($e->getMessage());
             }
