@@ -81,7 +81,6 @@ session_start();
             $count = 0;
               while($row = $statement->fetch())
               {
-                else if($count == 3)
                   echo "<div class='card mb-4' style='width: 18rem;'>";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
