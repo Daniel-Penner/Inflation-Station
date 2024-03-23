@@ -8,7 +8,7 @@ session_start();
 
 <head>
   <title>Search - Inflation Station</title>
-  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/products.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <!--Bootsrap 5-->
