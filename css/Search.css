@@ -1,68 +1,51 @@
-/* Styles for the main container */
-.main-container {
-  width: 1440px;
-  height: 1024px;
-  position: absolute;
-  background: #ffffff;
+body,article {
+  background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
+  text-align: center;
 }
+.card-img-top{
+border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) solid 5px;
+}
+.card-body{
+  border:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) solid 5px;
+  background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
+  border-top: none;
 
-/* Styles for the "Categories" heading */
-.categories-heading {
-  width: 321.80px;
-  left: 91px;
-  top: 234px;
-  position: absolute;
-  color: white;
-  font-size: 48px;
-  font-weight: 400;
-  word-wrap: break-word;
   
 }
-
-/* Styles for the category background divs */
-.category-background {
-  width: 205px;
-  height: 61px;
-  position: absolute;
-  background: #809E83;
-  z-index: auto;
-  border-top-left-radius:10px;
-	border-top-right-radius:10px;
-	border-bottom-left-radius:10px;
-	border-bottom-right-radius:10px;
+.boxcaption{
+  height: 40px;
+  bottom: 0;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  background-color: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+  padding:0.5em;
+  border-top-left-radius:9px;
+border-top-right-radius:9px;
+border-bottom-left-radius:9px;
+border-bottom-right-radius:9px;
 }
-
-/* Styles for the category headings */
-.category-heading {
-  width: 205px;
-  height: 64px;
-  position: absolute;
+.button {
+  border: solid 1px;
+  border-color: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
   color: white;
-  font-size: 48px;
-  font-weight: 400;
-  word-wrap: break-word;
-  z-index: auto;
+  background-color: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-top-left-radius:9px;
+border-top-right-radius:9px;
+border-bottom-left-radius:9px;
+border-bottom-right-radius:9px;
 }
-
-/* Styles for the background divs in "Recently Viewed" */
-.recently-viewed-containerc {
-  width: 278px;
-  height: 277px;
-  position: absolute;
-  background: #D9D9D9;
+.button:hover {
+  background-color: white;
+  color: gray;
 }
-.recently-viewed-container {
-  width: 1283px;
-  height: 381px;
-  left: 78px;
-  top: 400px;
-  position: absolute;
-}
-
-/* Styles for the headings in "Recently Viewed" */
-.recently-viewed-heading {
-  color: white;
-  font-size: 48px;
-  font-weight: 400;
-  word-wrap: break-word;
+.col-5{
+  width: 50px;
+  align-content: center;
 }

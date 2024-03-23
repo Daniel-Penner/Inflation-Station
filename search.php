@@ -50,37 +50,56 @@ session_start();
       <h5 style="text-align:center; color:white; font-size:50px;">Explore</h5>
     </div>
   </header>
-  <div class="main-container">
-    <div class="recently-viewed-container">
-      <div class="recently-viewed-heading">Recently Viewed</div>
-      <img src="images/popcorn.jpg" style="height: 278px; width: 277px;">
-      <img src="images/masala.jpg" style="left: 335px; height: 278px; width: 277px;">
-      <img src="images/tomato.jpg" style="left: 670px; height: 278px; width: 277px;">
-      <img src="images/yogurt.jpg" style="left: 1005px; height: 278px; width: 277px;">
+  <div class="container-fluid">
+        <div class="mx-auto hotcol">
+            <br>
+            <!--ROW 1-->
+            <?php
+            // Database connection
+            try{
+            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+            $username = "54925359";
+            $password = "54925359"; 
+    
+            // Create connection
+            $pdo = new PDO($connectionString, $username, $password);
+
+    
+            // SQL query to fetch posts data with author information
+            
+            $searchFor = '%' . $_GET['search'] . '%';
+            $sql = "SELECT * FROM product WHERE productName LIKE ?";
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(1, $searchFor);
+            $statement->execute();
+            echo "<div class='row justify-content-center mx-auto'>";
+            $count = 0;
+              while($row = $statement->fetch())
+              {
+                if(fmod($count, 5) == 0){
+                echo "<div class='row justify-content-center mx-auto'>";
+                }
+                echo "<div class='col-2'>";
+                  echo "<div class='card' style='width: 18rem;'>";
+                      echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
+                        echo "<div class='card-body'>";
+                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                          echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
+                        echo "</div>";
+                      echo "</div>";
+                echo "</div>";
+                $count++;
+              }
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
+            }
+            ?>
+        </div>
+        <br>
     </div>
-
-
-  </div>
-  <div class="categories-heading">Categories</div>
-  <div class="category-background" style="left: 100px;top: 434px;"></div>
-  <div class="category-background" style="left: 923px; top: 434px;"></div>
-  <div class="category-background" style="left: 647px; top: 434px;"></div>
-  <div class="category-background" style="left: 371px; top: 434px;"></div>
-  <div class="category-background" style="left: 371px; top: 315px;"></div>
-  <div class="category-background" style="left: 100px; top: 315px;"></div>
-  <div class="category-heading" style="left: 371px; top: 312px;">Drinks</div>
-  <div class="category-background" style="left: 923px; top: 315px;"></div>
-  <div class="category-heading" style="left: 928px; top: 312px;">Spices</div>
-  <div class="category-background" style="left: 647px; top: 315px;"></div>
-  <div class="category-heading" style="left: 652px; top: 312px;">Pantry</div>
-  <div class="category-heading" style="left: 100px; top: 312px;">Produce</div>
-  <div class="category-heading" style="left: 100px; top: 434px;">Frozen</div>
-  <div class="category-heading" style="left: 378px; top: 434px;">Asian</div>
-  <div class="category-heading" style="left: 651px; top: 434px;">Sauces</div>
-  <div class="category-heading" style="left: 928px; top: 434px;">More ></div>
-  </div>
-  </div>
-  </div>
+    </div>
 </body>
 
 </html>
