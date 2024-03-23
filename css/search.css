@@ -51,6 +51,7 @@ border-bottom-right-radius:9px;
 
 .sidenav {
   height: 100%;
+  position: fixed;
   width: 200px;
   background-color: #111;
   overflow-x: hidden;
