@@ -9,9 +9,12 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
     border:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) solid 5px;
     background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
     border-top: none;
-
-    
 }
+
+    .card{
+    margin-top: 50rem;
+}
+    
 .boxcaption{
     height: 40px;
     bottom: 0;
