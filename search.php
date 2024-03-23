@@ -82,7 +82,7 @@ session_start();
               while($row = $statement->fetch())
               {
                 echo "<div class='col-2'>";
-                  echo "<div class='card' style='width: 18rem;'>";
+                  echo "<div class='card mb-4' style='width: 18rem;'>";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
