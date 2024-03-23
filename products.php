@@ -74,7 +74,7 @@ session_start();
             {
                 echo '<div class="col">';
                 echo "<div class='card' style='width: 18rem;'>";
-                  echo '<img src=" . $row['productImageURL'] . " class="card-img-top" alt="" />
+                  echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" />
                   <div class="card-body">
                     <h3 class="card-title">
                       card 1
