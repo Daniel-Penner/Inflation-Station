@@ -1,4 +1,4 @@
-/*body,article {
+body,article {
     background-color: rgba(182.39583671092987, 212.4999949336052, 189.01875972747803, 1);
     text-align: center;
 }
@@ -44,7 +44,7 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
   .button:hover {
     background-color: white;
     color: gray;
-  }*/
+  }
 
   .row {
     background: #f8f9fa;
