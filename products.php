@@ -81,7 +81,6 @@ session_start();
                           echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
                         echo "</div>";
                       echo "</div>";
-                $count++;
               }
             catch(PDOException $e){
               die($e->getMessage());
