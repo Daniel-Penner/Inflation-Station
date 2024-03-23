@@ -75,7 +75,7 @@ session_start();
             $statement->execute();
             while($row = $statement->fetch())
             {
-                  echo "<div class='card mb-3'";
+                  echo "<div class='card mb-3' style='width: 18rem;";
                       echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
                         echo "<div class='card-body'>";
                           echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
