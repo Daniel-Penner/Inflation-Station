@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <?php
-    /*
+    
     // Database connection
     try{
         $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
@@ -42,22 +42,22 @@ session_start();
         }
         catch(PDOException $e){
           die($e->getMessage());
-        }*/
+        }
     ?>
     <header>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="col-md-8">
                     <div class="navborder">
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
-                                    <?php /*
-                     if(isset($_SESSION['id'])) {
-                     echo '<a class="navbar-brand" href="profile.php">
-                         <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
-                     </a>';
-                     }*/
+                                    <?php 
+           if(isset($_SESSION['id'])) {
+           echo '<a class="navbar-brand" href="profile.php">
+               <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
+           </a>';
+           }
                                     ?>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
@@ -78,7 +78,7 @@ session_start();
         </div>
         <div class=homehb>
             <h5 style="text-align:center; color:white; font-size:50px;">
-                <?php //echo $name;   ?>
+                <?php echo $name;     ?>
             </h5>
         </div>
     </header>
@@ -88,17 +88,17 @@ session_start();
     <br>
     <div class="container justify-content-center">
         <div class="row">
-            <div class="col-sm-8"><img src="<?php //echo $image;   ?>" class="productimage"></div>
+            <div class="col-sm-8"><img src="<?php echo $image;     ?>" class="productimage"></div>
             <div class="col-sm-4">
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>Information</strong></p>
                     <hr style="color:white; height:8px;" />
                     <div class=incol>
                         <li>Price: $
-                            <?php //echo $price;   ?>/lb
+                            <?php echo $price;     ?>/lb
                         </li>
                         <li>Description:
-                            <?php //echo $desc;   ?>
+                            <?php echo $desc;     ?>
                         </li>
                     </div>
                     <br>
@@ -121,63 +121,55 @@ session_start();
                 </div>
             </div>
         </div>
+    </div>
 
-        <br>
-        <div class="container" style="background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1);">
-            <div class="row justify-content-center text-center">
-                <p style="font-size:25px; color:white;"><strong>Reviews</strong></p>
-                <hr style="color:white; height:8px;" />
-                <br>
-                <div class="card" style="background-color: rgb(182,212,189); max-width: 50rem; border-radius: 1rem; padding: 1rem;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color:white;">Leave a Comment</h5>
-                        <form>
-                            <div class="form-group text-center" style="max-width: 10rem; margin: 0 auto;">
-                                <label for="rating" style="color: white; padding: 0.5rem;">Rating (1-5):</label>
-                                <select class="form-control" id="rating">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message" style="color: white; padding: 0.5rem;">Message:</label>
-                                <textarea class="form-control" id="message" rows="3"
-                                    placeholder="Enter your message"></textarea>
-                            </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+    <br>
+    <div class="container"
+        style="background-color:rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1); overflow-y: auto; border-radius: 1rem; padding: 1rem;">
+        <div class="row justify-content-center">
+            <p style="font-size:25px; color:white;"><strong>Reviews</strong></p>
+            <hr style="color:white; height:8px;" />
             <br>
-            <div class="row">
-                <div class="row" style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 25px; padding: 20px;">
-                    <div class="col-auto">
-                        <img src="images\apple.jpg" alt="Profile Picture" style="width:2.5rem; border-radius: 5rem; padding 4rem;">
-                    </div>
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-auto">
-                                <span style="color: white;">John Doe</span>
-                            </div>
-                            <div class="col-auto">
-                                <span style="color: white;">5 stars</span>
-                            </div>
+            <div class="card"
+                style="background-color: rgb(182,212,189); max-width: 50rem; border-radius: 1rem; padding: 1rem;">
+                <div class="card-body">
+                    <h5 class="card-title" style="color:white;">Leave a Comment</h5>
+                    <form>
+                        <div class="form-group" style="max-width: 10rem; margin: 0 auto;">
+                            <label for="rating" style="color: white; padding: 0.5rem;">Rating</label>
+                            <select class="form-control" id="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="user-comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                                    viverra dui eget nunc efficitur, nec pretium risus varius.</p>
-                            </div>
+                        <div class="form-group">
+                            <label for="message" style="color: white; padding: 0.5rem;">Message</label>
+                            <textarea class="form-control" id="message" rows="3"
+                                placeholder="Enter your message"></textarea>
                         </div>
-                    </div>
+                        <br>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
+        <br>
+        <div class="row justify-content-center"
+            style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">
+            <div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">
+            <div class="col-auto">
+                <img src="images\apple.jpg" alt="Profile Picture"
+                    style="width:5rem; border-radius: 5rem; padding 4rem;">
+                <span>John Doe</span></div>
+                <span style="position: relative; text-align: right;">✰✰✰✰✰</span>
+                <p style="position: relative; text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    viverra dui eget nunc efficitur, nec pretium risus varius.</p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
