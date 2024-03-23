@@ -53,7 +53,7 @@ session_start();
         <div class="row">
             <div class="col-8">
                 <?php 
-                    echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" width="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
+                    echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
                 ?>
                     <!--Use user name from the database -->
                 <h1 style="position: relative; left:15rem; bottom: 5rem;">Hi, <?php echo $_SESSION['fname']; ?>!</h1>
