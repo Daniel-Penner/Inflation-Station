@@ -73,8 +73,8 @@ session_start();
             while($row = $statement->fetch())
             {
                 echo '<div class="col">';
-                echo '<div class="card mb-3">
-                  <img src="https://via.placeholder.com/350x150" class="card-img-top" alt="" />
+                echo "<div class='card' style='width: 18rem;'";
+                  echo '<img src="https://via.placeholder.com/350x150" class="card-img-top" alt="" />
                   <div class="card-body">
                     <h3 class="card-title">
                       card 1
@@ -85,7 +85,15 @@ session_start();
                   </div>
                   <a class="card-footer btn btn-primary bg-primary" href="/shows/card-1"> Explore </a>
                 </div>';
+                  /*echo "<div class='card' style='width: 18rem;'";
+                  echo "<img src=" . $row['productImageURL'] . " class='card-img-top'>";
+                        echo "<div class='card-body'>";
+                          echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                          echo "<p class='card-text'>$" . $row['productPrice'] ."/lb</p>";
+                          echo "<a href='indvproduct.php?prod=" . $row['productId'] ."' class='button'>More Info</a>";
+                        echo "</div>";
                       echo "</div>";
+                      echo "</div>";*/
               }
             }
             catch(PDOException $e){
