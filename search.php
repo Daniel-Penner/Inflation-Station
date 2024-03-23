@@ -48,7 +48,29 @@ session_start();
       </div>
     </div>
     <div class=homehb>
-      <h5 style="text-align:center; color:white; font-size:50px;">Explore</h5>
+      <h5 style="text-align:center; color:white; font-size:50px;">Explore
+      <?php
+            // Database connection
+            try{
+            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+            $username = "54925359";
+            $password = "54925359"; 
+    
+            // Create connection
+            $pdo = new PDO($connectionString, $username, $password);
+            if(isset($_GET['category'])){
+              $sql = "SELECT * FROM category WHERE categoryId = ?";
+              $statement = $pdo->prepare($sql);
+              $statement->bindValue(1, $_GET['category']);
+              $statement->execute();
+              $result = $statement->fetch()
+              echo": " . $result['categoryName'];
+              }
+            }
+            catch(PDOException $e){
+              die($e->getMessage());
+            }
+    </h5>
     </div>
   </header>
   <div class="sidenav">
@@ -63,15 +85,6 @@ session_start();
     <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
-            try{
-            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
-            $username = "54925359";
-            $password = "54925359"; 
-    
-            // Create connection
-            $pdo = new PDO($connectionString, $username, $password);
-
-    
             // SQL query to fetch posts data with author information
             if(isset($_GET['category'])){
             $sql = "SELECT * FROM product WHERE categoryId = ?";
@@ -96,10 +109,6 @@ session_start();
                 </div>
                 </div>";
               }
-            }
-            catch(PDOException $e){
-              die($e->getMessage());
-            }
             ?>
     </div>
     </div>
