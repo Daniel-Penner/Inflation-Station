@@ -189,8 +189,26 @@ date_default_timezone_set('Canada/Pacific');
 
 </html>
 
-<script>
-    // load comment function
+<script> 
+    //on red x click delete the comment asynchronously
+    $(document).on('click', '.deleteComment', function() {
+        var commentId = $(this).data('commentId');
+        $.ajax({
+            url: 'deletecomment.php', 
+            method: 'POST',
+            data: { commentId: commentId },
+            success: function(response) {
+                // on comment deletion, remove comment from DOM
+                if (response === 'success') {
+                    $(this).closest('.comment-container').remove();
+                    console.log('Comment deleted successfully');
+                } else {
+                    console.log('Failed to delete comment');
+                }
+            }
+        });
+    });
+    // load comments
     function loadComments() {
         $.ajax({
             url: 'loadcomments.php',
@@ -210,4 +228,5 @@ date_default_timezone_set('Canada/Pacific');
     loadComments();
     // call every 5s
     setInterval(loadComments, 5000); 
+    
 </script>

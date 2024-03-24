@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'dbconnection.php';
 try {
     
@@ -42,6 +43,10 @@ try {
             // rating and comment
             echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
                                           <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
+            //red x to delete comment by admin
+            if(isset($_SESSION['type'])) {
+                 echo '<span class="deleteComment" data-commentId="' . $comment['reviewId'] . '" style="font-size: 10px; color: red; cursor: pointer;">&#10060;</span>';
+            }
             echo '</div>';
             echo '<br>';
         }

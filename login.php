@@ -25,7 +25,7 @@ session_start();
                 $pdo = new PDO($connectionString, $username, $password);
                 $existingEmail = false;
                 $fileContent=file_get_contents($_POST['pfp']);
-                $sql = "SELECT customerId, email, fname, password, profilePicture FROM customer";
+                $sql = "SELECT customerId, email, fname, password, profilePicture, customerType FROM customer";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 $emailMatch = false;
@@ -35,6 +35,9 @@ session_start();
                         $emailMatch = true;
                         if($_POST['password']==$row['password']){
                             $_SESSION['pfp'] = $row['profilePicture'];
+                            if($row['customerType'] != null) {
+                                $_SESSION['type'] = $row['customerType'];
+                            }
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
                         }
