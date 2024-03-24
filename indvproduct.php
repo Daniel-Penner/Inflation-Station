@@ -189,7 +189,6 @@ date_default_timezone_set('Canada/Pacific');
                         $statement->bindValue(1, $_GET['prod']);
                         $statement->execute();
                         //store comment objects (multi d array)
-                        $row = $statement->fetch();
                         $comments = array();
                         // check for comments on product
                         if ($statement->rowCount() > 0) {
