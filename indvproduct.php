@@ -11,6 +11,7 @@ date_default_timezone_set('Canada/Pacific');
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/indvproduct.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!--Bootsrap 5-->
 </head>
 
@@ -27,7 +28,7 @@ date_default_timezone_set('Canada/Pacific');
         $pdo = new PDO($connectionString, $username, $password);
 
         // SQL query to fetch posts data with author information
-        $prodId = $_GET['prod']; // for post to comments.php
+    
         $sql = "SELECT * FROM product WHERE productId = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1, $_GET['prod']);
@@ -38,7 +39,33 @@ date_default_timezone_set('Canada/Pacific');
         $image = $row['productImageURL'];
         $desc = $row['productDesc'];
 
+        //Fetch Comment Information
+        $sql = "SELECT * FROM review WHERE productId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $_GET['prod']);
+        $statement->execute();
 
+        $comments = array();
+        // check for comments on product
+        if ($statement->rowCount() > 0) {
+            // Loop through all comments
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // temp array to be placed in multi d comment array
+                $temp = array(
+                    'reviewId' => $row['reviewId'],
+                    'reviewRating' => $row['reviewRating'],
+                    'reviewDate' => $row['reviewDate'],
+                    'customerId' => $row['customerId'],
+                    'productId' => $row['productId'],
+                    'reviewComment' => $row['reviewComment']
+                );
+
+                // add to comments array
+                $comments[] = $commentInfo;
+            }
+        } else {
+            echo "No comments found for this product.";
+        }
     } catch (PDOException $e) {
         die ($e->getMessage());
     }
@@ -136,7 +163,7 @@ date_default_timezone_set('Canada/Pacific');
                     </div>
                     <!-- FORM -->
                     <form method="POST" action="comment.php">
-                        <input type='hidden' name='prodId' value="<?php echo $prodId; ?>"> <!--Product Id-->
+                        <input type='hidden' name='prodId' value="<?php echo $_GET['prod']; ?>"> <!--Product Id-->
                         <input type='hidden' name='userId' value="<?php echo $_SESSION['id']; ?>"> <!--user Id-->
                         <input type='hidden' name='date' value="<?php echo date('Y-m-d H:i:s'); ?>"> <!--Comment Date-->
                         <!-- Rating -->
@@ -186,24 +213,25 @@ date_default_timezone_set('Canada/Pacific');
             <div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">
                 <div class="col-auto">
                     <?php
-                    if (isset ($_SESSION['id'])) {
-                        echo '<a class="navbar-brand" href="profile.php">
-                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" style="border: 1px black solid; width:5rem; border-radius: 5rem; padding 4rem;">
-                    </a>';
+                    for ($i = 0; $i < count($comments); $i++) {
+                        //profile pciture
+                        /* echo '<a class="navbar-brand" href="profile.php">
+                         <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" style="border: 1px black solid; width:5rem; border-radius: 5rem; padding 4rem;">
+                         </a>';*/
+                        echo
+                            "<span>
+                       firstname lastname
+                    </span>
+                    </div>";
+                        echo '<span style="position: relative; text-align: right;">Rating: <span
+                        style="color:yellow"><strong>' . $comments['reviewRating'][$i] . '</strong></span></span>
+                        <p style="position: relative; text-align:left;">' . $comments['reviewComment'][$i] . '</p>
+                </div>';
                     }
                     ?>
-                    <span>
-                        <?php echo $_SESSION['fname'] + " " + $SESSION['lname']; ?>
-                    </span>
+                    <!--End Comment-->
                 </div>
-                <span style="position: relative; text-align: right;">Rating: 3</span>
-                <p style="position: relative; text-align:left;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Sed
-                    viverra dui eget nunc efficitur, nec pretium risus varius.</p>
             </div>
-            <!--End Comment-->
-        </div>
-    </div>
 </body>
 
 </html>

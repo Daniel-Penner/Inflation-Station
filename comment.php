@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Redirect back to product page
-    header("Location: indvprod.php?prod=$productId");
+    header("Location: indvproduct.php?prod=$productId");
     exit();
 }
 
