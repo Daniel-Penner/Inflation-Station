@@ -205,9 +205,10 @@ date_default_timezone_set('Canada/Pacific');
                                     'lname' => $row['lname'],
                                     'profilePicture' => $row['profilePicture']
                                 );
+                                $comments[] = $temp;
                             }
                                 // add to comments array
-                                $comments[] = $temp;
+                                
                                 foreach ($comments as $comment) {
                                     echo '<div class="row justify-content-center"
                                     style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
