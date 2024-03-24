@@ -215,7 +215,7 @@ date_default_timezone_set('Canada/Pacific');
                                     echo '<div class="row " style="background-color:white; max-width: 40rem; border-radius: 1rem; padding: 1rem;">';
                                     echo '<div class="col-auto">';
                                         echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
-                                        '" alt="profile picture" width="30" height="30" style="border: 1px black solid; border-radius: 50%; padding:0.3em;">';
+                                        '" alt="profile picture" width="40" height="40" style="border: 1px black solid; border-radius: 50%;">';
                                     // Display user's name
                                     echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
                                     // Display rating and comment
