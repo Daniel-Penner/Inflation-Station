@@ -135,7 +135,7 @@ session_start();
                     <div class="row">
                         <!-- User Image -->
                     </div>
-                    <form>
+                    <form action="indvproduct.php?prod="<?php echo $_GET['prod'];?>>
                         <!-- Rating -->
                         <div class="form-group">
                             <div class="col">
