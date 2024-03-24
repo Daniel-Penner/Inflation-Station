@@ -178,10 +178,6 @@ date_default_timezone_set('Canada/Pacific');
             <!--Create Comment End-->
         </div>
         <br>
-
-        <div class="row justify-content-center"
-            style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">
-
             <!--Comment-->
                     <?php
                     try {
@@ -213,6 +209,8 @@ date_default_timezone_set('Canada/Pacific');
                                 // add to comments array
                                 $comments[] = $temp;
                                 foreach ($comments as $comment) {
+                                    echo '<div class="row justify-content-center"
+                                    style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
                                     echo '<div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">';
                                     echo '<div class="col-auto">';
                                         echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
@@ -223,6 +221,7 @@ date_default_timezone_set('Canada/Pacific');
                                     echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
                                           <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
                                           echo '</div>';
+                                          echo '<br>';
                                 }
                                 
                                 
