@@ -179,62 +179,29 @@ date_default_timezone_set('Canada/Pacific');
         </div>
         <br>
             <!--Comment-->
-                    <?php
-                    try {
-                        //Fetch Comment Information
-                        $sql = "SELECT reviewId, reviewRating, reviewDate, r.customerId, reviewComment, fname, lname, profilePicture 
-                        FROM review r JOIN customer c ON r.customerId=c.customerId 
-                        WHERE productId = ?";
-                        $statement = $pdo->prepare($sql);
-                        $statement->bindValue(1, $_GET['prod']);
-                        $statement->execute();
-                        //store comment objects (multi d array)
-                        $comments = array();
-                        // check for comments on product
-                        if ($statement->rowCount() > 0) {
-                            // Loop through all comments
-                            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-                                // temp array to be placed in multi d comment array
-                                $temp = array(
-                                    'reviewId' => $row['reviewId'],
-                                    'reviewRating' => $row['reviewRating'],
-                                    'reviewDate' => $row['reviewDate'],
-                                    'customerId' => $row['customerId'],
-                                    'reviewComment' => $row['reviewComment'],
-                                    'fname' => $row['fname'],
-                                    'lname' => $row['lname'],
-                                    'profilePicture' => $row['profilePicture']
-                                );
-                                $comments[] = $temp;
-                            }
-                                // add to comments array
-                                
-                                foreach ($comments as $comment) {
-                                    echo '<div class="row justify-content-center"
-                                    style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
-                                    echo '<div class="row " style="background-color:white; max-width: 40rem; border-radius: 1rem; padding: 1rem;">';
-                                    echo '<div class="col-auto">';
-                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
-                                        '" alt="profile picture" width="40" height="40" style="border: 1px black solid; border-radius: 50%;">';
-                                    // Display user's name
-                                    echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
-                                    // Display rating and comment
-                                    echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
-                                          <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
-                                          echo '</div>';
-                                          echo '<br>';
-                                }
-                        } else {
-                            echo "No comments found for this product.";
-                        }
-                        
-                    } catch (PDOException $e) {
-                        die ($e->getMessage());
-                    }
-                    ?>
+            <div id="loadComments"> 
+                    
+                    </div>
                     <!--End Comment-->
                 </div>
             </div>
 </body>
 
 </html>
+
+<script>
+// Function to load comments every 5 seconds
+function loadComments() {
+    $.get({
+        url: 'loadcomments.php',
+        data: { prod: '<?php echo $_GET["prod"]; ?>' },
+        success: function(data, textStatus, jqXHR) {
+            document.getElementById('commentsContainer').innerHTML = data;
+            console.log("Request successful");
+        },
+        dataType: 'html'
+    });
+}
+// Call loadComments function every 5 seconds
+setInterval(loadComments, 5000); // 5000 milliseconds = 5 seconds
+</script>
