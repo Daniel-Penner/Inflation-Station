@@ -139,7 +139,6 @@ date_default_timezone_set('Canada/Pacific');
                         <input type='hidden' name='prodId' value="<?php echo $prodId; ?>"> <!--Product Id-->
                         <input type='hidden' name='userId' value="<?php echo $_SESSION['id']; ?>"> <!--user Id-->
                         <input type='hidden' name='date' value="<?php echo date('Y-m-d H:i:s'); ?>"> <!--Comment Date-->
->>>>>>> commentft
                         <!-- Rating -->
                         <div class="form-group">
                             <div class="col">
