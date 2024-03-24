@@ -211,11 +211,11 @@ date_default_timezone_set('Canada/Pacific');
                                 
                                 foreach ($comments as $comment) {
                                     echo '<div class="row justify-content-center"
-                                    style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
+                                    style="max-width:800px; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 16px; padding: 16px; overflow-y: auto;">';
                                     echo '<div class="row " style="background-color:white; border-radius: 16px; padding: 16px;">';
                                     echo '<div class="col-auto">';
                                         echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
-                                        '" alt="profile picture" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">';
+                                        '" alt="profile picture" width="30" height="30" style="border: 1px black solid; border-radius: 50%; padding:4.8px;">';
                                     // Display user's name
                                     echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
                                     // Display rating and comment
