@@ -17,7 +17,7 @@ session_start();
     <?php
 
     // Database connection
-    /*
+    
     try{
         $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
         $username = "54925359";
@@ -42,7 +42,7 @@ session_start();
         }
         catch(PDOException $e){
           die($e->getMessage());
-        }*/
+        }
     ?>
     <header>
         <div class="container">
@@ -52,12 +52,12 @@ session_start();
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
-                                    <?php /*
+                                    <?php 
                 if(isset($_SESSION['id'])) {
                 echo '<a class="navbar-brand" href="profile.php">
                     <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
                 </a>';
-                }*/
+                }
                                     ?>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
@@ -78,24 +78,24 @@ session_start();
         </div>
         <div class=homehb>
             <h5 style="text-align:center; color:white; font-size:50px;">
-                <?php //echo $name;          ?>
+                <?php echo $name;?>
             </h5>
         </div>
     </header>
     <br>
     <div class="container justify-content-center">
         <div class="row">
-            <div class="col-sm-8"><img src="<?php //echo $image;          ?>" class="productimage"></div>
+            <div class="col-sm-8"><img src="<?php echo $image;?>" class="productimage"></div>
             <div class="col-sm-4">
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>Information</strong></p>
                     <hr style="color:white; height:8px;" />
                     <div class=incol>
                         <li>Price: $
-                            <?php //echo $price;          ?>/lb
+                            <?php echo $price;?>/lb
                         </li>
                         <li>Description:
-                            <?php //echo $desc;          ?>
+                            <?php echo $desc;?>
                         </li>
                     </div>
                     <br>
