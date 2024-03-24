@@ -209,7 +209,7 @@ date_default_timezone_set('Canada/Pacific');
                                 $comments[] = $temp;
                                 foreach ($comments as $comment) {
                                     echo '<div class="row justify-content-center"
-                                    style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
+                                    style="max-width:800px; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
                                     echo '<div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">';
                                     echo '<div class="col-auto">';
                                         echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
