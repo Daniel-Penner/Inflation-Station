@@ -212,20 +212,14 @@ date_default_timezone_set('Canada/Pacific');
                                     'lname' => $row['lname'],
                                     'profilePicture' => $row['profilePicture']
                                 );
-
                                 // add to comments array
                                 $comments[] = $temp;
-
                                 foreach ($comments as $comment) {
-
                                     echo '<div class="col-auto">';
-            
-                                    // Add user profile image if available
-                                    if (isset ($_SESSION['id'])) {
                                         echo '<a class="navbar-brand" href="profile.php">
                                                 <img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . '" alt="" style="border: 1px black solid; width:5rem; border-radius: 5rem; padding: 4rem;">
                                               </a>';
-                                    }
+
                                     // Display user's name
                                     echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
                                     // Display rating and comment
