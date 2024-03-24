@@ -225,12 +225,12 @@ date_default_timezone_set('Canada/Pacific');
                                     // Display rating and comment
                                     echo '<span style="position: relative; text-align: right;">Rating: <span style="color:yellow"><strong>' . $comment['reviewRating'] . '</strong></span></span>
                                           <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
-                                    echo '</div>'; // End of comment row
                                 }
                             }
                         } else {
                             echo "No comments found for this product.";
                         }
+                        echo '</div>';
                     } catch (PDOException $e) {
                         die ($e->getMessage());
                     }
