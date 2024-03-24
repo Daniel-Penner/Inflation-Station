@@ -195,9 +195,9 @@ date_default_timezone_set('Canada/Pacific');
         $.ajax({
             url: 'loadcomments.php',
             data: {
-                prod: '<?php echo $_GET["prod"]; ?>'
+                prod: '<?php echo $_GET["prod"]; ?>' //productId to loadcomments.php for identifying which product
             },
-            success: function (data, textStatus, jqXHR) {
+            success: function (data, textStatus, jqXHR) { //status variables
                 document.getElementById('loadComments').innerHTML = data;
                 console.log("Request successful");
             },
@@ -207,7 +207,7 @@ date_default_timezone_set('Canada/Pacific');
             dataType: 'html'
         });
     }
-
+    loadComments();
     // call every 5s
     setInterval(loadComments, 5000); 
 </script>
