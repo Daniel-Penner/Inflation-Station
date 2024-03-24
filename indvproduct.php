@@ -188,9 +188,9 @@ date_default_timezone_set('Canada/Pacific');
                     <?php
                     try {
                         //Fetch Comment Information
-                        $sql = "SELECT reviewId, reviewRating, reviewDate, customerId, reviewComment, fname, lname, profilePicture 
+                        $sql = "SELECT reviewId, reviewRating, reviewDate, r.customerId, reviewComment, fname, lname, profilePicture 
                         FROM review r JOIN customer c ON r.customerId=c.customerId 
-                        WHERE productId = ?";
+                        WHERE productId = 1";
                         $statement = $pdo->prepare($sql);
                         $statement->bindValue(1, $_GET['prod']);
                         $statement->execute();
