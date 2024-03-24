@@ -186,7 +186,7 @@ date_default_timezone_set('Canada/Pacific');
             <div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">
                 <div class="col-auto">
                     <?php
-                    try {
+                    //try {
                         //Fetch Comment Information
                         $sql = "SELECT reviewId, reviewRating, reviewDate, customerId, reviewComment, fname, lname, profilePicture 
                         FROM review r JOIN customer c ON r.customerId=c.customerId 
@@ -195,7 +195,17 @@ date_default_timezone_set('Canada/Pacific');
                         $statement->bindValue(1, $_GET['prod']);
                         $statement->execute();
                         //store comment objects (multi d array)
+                        $row = $statement->fetch();
                         $comments = array();
+                        echo $row['reviewId'];
+                        echo $row['reviewRating'];
+                        echo $row['reviewDate'];
+                        echo $row['customerId'];
+                         echo $row['reviewComment'];
+                                    echo $row['fname'];
+                                    echo $row['lname'];
+                                    echo $row['profilePicture'];
+                        /*
                         // check for comments on product
                         if ($statement->rowCount() > 0) {
                             // Loop through all comments
@@ -238,7 +248,7 @@ date_default_timezone_set('Canada/Pacific');
                         }
                     } catch (PDOException $e) {
                         die ($e->getMessage());
-                    }
+                    }*/
                     ?>
                     <!--End Comment-->
                 </div>
