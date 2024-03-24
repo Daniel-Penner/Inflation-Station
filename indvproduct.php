@@ -214,18 +214,25 @@ date_default_timezone_set('Canada/Pacific');
                                 );
                                 // add to comments array
                                 $comments[] = $temp;
+                                echo '<div class="col-auto">';
                                 foreach ($comments as $comment) {
-                                    echo '<div class="col-auto">';
-                                        echo '<a class="navbar-brand" href="profile.php">
-                                                <img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . '" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 5rem; padding: 4rem;">
-                                              </a>';
-
+                                        echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
+                                        '" alt="profile picture" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">';
                                     // Display user's name
                                     echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
                                     // Display rating and comment
-                                    echo '<span style="position: relative; text-align: right;">Rating: <span style="color:yellow"><strong>' . $comment['reviewRating'] . '</strong></span></span>
+                                    echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
                                           <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
                                 }
+                                foreach ($comments as $comment) {
+                                    echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) . 
+                                    '" alt="profile picture" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">';
+                                // Display user's name
+                                echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
+                                // Display rating and comment
+                                echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
+                                      <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
+                            }
                             }
                         } else {
                             echo "No comments found for this product.";
