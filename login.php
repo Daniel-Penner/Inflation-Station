@@ -35,7 +35,7 @@ session_start();
                         $emailMatch = true;
                         if($_POST['password']==$row['password']){
                             $_SESSION['pfp'] = $row['profilePicture'];
-                            if($row['customerType'] != null) {
+                            if(!is_null($row['customerType'])) {
                                 $_SESSION['type'] = $row['customerType'];
                             }
                             $_SESSION['id'] = $row['customerId'];
