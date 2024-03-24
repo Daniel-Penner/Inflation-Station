@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Canada/Pacific');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,32 +18,30 @@ session_start();
     <?php
 
     // Database connection
-    
-    try{
-        $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
+    try {
+        $connectionString = "mysql:host=localhost;dbname=db_54925359";
         $username = "54925359";
-        $password = "54925359"; 
+        $password = "54925359";
 
         // Create connection
         $pdo = new PDO($connectionString, $username, $password);
 
         // SQL query to fetch posts data with author information
-        
+        $prodId = $_GET['prod']; // for post to comments.php
         $sql = "SELECT * FROM product WHERE productId = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1, $_GET['prod']);
         $statement->execute();
-          $row = $statement->fetch();
+        $row = $statement->fetch();
         $name = $row['productName'];
         $price = $row['productPrice'];
         $image = $row['productImageURL'];
         $desc = $row['productDesc'];
 
 
-        }
-        catch(PDOException $e){
-          die($e->getMessage());
-        }
+    } catch (PDOException $e) {
+        die ($e->getMessage());
+    }
     ?>
     <header>
         <div class="container">
@@ -52,12 +51,12 @@ session_start();
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
-                                    <?php 
-                if(isset($_SESSION['id'])) {
-                echo '<a class="navbar-brand" href="profile.php">
-                    <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
+                                    <?php
+                                    if (isset ($_SESSION['id'])) {
+                                        echo '<a class="navbar-brand" href="profile.php">
+                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
                 </a>';
-                }
+                                    }
                                     ?>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
@@ -78,24 +77,24 @@ session_start();
         </div>
         <div class=homehb>
             <h5 style="text-align:center; color:white; font-size:50px;">
-                <?php echo $name;?>
+                <?php echo $name; ?>
             </h5>
         </div>
     </header>
     <br>
     <div class="container justify-content-center">
         <div class="row">
-            <div class="col-sm-8"><img src="<?php echo $image;?>" class="productimage"></div>
+            <div class="col-sm-8"><img src="<?php echo $image; ?>" class="productimage"></div>
             <div class="col-sm-4">
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>Information</strong></p>
                     <hr style="color:white; height:8px;" />
                     <div class=incol>
                         <li>Price: $
-                            <?php echo $price;?>/lb
+                            <?php echo $price; ?>/lb
                         </li>
                         <li>Description:
-                            <?php echo $desc;?>
+                            <?php echo $desc; ?>
                         </li>
                     </div>
                     <br>
@@ -135,14 +134,20 @@ session_start();
                     <div class="row">
                         <!-- User Image -->
                     </div>
-                    <form action="indvproduct.php?prod=">
+                    <!-- FORM -->
+                    <form method="POST" action="comment.php">
+                        <input type='hidden' name='prodId' value="<?php echo $prodId; ?>"> <!--Product Id-->
+                        <input type='hidden' name='userId' value="<?php echo $_SESSION['id']; ?>"> <!--user Id-->
+                        <input type='hidden' name='date' value="<?php echo date('Y-m-d H:i:s'); ?>"> <!--Comment Date-->
+>>>>>>> commentft
                         <!-- Rating -->
                         <div class="form-group">
                             <div class="col">
                                 <label for="rating"
                                     style="color: white; padding: 0.4rem; font-size:1.3em;"><strong>Rating</strong></label>
-                                <select class="form-control" id="rating"
+                                <select class="form-control" id="rating" name="rating"
                                     style="max-width:5em; margin: 0 auto; text-align:center;">
+                                    <option value="1">0 Stars</option>
                                     <option value="1">1 Star</option>
                                     <option value="2">2 Stars</option>
                                     <option value="3">3 Stars</option>
@@ -154,8 +159,8 @@ session_start();
                         <!-- Message -->
                         <label for="message"
                             style="color: white; padding: 0.4rem; font-size:1.3em; text-align:left;"><strong>Message</strong></label>
-                        <textarea class="form-control" id="message" rows="3"
-                            placeholder="Enter your message"></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="3"
+                            placeholder="Enter your comment"></textarea>
                         <br>
                         <!-- Submit Button -->
                         <?php
@@ -167,7 +172,7 @@ session_start();
                             echo "<p style='color:red;'>You must be <a href='login.php'>logged in</a> to comment.</p>";
                         }
                         ?>
-
+                        <!-- FORM  END-->
                     </form>
                 </div>
             </div>
@@ -177,7 +182,7 @@ session_start();
 
         <div class="row justify-content-center"
             style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">
-            
+
             <!--Comment-->
             <div class="row " style="background-color:white; border-radius: 1rem; padding: 1rem;">
                 <div class="col-auto">
