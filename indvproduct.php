@@ -178,30 +178,36 @@ date_default_timezone_set('Canada/Pacific');
             <!--Create Comment End-->
         </div>
         <br>
-            <!--Comment-->
-            <div id="loadComments"> 
-                    
-                    </div>
-                    <!--End Comment-->
-                </div>
-            </div>
+        <!--Comment-->
+        <div id="loadComments">
+
+        </div>
+        <!--End Comment-->
+    </div>
+    </div>
 </body>
 
 </html>
 
 <script>
-// Function to load comments every 5 seconds
-function loadComments() {
-    $.get({
-        url: 'loadcomments.php',
-        data: { prod: '<?php echo $_GET["prod"]; ?>' },
-        success: function(data, textStatus, jqXHR) {
-            document.getElementById('commentsContainer').innerHTML = data;
-            console.log("Request successful");
-        },
-        dataType: 'html'
-    });
-}
-// Call loadComments function every 5 seconds
-setInterval(loadComments, 5000); // 5000 milliseconds = 5 seconds
+    // load comment function
+    function loadComments() {
+        $.ajax({
+            url: 'loadcomments.php',
+            data: {
+                prod: '<?php echo $_GET["prod"]; ?>'
+            },
+            success: function (data, textStatus, jqXHR) {
+                document.getElementById('loadComments').innerHTML = data;
+                console.log("Request successful");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error("Error:", errorThrown);
+            },
+            dataType: 'html'
+        });
+    }
+
+    // call every 5s
+    setInterval(loadComments, 5000); 
 </script>
