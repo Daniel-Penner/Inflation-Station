@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'dbconnection.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,12 +15,13 @@ include 'dbconnection.php';
 <body>
     <?php
     try {
-        if (isset($_SESSION['type'])) { //check if admin
+        include 'dbconnection.php';
+        /*if (isset($_SESSION['type'])) { //check if admin
     
         } else { // if user is not admin
             header("Location: index.php");
             exit();
-        }
+        }*/
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_POST['uuid'])) {
 
@@ -108,27 +108,31 @@ include 'dbconnection.php';
                 echo '<img src="data:image/jpeg;base64,' . base64_encode($profilePicture) . '" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
                 ?>
                 <!--Use user name from the database -->
-                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User: "
-                    <?php echo $fname . ' ' . $lname ?>"
+                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User:<?php echo $fname; echo $lname; ?>
                 </h1>
             </div>
         </div>
         <br><br>
         <form action="account_change.php" id="accountChange" method="POST" enctype="multipart/form-data">
-            <label for="pfp" class="form-label">Profile Picture</label><br>
+            <label for="profilePicture" class="form-label">Profile Picture</label><br>
             <input id="profilePicture" class="form-control" type="file" name="profilePicture" accept="image/jpeg" /><br>
+
             <input type='hidden' name='uuid' value="<?php echo $customerId; ?>">
             <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
+            
             <label for="fname" class="form-label">First name</label>
             <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $fname; ?>"><br>
+
             <label for="lname" class="form-label">Last name</label>
             <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $lname; ?>"><br>
+
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>"><br>
+            
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $pass; ?>">
+            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" value="<?php echo $pass; ?>">
             <div id="passHelp" class="form-text">
-                Your password must be 8-20 characters long, contain letters, numbers, and no spaces.</div>
+            Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
             <br><br>
             <button type='submit' class='btn btn-success btn-lg'>Submit</button>
