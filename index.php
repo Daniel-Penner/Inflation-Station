@@ -71,6 +71,11 @@ session_start();
                                     <a class="nav-link" href="contact.php">Contact</a>
                                     <a class="nav-link" href="products.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
+                                    <?php
+                                    if(isset($_SESSION['type'])) {
+                                        echo '<a class="nav-link" style="color: rgb(232, 39, 39);" href="admindashboard.php">Admin</a>';
+                                    }
+                                    ?>
                                 </div>
                                 <form class="d-flex" action="products.php" method="get">
                                     <input class="form-control me-2" type="search" name="search" placeholder="Search"
