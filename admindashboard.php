@@ -108,7 +108,7 @@ session_start();
                 echo '<img src="data:image/jpeg;base64,' . base64_encode($profilePicture) . '" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
                 ?>
                 <!--Use user name from the database -->
-                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User: <?php echo " "; echo $fname; echo $lname; ?>
+                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User: <?php echo $fname; echo " "; echo $lname; ?>
                 </h1>
             </div>
         </div>
