@@ -73,11 +73,11 @@ try {
         if($_FILES['profilePicture']['error'] == UPLOAD_ERR_OK) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
-            SET profilePicture = NULL, fname = 'James'
+            SET profilePicture = ?
             WHERE customerId = ?";
             $statement = $pdo->prepare($sql);
-            //$statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
-            $statement->bindValue(1, $changeUserId);
+            $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
+            $statement->bindValue(2, $changeUserId);
             $statement->execute();
             if($isAdmin == false) {
             $_SESSION['pfp'] = $_POST['profilePicture'];
