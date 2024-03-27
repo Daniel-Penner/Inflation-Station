@@ -124,7 +124,7 @@ session_start();
             <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" required><br>
 
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" ?>" required><br>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" required> ><br>
 
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email" placeholder="example@mail.com" required ><br>
