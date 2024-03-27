@@ -121,16 +121,16 @@ session_start();
             <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             
             <label for="fname" class="form-label">First name</label>
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="First name" required><br>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="First name"><br>
 
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name" required> ><br>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name"> ><br>
 
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="example@mail.com" required ><br>
+            <input type="text" class="form-control" id="email" name="email" placeholder="example@mail.com" ><br>
             
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" required placeholder="Please enter your new password.">
+            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" placeholder="Please enter your new password.">
 
             <div id="passHelp" class="form-text">
             Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
