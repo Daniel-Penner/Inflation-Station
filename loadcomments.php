@@ -46,6 +46,7 @@ try {
             //red x to delete comment by admin
             if (isset($_SESSION['type'])) {
                 echo '<span class="deleteComment" data-commentId="' . $comment['reviewId'] . '" style="font-size: 10px; color: red; cursor: pointer;">&#10060;</span>';
+                echo 'User ID: ' . $_SESSION['id'];
             }
             echo '</div>';
             echo '<br>';

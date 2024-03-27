@@ -6,7 +6,7 @@ include 'dbconnection.php';
 <html>
 
 <head>
-    <title>Home - Inflation Station</title>
+    <title>Admin Dashboard - Inflation Station</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,37 +15,41 @@ include 'dbconnection.php';
 
 <body>
     <?php
-    /*include 'dbconnection';
-    if(isset($_SESSION['type'])) { //check if admin
+    try {
+        include 'dbconnection';
+        /*if (isset($_SESSION['type'])) { //check if admin
+    
+        } else { // if user is not admin
+            header("Location: index.php");
+            exit();
+        }*/
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (!empty($_POST['userSearch'])) {
 
-    } else { // if user is not admin
-        header("Location: index.php");
-        exit();
-    }*/
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (!empty($_POST['userSearch'])) {
+                $sql = "SELECT * FROM customer WHERE customerId=?";
+                $statement = $pdo->prepare($sql);
+                $statement->bindValue(1, $_GET['uuid']);
+                $statement->execute();
+                $row = $statement->fetch();
 
-            $sql = "SELECT * FROM customer WHERE username=?";
-            $statement = $pdo->prepare($sql);
-            $statement->bindValue(1, $_GET['userSearch']);
-            $statement->execute();
-            $rows = $statement->fetch(PDO::FETCH_ASSOC);
-
-            if (count($rows) > 0) {
-                // Rows found, do something with them
-                foreach ($rows as $row) {
-                    // Access row data, for example:
-                    echo $row['username'] . "<br>";
-                    echo $row['email'] . "<br>";
-                    // Access other columns as needed
-                    }
+                if (count($row) > 0) {
+                    $customerId = $row['customerId'];
+                    $fname = $row['fname'];
+                    $lname = $row['lname'];
+                    $email = $row['email'];
+                    $pass = $row['password'];
+                    $customerType = $row['customerType'];
+                    $profilePicture = $row['profilePicture'];
                 } else {
                     echo '<br><div class="container">No users exist with that username.</div>';
                 }
 
-        } else {
-            echo '<br><div class="container">Error: Empty user search entry.</div>';
+            } else {
+                echo '<br><div class="container">Error: Empty user search entry.</div>';
+            }
         }
+    } catch (PDOException $e) {
+        die($e->getMessage());
     }
     ?>
     <header>
@@ -89,40 +93,56 @@ include 'dbconnection.php';
             <h5 style="text-align:center; color:white; font-size:50px;">Admin Dashboard</h5>
         </div>
     </header>
-    <div class="container">
-        <form class="d-flex" action="admindashboard.php" method="POST">
-            <input class="form-control me-2 mt-5" type="search" name="userSearch" placeholder="Search">
-            <button class="btn btn-lg btn-outline-success mt-5" type="submit">Search</button>
+    <div class="container" style="text-align:left;">
+        <form action="admindashboard.php" method="POST">
+            <label for="uuid" class="form-label mt-5">User Id</label>
+            <input class="form-control" type="text" name="uuid" placeholder="UUID">
+            <button class="btn btn-outline-success mt-3" type="submit">Search</button>
         </form>
     </div>
-    
-    
-    <div class="container justify-content-center">
+
+
+    <div class="container" style="text-align:left;">
         <div class="row">
             <div class="col-8">
-                <?php 
-                    echo '<img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
+                <?php
+                echo '<img src="data:image/jpeg;base64,' . base64_encode($profilePicture) . '" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
                 ?>
-                    <!--Use user name from the database -->
-                <h1 style="position: relative; left:15rem; bottom: 5rem;">Hi, <?php echo $_SESSION['fname']; ?>!</h1>
+                <!--Use user name from the database -->
+                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User: "
+                    <?php echo $fname . ' ' . $lname ?>"
+                </h1>
             </div>
         </div>
         <br><br>
         <form action="account_change.php" id="accountChange" method="POST">
+            <label for="pfp" class="form-label">Profile Picture</label><br>
+            <input id="pfp" class="form-control" type="file" name="pfp" required accept="image/jpeg"/><br>
+            <input type='hidden' name='uuid' value="<?php echo $customerId; ?>"> <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             <label for="fname" class="form-label">First name</label>
-            <!--Replace placeholder with user information from the database-->
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="Change First Name"><br>
+            <input type="text" class="form-control" id="fname" name="fname"
+                value="<?php echo $fname; ?>"><br>
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Change Last Name"><br>
+            <input type="text" class="form-control" id="lname" name="lname"
+            value="<?php echo $lname; ?>"><br>
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Change Email"><br>
+            <input type="text" class="form-control" id="email" name="email"
+            value="<?php echo $email; ?>"><br>
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Change Password">
+            <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $pass; ?>">
             <div id="passHelp" class="form-text">
-                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces,
-                special characters, or emoji.</div><br><br>
-            <input type="submit" value="Save Changes" class="btn btn-success">
+                Your password must be 8-20 characters long, contain letters, numbers, and no spaces.</div>
+            <br>
+            <br><br>
+            <?php
+            if (isset($_SESSION['id'])) {
+                echo "<button type='submit' class='btn btn-success btn-lg'>Submit</button>";
+            } else {
+                echo "<button type='submit' class='btn btn-success btn-lg' disabled>Submit</button>";
+            }
+            ?>
         </form>
+        <br>
 
     </div>
 
