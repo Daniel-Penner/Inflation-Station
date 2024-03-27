@@ -23,7 +23,7 @@ try {
         SET fname = ?, lname = ?, email = ?, password = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
-        
+        $pass = md5($pass); //hash password
         $statement->bindValue(1, $_POST['fname']);
         $statement->bindValue(2, $_POST['lname']);
         $statement->bindValue(3, $_POST['email']);
