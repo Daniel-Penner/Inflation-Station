@@ -2,35 +2,19 @@
 session_start();
 
 // Function to validate password using regex
-function validatePassword($password) {
+function validatePassword($password)
+{
     // Password pattern
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
 
 // Function to validate first and last names
-function validateEmail($email) {
+function validateEmail($email)
+{
     // Email pattern
     $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     return preg_match($pattern, $email);
-}
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-
-    // Validate password
-    if (!validatePassword($password)) {
-        echo "Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?";
-        exit();
-    }
-
-    // Validate first and last names
-    if (!validateEmail($email)) {
-        echo "Email is invalid.";
-        exit();
-    }
 }
 ?>
 <!DOCTYPE html>
@@ -48,6 +32,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['email'])) {
+            // Validate password
+            if (!validatePassword($_POST['password'])) {
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
+                exit();
+            }
+
+            // Validate first and last names
+            if (!validateEmail($_POST['email'])) {
+                echo "<script>alert('Email is invalid.')</script>";
+                exit();
+            }
             try {
                 $connectionString = "mysql:host=localhost;dbname=db_54925359";
                 $username = "54925359";
@@ -156,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <button type="submit" class="btn btn-outline-success btn-block" id="loginButton">Login</button>
                 </div>
                 <div class="d-grid gap-0 col-3 mx-auto">
-                    <button onclick="formReset()" class="btn btn-outline-warning btn-block" id="loginButton">Clear
+                    <button onclick="formReset()" class="btn btn-outline-warning btn-block" id="clearButton">Clear
                         Entry</button>
                 </div>
                 <p style="text-align:center;">First time?</p>
@@ -172,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     var loggedIn = false;
     document.getElementById("loginButton").addEventListener("click", function () {
         var email = document.getElementById("email").value.trim();
-        var pass = document.getElementById("pass").value.trim();
+        var pass = document.getElementById("password").value.trim();
         if (email === "" && pass === "") {
             alert("Unable to Log in: Email and Password field cannot be left blank.");
         } else if (email === "") {
