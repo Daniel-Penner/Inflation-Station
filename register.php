@@ -10,6 +10,7 @@ session_start();
     <link rel="stylesheet" href="css/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap 5-->
+    
 </head>
 
 <body>

@@ -17,7 +17,7 @@ try {
             $location = "admindashboard.php";
             $isAdmin = true; //if uuid is passed then process is admin 
 
-        } elseif (!empty($_SESSION['id'])) { // if true then the request is from a regular user changing their information
+        } elseif (isset($_SESSION['id'])) { // if true then the request is from a regular user changing their information
             $changeUserId = $_SESSION['id'];
             $location = "profile.php";
         }
@@ -60,10 +60,11 @@ try {
         SET password = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
-        $statement->bindValue(1, md5($_POST['pass']));
+        $statement->bindValue(1, $_POST['pass']);
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         }
+        
         if(!empty($_POST['profilePicture'])) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 

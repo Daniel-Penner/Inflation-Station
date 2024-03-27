@@ -1,5 +1,31 @@
 <?php
 session_start();
+
+// Function to validate password using regex
+function validatePassword($password) {
+    // Password pattern without spaces
+    $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
+    return preg_match($pattern, $password);
+}
+
+function validateEmail($email) {
+    // Email pattern without spaces
+    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+    return preg_match($pattern, $email);
+}
+
+function validateFirstName($fname) {
+    // First name pattern without spaces
+    $pattern = '/^[A-Z][a-z]{0,39}$/';
+    return preg_match($pattern, $fname);
+}
+
+function validateLastName($lname) {
+    // Last name pattern without spaces
+    $pattern = '/^[A-Z][a-z]{0,39}$/';
+    return preg_match($pattern, $lname);
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +40,27 @@ session_start();
 <body>
 <?php
         if($_SERVER['REQUEST_METHOD']=='POST'){
+            
         if (!empty($_POST['fname'])){
+            //validate attempted registeration
+            if (!validatePassword($_POST['password'])) {
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
+                exit();
+            }
+
+            if (!validateEmail($_POST['email'])) {
+                echo "<script>alert('Email is invalid.')</script>";
+                exit();
+            }
+            if (!validateFirstName($_POST['fname'])) {
+                echo "<script>alert('Email is invalid.')</script>";
+                exit();
+            }
+            if (!validateLastName($_POST['lname'])) {
+                echo "<script>alert('Email is invalid.')</script>";
+                exit();
+            }
+
         try{
             $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
             $username = "54925359";
