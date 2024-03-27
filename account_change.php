@@ -1,6 +1,6 @@
 <?php
 try {
-    include 'dbconnection';
+    include 'dbconnection.php';
     if (isset($_SESSION['type'])) { //check if admin
 
     } else { // if user is not admin
@@ -17,9 +17,10 @@ try {
         }
         if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
             header("Location: index.php"); // verify for any empty fields, if empty send them back to the homepage
+            exit();
         } 
         $sql = "UPDATE customer 
-        SET fname = ?, lname = ?, email = ?, password = ?, profilePicture = ?
+        SET fname = ?, lname = ?, email = ?, password = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
         
@@ -27,8 +28,16 @@ try {
         $statement->bindValue(2, $_POST['lname']);
         $statement->bindValue(3, $_POST['email']);
         $statement->bindValue(4, $_POST['pass']);
-        $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+        $statement->bindValue(5, $_POST[$changeUserId]);
         $statement->execute();
+        //have to update profile picture seperetly as it otherwise violates 
+        if(!empty($_POST['profilePicture'])) {
+            $sql = "UPDATE customer 
+            SET profilePicture = ?
+            WHERE customerId = ?";
+            $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
+            $statement->bindValue(2, $changeUserId);
+        }
     }
 } catch (PDOException $e) {
     die($e->getMessage());

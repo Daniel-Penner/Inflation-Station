@@ -17,12 +17,12 @@ include 'dbconnection.php';
     <?php
     try {
         include 'dbconnection';
-        /*if (isset($_SESSION['type'])) { //check if admin
+        if (isset($_SESSION['type'])) { //check if admin
     
         } else { // if user is not admin
             header("Location: index.php");
             exit();
-        }*/
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_POST['uuid'])) {
 
@@ -117,7 +117,7 @@ include 'dbconnection.php';
         <br><br>
         <form action="account_change.php" id="accountChange" method="POST">
             <label for="pfp" class="form-label">Profile Picture</label><br>
-            <input id="pfp" class="form-control" type="file" name="pfp" required accept="image/jpeg" value="<?php echo $profilePicture; ?>"/><br>
+            <input id="pfp" class="form-control" type="file" name="pfp" required accept="image/jpeg"/><br>
             <input type='hidden' name='uuid' value="<?php echo $customerId; ?>"> <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             <label for="fname" class="form-label">First name</label>
             <input type="text" class="form-control" id="fname" name="fname"
