@@ -70,8 +70,8 @@ try {
             SET profilePicture = NULL
             WHERE customerId = ?";
             $statement = $pdo->prepare($sql);
-            $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
-            $statement->bindValue(2, $changeUserId);
+            //$statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
+            $statement->bindValue(1, $changeUserId);
             $statement->execute();
             $_SESSION['pfp'] = $_POST['profilePicture'];
         }
