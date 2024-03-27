@@ -1,46 +1,5 @@
 <?php
 session_start();
-
-// Function to validate password using regex
-function validatePassword($password) {
-    // Regex pattern for password: 8-30 length, only letters, digits 1-9, !, and ?
-    $pattern = '/^[a-zA-Z1-9!?]{8,30}$/';
-    return preg_match($pattern, $password);
-}
-
-// Function to validate first and last names
-function validateName($name) {
-    // Assuming names should only contain letters
-    $pattern = '/^[a-zA-Z]+$/';
-    return preg_match($pattern, $name);
-}
-
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-
-    // Validate password
-    if (!validatePassword($password)) {
-        echo "Password must be 8-30 characters long and contain only letters, digits 1-9, !, and ?";
-        header('location: register.php');
-        exit();
-    }
-
-    // Validate first and last names
-    if (!validateName($fname) || !validateName($lname)) {
-        echo "First name and last name can only contain letters.";
-        header('location: register.php');
-        exit();
-    }
-
-
-
-
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $statement->bindValue(1, $_POST['fname']);
             $statement->bindValue(2, $_POST['lname']);
             $statement->bindValue(3, $_POST['email']);
-            $statement->bindValue(4, $_POST['password']);
+            $statement->bindValue(4, md5($_POST['password']));
             $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
             $statement->execute();
         }

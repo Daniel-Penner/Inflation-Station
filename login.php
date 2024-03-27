@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -76,7 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }
                     }
-
                 }
                 if (!$emailMatch) {
                     echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
