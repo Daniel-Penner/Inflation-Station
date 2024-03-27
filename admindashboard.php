@@ -24,7 +24,7 @@ include 'dbconnection.php';
             exit();
         }*/
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (!empty($_POST['userSearch'])) {
+            if (!empty($_POST['uuid'])) {
 
                 $sql = "SELECT * FROM customer WHERE customerId=?";
                 $statement = $pdo->prepare($sql);
