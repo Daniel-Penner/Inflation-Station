@@ -23,12 +23,11 @@ try {
         SET fname = ?, lname = ?, email = ?, password = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
-        $pass = md5($pass); //hash password
         $statement->bindValue(1, $_POST['fname']);
         $statement->bindValue(2, $_POST['lname']);
         $statement->bindValue(3, $_POST['email']);
-        $statement->bindValue(4, $_POST['pass']);
-        $statement->bindValue(5, $_POST[$changeUserId]);
+        $statement->bindValue(4, md5($_POST['pass']));
+        $statement->bindValue(5, $changeUserId);
         $statement->execute();
         //have to update profile picture seperetly as it otherwise violates 
         if(!empty($_POST['profilePicture'])) {

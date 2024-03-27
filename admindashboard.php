@@ -117,7 +117,7 @@ include 'dbconnection.php';
         <br><br>
         <form action="account_change.php" id="accountChange" method="POST">
             <label for="pfp" class="form-label">Profile Picture</label><br>
-            <input id="pfp" class="form-control" type="file" name="pfp" required accept="image/jpeg"/><br>
+            <input id="profilePicture" class="form-control" type="file" name="profilePicture" required accept="image/jpeg"/><br>
             <input type='hidden' name='uuid' value="<?php echo $customerId; ?>"> <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             <label for="fname" class="form-label">First name</label>
             <input type="text" class="form-control" id="fname" name="fname"
