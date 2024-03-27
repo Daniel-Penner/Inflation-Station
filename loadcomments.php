@@ -2,7 +2,7 @@
 session_start();
 include 'dbconnection.php';
 try {
-    
+
     //Fetch Comment Information
     $sql = "SELECT reviewId, reviewRating, reviewDate, r.customerId, reviewComment, fname, lname, profilePicture 
                         FROM review r JOIN customer c ON r.customerId=c.customerId 
@@ -44,8 +44,8 @@ try {
             echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>
                                           <p style="position: relative; text-align:left;">' . $comment['reviewComment'] . '</p>';
             //red x to delete comment by admin
-            if(isset($_SESSION['type'])) {
-                 echo '<span class="deleteComment" data-commentId="' . $comment['reviewId'] . '" style="font-size: 10px; color: red; cursor: pointer;">&#10060;</span>';
+            if (isset($_SESSION['type'])) {
+                echo '<span class="deleteComment" data-commentId="' . $comment['reviewId'] . '" style="font-size: 10px; color: red; cursor: pointer;">&#10060;</span>';
             }
             echo '</div>';
             echo '<br>';
@@ -55,5 +55,5 @@ try {
     }
 
 } catch (PDOException $e) {
-    die ($e->getMessage());
+    die($e->getMessage());
 }
