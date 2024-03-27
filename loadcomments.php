@@ -30,7 +30,6 @@ try {
             $comments[] = $temp;
         }
         // add to comments array
-
         foreach ($comments as $comment) {
             echo '<div class="row justify-content-center"
                                     style="max-width:50rem; background-color:rgb(182,212,189); margin: 0 auto; border-radius: 1rem; padding: 1rem; overflow-y: auto;">';
@@ -38,7 +37,7 @@ try {
             echo '<div class="col-auto">';
             echo '<img src="data:image/jpeg;base64,' . base64_encode($comment['profilePicture']) .
                 '" alt="profile picture" width="40" height="40" style="border: 1px black solid; border-radius: 50%;">';
-            // commenter's name
+            // commenter name
             echo '<span>' . $comment['fname'] . ' ' . $comment['lname'] . '</span></div>';
             // rating and comment
             echo '<span style="position: relative; text-align: right;">Rating: <span style="color:red"><strong>' . $comment['reviewRating'] . '</strong></span></span>

@@ -101,6 +101,7 @@ session_start();
     </div>
 
 
+
     <div class="container" style="text-align:left;">
         <div class="row">
             <div class="col-8">
@@ -108,7 +109,10 @@ session_start();
                 echo '<img src="data:image/jpeg;base64,' . base64_encode($profilePicture) . '" width="200rem" height="200rem" style="border: 1px black solid; border-radius: 50%; position: relative; top: 5rem;"/>';
                 ?>
                 <!--Use user name from the database -->
-                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User: <?php echo $fname; echo " "; echo $lname; ?>
+                <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User:
+                    <?php echo $fname;
+                    echo " ";
+                    echo $lname; ?>
                 </h1>
             </div>
         </div>
@@ -119,7 +123,7 @@ session_start();
 
             <input type='hidden' name='uuid' value="<?php echo $customerId; ?>">
             <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
-            
+
             <label for="fname" class="form-label">First name</label>
             <input type="text" class="form-control" id="fname" name="fname" placeholder="First name"><br>
 
@@ -127,16 +131,29 @@ session_start();
             <input type="text" class="form-control" id="lname" name="lname" placeholder="Last name"><br>
 
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="example@mail.com" ><br>
-            
+            <input type="text" class="form-control" id="email" name="email" placeholder="example@mail.com"><br>
+
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" placeholder="Please enter your new password.">
+            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password"
+                placeholder="Please enter your new password.">
 
             <div id="passHelp" class="form-text">
-            Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
+                Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
             <br><br>
-            <button type='submit' class='btn btn-success btn-lg'>Submit</button>
+            <input type="hidden" name="isBanned" id="isBannedInput" value="false"> <!-- Hidden input field -->
+            <button class="btn btn-lg btn-outline-danger mt-3" type="button" onclick="banUser()">Ban User</button>
+            <script>
+                function banUser() {
+                    // Set the value of the hidden input field to "true"
+                    document.getElementById("isBannedInput").value = "true";
+                    // Submit the form
+                    document.getElementById("adminChangeSubmit").submit();
+                }
+            </script>
+            <br><br>
+            <button id="adminChangeSubmit" type='submit' class='btn btn-success btn-lg'>Submit</button>
+
         </form>
         <br>
 

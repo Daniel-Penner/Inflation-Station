@@ -21,6 +21,15 @@ try {
             $changeUserId = $_SESSION['id'];
             $location = "profile.php";
         }
+        //If isBaned == true 
+        if(($_POST['isBanned']) == true) {
+            $sql = "UPDATE customer 
+        SET isBanned = 1
+        WHERE customerId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $changeUserId);
+        $statement->execute();
+        }
         // Update fname if entered
         if(!empty($_POST['fname'])) {
             $sql = "UPDATE customer 

@@ -52,9 +52,14 @@ function validateEmail($email)
                 $pdo = new PDO($connectionString, $username, $password);
                 $existingEmail = false;
                 $fileContent = file_get_contents($_POST['pfp']);
-                $sql = "SELECT customerId, email, fname, password, profilePicture, customerType FROM customer";
+                $sql = "SELECT customerId, email, fname, password, profilePicture, customerType, isBanned FROM customer";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
+                //If user is banned (0 -> not banned 1 -> banned)
+                if($row['isBanned'] == 1) {
+                    echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
+                    exit();
+                }
                 $emailMatch = false;
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     if ($_POST['email'] == $row['email']) {
@@ -67,6 +72,7 @@ function validateEmail($email)
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
                             $_SESSION['lname'] = $row['lname'];
+                            $_SESSION['isBanned'] = $row['isBanned'];
                         } else {
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }
