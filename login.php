@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     if ($_POST['email'] == $row['email']) {
                         $emailMatch = true;
-                        if (md5($_POST['pass']) == $row['password']) {
+                        if (md5($_POST['password']) == $row['password']) {
                             $_SESSION['pfp'] = $row['profilePicture'];
                             if (!is_null($row['customerType'])) {
                                 $_SESSION['type'] = $row['customerType'];
@@ -140,10 +140,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="row justify-content-center mx-auto">
                 <div class="col-4">
-                    <label for="pass">
+                    <label for="password">
                         <p style="font-size:25px;"><i>Password</i></p>
                     </label><br>
-                    <input type="pass" name="pass" class="form-control" id="pass" placeholder="Password"
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password"
                         required><br>
                 </div>
             </div>
