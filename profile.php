@@ -65,7 +65,7 @@ session_start();
             </div>
         </div>
         <br><br>
-        <form action="/action_page.php" id="form1">
+        <form action="account_change.php" method="POST" id="userChange">
             <label for="fname" class="form-label">First name</label>
             <!--Replace placeholder with user information from the database-->
             <input type="text" class="form-control" id="fname" name="fname" placeholder="Change First Name"><br>
@@ -80,7 +80,6 @@ session_start();
                 special characters, or emoji.</div><br><br>
             <input type="submit" value="Save Changes" class="btn btn-success">
         </form>
-
     </div>
 </body>
 
