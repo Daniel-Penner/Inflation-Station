@@ -28,7 +28,7 @@ include 'dbconnection.php';
 
                 $sql = "SELECT * FROM customer WHERE customerId=?";
                 $statement = $pdo->prepare($sql);
-                $statement->bindValue(1, $_GET['uuid']);
+                $statement->bindValue(1, $_POST['uuid']);
                 $statement->execute();
                 $row = $statement->fetch();
 
@@ -94,9 +94,9 @@ include 'dbconnection.php';
         </div>
     </header>
     <div class="container" style="text-align:left;">
-        <form action="admindashboard.php" method="POST">
+        <form id="userSearch" action="admindashboard.php" method="POST">
             <label for="uuid" class="form-label mt-5">User Id</label>
-            <input class="form-control" type="text" name="uuid" placeholder="UUID">
+            <input class="form-control" type="text" name="uuid" id="uuid" placeholder="UUID">
             <button class="btn btn-outline-success mt-3" type="submit">Search</button>
         </form>
     </div>
