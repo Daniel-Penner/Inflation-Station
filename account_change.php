@@ -2,7 +2,8 @@
 session_start();
 try {
     include 'dbconnection.php';
-    
+    $location = '';
+    $isAdmin = false;
     if (isset($_SESSION['type'])) { //check if admin
 
     } else { // if user is not admin
@@ -13,9 +14,12 @@ try {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['uuid'])) { // if true the request is sent by admin dashboard
             $changeUserId = $_POST['uuid'];
+            $location = "admindashboard.php";
+            $isAdmin = true; //if uuid is passed then process is admin 
 
         } elseif (isset($_SESSION['id'])) { // if true then the request is from a regular user changing their information
             $changeUserId = $_SESSION['id'];
+            $location = "profile.php";
         }
         if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
             header("Location: index.php"); // verify for any empty fields, if empty send them back to the homepage
@@ -42,7 +46,17 @@ try {
             $statement->bindValue(2, $changeUserId);
             $statement->execute();
         }
+        if($isAdmin == false) {
+            $_SESSION['pfp'] = $_POST['profilePicture'];
+            $_SESSION['fname'] = $_POST['fname'];
+            $_SESSION['lname'] = $_POST['lname'];
+            $_SESSION['email'] = $_POST['email'];
+        }
+        
     }
+    header('Location: ' . $location);
+    echo "<script>alert('Account data successfully updated.')</script>";
+    exit();
 } catch (PDOException $e) {
     die($e->getMessage());
 }
