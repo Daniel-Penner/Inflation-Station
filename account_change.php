@@ -60,7 +60,7 @@ try {
         SET password = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
-        $statement->bindValue(1, $_POST['pass']);
+        $statement->bindValue(1, md5($_POST['pass']));
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         }
