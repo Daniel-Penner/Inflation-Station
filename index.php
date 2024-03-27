@@ -145,7 +145,6 @@ session_start();
             </div>
         </div>
     </div>
-    <img src="images/tgrass.png" style="width:1522px; height:300px;">
 </body>
 
 </html>

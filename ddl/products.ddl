@@ -1,32 +1,21 @@
 CREATE DATABASE products;
-go
-
 USE products;
-go
-
-DROP TABLE review;
-DROP TABLE product;
-DROP TABLE category;
-DROP TABLE customer;
-
-
 CREATE TABLE customer (
-    customerId          INT IDENTITY,
+    customerId          INT AUTO_INCREMENT,
     name                VARCHAR(40),
     email               VARCHAR(50),
-    phonenum            VARCHAR(20),
     password            VARCHAR(30),
     PRIMARY KEY (customerId)
 );
 
 CREATE TABLE category (
-    categoryId          INT IDENTITY,
+    categoryId          INT AUTO_INCREMENT,
     categoryName        VARCHAR(50),    
     PRIMARY KEY (categoryId)
 );
 
 CREATE TABLE product (
-    productId           INT IDENTITY,
+    productId           INT AUTO_INCREMENT,
     productName         VARCHAR(40),
     productPrice        DECIMAL(10,2),
     productImageURL     VARCHAR(100),
@@ -37,7 +26,7 @@ CREATE TABLE product (
 );
 
 CREATE TABLE review (
-    reviewId            INT IDENTITY,
+    reviewId            INT AUTO_INCREMENT,
     reviewRating        INT,
     reviewDate          DATETIME,   
     customerId          INT,
@@ -49,5 +38,3 @@ CREATE TABLE review (
     FOREIGN KEY (productId) REFERENCES product(productId)
         ON UPDATE CASCADE ON DELETE CASCADE
 );
-
-go
