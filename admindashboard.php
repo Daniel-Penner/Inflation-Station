@@ -14,7 +14,6 @@ session_start();
 
 <body>
     <?php
-    $customerId = 0;
     try {
         include 'dbconnection.php';
         if (isset($_SESSION['type'])) { //check if admin
