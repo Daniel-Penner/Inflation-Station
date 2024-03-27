@@ -130,7 +130,7 @@ session_start();
             <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>"><br>
             
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" value="<?php echo $pass; ?>">
+            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" required placeholder="Please enter your new password.">
             <div id="passHelp" class="form-text">
             Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
