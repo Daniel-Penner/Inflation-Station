@@ -66,6 +66,7 @@ function validateEmail($email)
                             }
                             $_SESSION['id'] = $row['customerId'];
                             $_SESSION['fname'] = $row['fname'];
+                            $_SESSION['lname'] = $row['lname'];
                         } else {
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }

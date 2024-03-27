@@ -65,20 +65,27 @@ session_start();
             </div>
         </div>
         <br><br>
-        <form action="account_change.php" method="POST" id="userChange">
+        <form action="account_change.php" id="accountChange" method="POST" enctype="multipart/form-data">
+            <label for="profilePicture" class="form-label">Profile Picture</label><br>
+            <input id="profilePicture" class="form-control" type="file" name="profilePicture" accept="image/jpeg" /><br>
+            <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             <label for="fname" class="form-label">First name</label>
-            <!--Replace placeholder with user information from the database-->
-            <input type="text" class="form-control" id="fname" name="fname" placeholder="Change First Name"><br>
+            <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $fname; ?>" required><br>
+
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname" placeholder="Change Last Name"><br>
+            <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $lname; ?>" required><br>
+
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Change Email"><br>
+            <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>"required ><br>
+            
             <label for="pass" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pass" name="pass" placeholder="Change Password">
+            <input type="password" class="form-control" id="pass" name="pass" autocomplete="password" required placeholder="Please enter your new password.">
+
             <div id="passHelp" class="form-text">
-                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces,
-                special characters, or emoji.</div><br><br>
-            <input type="submit" value="Save Changes" class="btn btn-success">
+            Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
+            <br>
+            <br><br>
+            <button type='submit' class='btn btn-success btn-lg'>Submit</button>
         </form>
     </div>
 </body>

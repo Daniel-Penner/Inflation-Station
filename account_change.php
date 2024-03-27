@@ -12,7 +12,7 @@ try {
     }
     $changeUserId = 0;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (!empty($_POST['uuid'])) { // if true the request is sent by admin dashboard
+        if (isset($_POST['uuid'])) { // if true the request is sent by admin dashboard
             $changeUserId = $_POST['uuid'];
             $location = "admindashboard.php";
             $isAdmin = true; //if uuid is passed then process is admin 
@@ -21,17 +21,49 @@ try {
             $changeUserId = $_SESSION['id'];
             $location = "profile.php";
         }
-        $sql = "UPDATE customer 
-        SET fname = ?, lname = ?, email = ?, password = ?
+        // Update fname if entered
+        if(isset($_POST['fname'])) {
+            $sql = "UPDATE customer 
+        SET fname = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1, $_POST['fname']);
-        $statement->bindValue(2, $_POST['lname']);
-        $statement->bindValue(3, $_POST['email']);
-        $statement->bindValue(4, md5($_POST['pass']));
-        $statement->bindValue(5, $changeUserId);
+        $statement->bindValue(2, $changeUserId);
         $statement->execute();
-        //have to update profile picture seperetly as it otherwise violates 
+        $_SESSION['fname'] = $_POST['fname'];
+        }
+        //update lname if entered
+        if(isset($_POST['lname'])) {
+            $sql = "UPDATE customer 
+        SET lname = ?
+        WHERE customerId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $_POST['lname']);
+        $statement->bindValue(2, $changeUserId);
+        $statement->execute();
+        $_SESSION['lname'] = $_POST['lname'];
+        }
+        //update email if entered
+        if(isset($_POST['email'])) {
+            $sql = "UPDATE customer 
+        SET email = ?
+        WHERE customerId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $_POST['email']);
+        $statement->bindValue(2, $changeUserId);
+        $statement->execute();
+        $_SESSION['email'] = $_POST['email'];
+        }
+        //update password if entered
+        if(isset($_POST['pass'])) {
+            $sql = "UPDATE customer 
+        SET password = ?
+        WHERE customerId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, $_POST['pass']);
+        $statement->bindValue(2, $changeUserId);
+        $statement->execute();
+        }
         if(isset($_POST['profilePicture'])) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
@@ -41,14 +73,15 @@ try {
             $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
             $statement->bindValue(2, $changeUserId);
             $statement->execute();
-        }
-        if($isAdmin == false) {
             $_SESSION['pfp'] = $_POST['profilePicture'];
+        }
+        //have to update profile picture seperetly as it otherwise violates 
+        if($isAdmin == false) {
+            
             $_SESSION['fname'] = $_POST['fname'];
             $_SESSION['lname'] = $_POST['lname'];
             $_SESSION['email'] = $_POST['email'];
         }
-        
     }
     header('Location: ' . $location);
     echo "<script>alert('Account data successfully updated.')</script>";
