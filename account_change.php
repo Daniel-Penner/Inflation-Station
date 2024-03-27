@@ -32,7 +32,7 @@ try {
         $statement->bindValue(5, $changeUserId);
         $statement->execute();
         //have to update profile picture seperetly as it otherwise violates 
-        if(!empty($_POST['profilePicture'])) {
+        if(isset($_POST['profilePicture'])) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
             SET profilePicture = ?
