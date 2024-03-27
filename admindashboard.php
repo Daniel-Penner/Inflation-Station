@@ -43,7 +43,7 @@ session_start();
                                     <a class="nav-link" href="search.php">Explore</a>
                                     <?php
                                     if(isset($_SESSION['type'])) {
-                                        echo '<a class="nav-link" href="admindashboard.php">Admin</a>';
+                                        echo '<a class="nav-link" style="color: rgb(232, 39, 39);" href="admindashboard.php">Admin</a>';
                                     }
                                     ?>
                                 </div>
