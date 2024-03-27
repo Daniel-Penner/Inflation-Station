@@ -30,7 +30,9 @@ try {
         $statement->bindValue(1, $_POST['fname']);
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
+        if($isAdmin == false) {
         $_SESSION['fname'] = $_POST['fname'];
+        }
         }
         //update lname if entered
         if(!empty($_POST['lname'])) {
@@ -41,7 +43,9 @@ try {
         $statement->bindValue(1, $_POST['lname']);
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
+        if($isAdmin == false) {
         $_SESSION['lname'] = $_POST['lname'];
+        }
         }
         //update email if entered
         if(!empty($_POST['email'])) {
@@ -52,7 +56,9 @@ try {
         $statement->bindValue(1, $_POST['email']);
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
+        if($isAdmin == false) {
         $_SESSION['email'] = $_POST['email'];
+        }
         }
         //update password if entered
         if(!empty($_POST['pass'])) {
@@ -64,8 +70,7 @@ try {
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         }
-        
-        if(!empty($_POST['profilePicture'])) {
+        if($_FILES['profilePicture']['error'] == UPLOAD_ERR_OK) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
             SET profilePicture = ?
@@ -74,14 +79,9 @@ try {
             $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
             $statement->bindValue(2, $changeUserId);
             $statement->execute();
-            $_SESSION['pfp'] = $_POST['profilePicture'];
-        }
-        //have to update profile picture seperetly as it otherwise violates 
-        if($isAdmin == false) {
-            
-            $_SESSION['fname'] = $_POST['fname'];
-            $_SESSION['lname'] = $_POST['lname'];
-            $_SESSION['email'] = $_POST['email'];
+            if($isAdmin == false) {
+            $_SESSION['pfp'] = $profilePicture;
+            }
         }
     }
     header('Location: ' . $location);
