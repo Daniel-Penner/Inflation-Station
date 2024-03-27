@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     if ($_POST['email'] == $row['email']) {
                         $emailMatch = true;
-                        if ($_POST['password'] == $row['password']) {
+                        if (md5($_POST['password']) == $row['password']) {
                             $_SESSION['pfp'] = $row['profilePicture'];
                             if (!is_null($row['customerType'])) {
                                 $_SESSION['type'] = $row['customerType'];
