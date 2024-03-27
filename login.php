@@ -14,9 +14,6 @@ function validateName($name) {
     $pattern = '/^[a-zA-Z]+$/';
     return preg_match($pattern, $name);
 }
-
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -26,14 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate password
     if (!validatePassword($password)) {
         echo "Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?";
-        header("Location: login.php");
         exit();
     }
 
     // Validate first and last names
     if (!validateName($fname) || !validateName($lname)) {
         echo "First name and last name can only contain letters.";
-        header("Location: login.php");
         exit();
     }
 }
