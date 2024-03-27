@@ -80,7 +80,7 @@ try {
             $statement->bindValue(2, $changeUserId);
             $statement->execute();
             if($isAdmin == false) {
-            $_SESSION['pfp'] = $_POST['profilePicture'];
+            $_SESSION['pfp'] = $_FILES['profilePicture']['tmp_name']
             }
         }
     }
