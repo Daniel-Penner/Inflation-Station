@@ -16,7 +16,6 @@ include 'dbconnection.php';
 <body>
     <?php
     try {
-        include 'dbconnection';
         if (isset($_SESSION['type'])) { //check if admin
     
         } else { // if user is not admin
@@ -115,32 +114,24 @@ include 'dbconnection.php';
             </div>
         </div>
         <br><br>
-        <form action="account_change.php" id="accountChange" method="POST">
+        <form action="account_change.php" id="accountChange" method="POST" enctype="multipart/form-data">
             <label for="pfp" class="form-label">Profile Picture</label><br>
-            <input id="profilePicture" class="form-control" type="file" name="profilePicture" required accept="image/jpeg"/><br>
-            <input type='hidden' name='uuid' value="<?php echo $customerId; ?>"> <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
+            <input id="profilePicture" class="form-control" type="file" name="profilePicture" accept="image/jpeg" /><br>
+            <input type='hidden' name='uuid' value="<?php echo $customerId; ?>">
+            <!--customerId to be passed hidden to account_change to determine if its an admin or user request-->
             <label for="fname" class="form-label">First name</label>
-            <input type="text" class="form-control" id="fname" name="fname"
-                value="<?php echo $fname; ?>"><br>
+            <input type="text" class="form-control" id="fname" name="fname" value="<?php echo $fname; ?>"><br>
             <label for="lname" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lname" name="lname"
-            value="<?php echo $lname; ?>"><br>
+            <input type="text" class="form-control" id="lname" name="lname" value="<?php echo $lname; ?>"><br>
             <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email"
-            value="<?php echo $email; ?>"><br>
+            <input type="text" class="form-control" id="email" name="email" value="<?php echo $email; ?>"><br>
             <label for="pass" class="form-label">Password</label>
             <input type="password" class="form-control" id="pass" name="pass" value="<?php echo $pass; ?>">
             <div id="passHelp" class="form-text">
                 Your password must be 8-20 characters long, contain letters, numbers, and no spaces.</div>
             <br>
             <br><br>
-            <?php
-            if (isset($_SESSION['id'])) {
-                echo "<button type='submit' class='btn btn-success btn-lg'>Submit</button>";
-            } else {
-                echo "<button type='submit' class='btn btn-success btn-lg' disabled>Submit</button>";
-            }
-            ?>
+            <button type='submit' class='btn btn-success btn-lg'>Submit</button>
         </form>
         <br>
 

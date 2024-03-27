@@ -15,10 +15,10 @@ try {
         } elseif (isset($_SESSION['id'])) { // if true then the request is from a regular user changing their information
             $changeUserId = $_SESSION['id'];
         }
-        if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
+       /* if(!empty($_POST['fname']) && !empty($_POST['lname']) && !empty($_POST['email']) && !empty($_POST['pass'])) {
             header("Location: index.php"); // verify for any empty fields, if empty send them back to the homepage
             exit();
-        } 
+        } */
         $sql = "UPDATE customer 
         SET fname = ?, lname = ?, email = ?, password = ?
         WHERE customerId = ?";
@@ -31,11 +31,14 @@ try {
         $statement->execute();
         //have to update profile picture seperetly as it otherwise violates 
         if(!empty($_POST['profilePicture'])) {
+            $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
             SET profilePicture = ?
             WHERE customerId = ?";
+            $statement = $pdo->prepare($sql);
             $statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
             $statement->bindValue(2, $changeUserId);
+            $statement->execute();
         }
     }
 } catch (PDOException $e) {
