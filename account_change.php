@@ -73,7 +73,7 @@ try {
         if(!empty($_POST['profilePicture'])) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
-            SET profilePicture = NULL
+            SET profilePicture = NULL, Name = 'James'
             WHERE customerId = ?";
             $statement = $pdo->prepare($sql);
             //$statement->bindParam(1, $profilePicture, PDO::PARAM_LOB);
