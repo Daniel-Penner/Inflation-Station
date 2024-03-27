@@ -70,7 +70,7 @@ try {
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         }
-        if(!empty($_POST['profilePicture'])) {
+        if($_FILES['profilePicture']['error'] == UPLOAD_ERR_OK) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
             SET profilePicture = NULL, fname = 'James'
