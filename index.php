@@ -3,7 +3,7 @@ session_start();
 
 // Function to validate password using regex
 function validatePassword($password) {
-    // Password pattern without spaces
+    // Password pattern
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
@@ -15,13 +15,13 @@ function validateEmail($email) {
 }
 
 function validateFirstName($fname) {
-    // First name pattern without spaces
+    // first name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $fname);
 }
 
 function validateLastName($lname) {
-    // Last name pattern without spaces
+    // last name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $lname);
 }
