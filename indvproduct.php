@@ -203,6 +203,7 @@ date_default_timezone_set('Canada/Pacific');
             method: 'POST',
             data: { commentId: commentId },
             success: function(response) {
+                this.closest('.row').delete()
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
                     console.log('Comment deleted successfully');
@@ -231,6 +232,6 @@ date_default_timezone_set('Canada/Pacific');
     }
     loadComments();
     // call every 5s
-    setInterval(loadComments, 500); 
+    setInterval(loadComments, 5000); 
     
 </script>
