@@ -16,12 +16,12 @@ session_start();
     <?php
     try {
         include 'dbconnection.php';
-        /*if (isset($_SESSION['type'])) { //check if admin
+        if (isset($_SESSION['type'])) { //check if admin
     
         } else { // if user is not admin
             header("Location: index.php");
             exit();
-        }*/
+        }
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_POST['uuid'])) {
 
