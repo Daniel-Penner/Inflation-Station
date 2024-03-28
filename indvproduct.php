@@ -196,8 +196,9 @@ date_default_timezone_set('Canada/Pacific');
 
 <script> 
     //on red x click delete the comment asynchronously
-    $(document).on('click', '.deleteComment', function() {
+    $(document).on('click', '.deleteComment', function(comment) {
         var commentId = $('this').data('commentId');
+        commentId = comment.getAttribute("data-commentId");
         alert(commentId);
         $.ajax({
             url: 'deletecomment.php', 

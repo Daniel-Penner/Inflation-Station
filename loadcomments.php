@@ -46,7 +46,6 @@ try {
             if (isset($_SESSION['type'])) {
                 echo '<span class="deleteComment" data-commentId="' . $comment['reviewId'] . '" style="font-size: 10px; color: red; cursor: pointer;">&#10060;</span>';
                 echo 'User ID: ' . $_SESSION['id'];
-                echo "<script> $( 'span' ).last().data('commentId'," . $comment['reviewId'] . "); </script>";
             }
             echo '</div>';
             echo '<br>';
