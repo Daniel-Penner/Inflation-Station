@@ -115,7 +115,10 @@ session_start();
                     echo " ";
                     echo $lname; 
                     echo " ";
-                    echo $isBanned;
+                    if($isBanned == 1) {
+                        echo '<span style="color:red;">[Banned]</span>';
+                    }
+                   
                     ?>
                 </h1>
             </div>
