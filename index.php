@@ -168,7 +168,7 @@ function validateLastName($lname) {
                 try {
                     include 'dbonnection.php';
                     $sql = "SELECT * FROM product LIMIT 4;";
-                    $statement = $pdo->prepare($sql);
+                    //$statement = $pdo->prepare($sql);
                     //$statement->execute();
                     //while ($row = $statement->fetch()) {
                         //echo $row['productId'];
