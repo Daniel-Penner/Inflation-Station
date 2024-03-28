@@ -37,16 +37,13 @@ function validateLastName($lname) {
         if (!empty($_POST['fname'])) {
             //validate attempted registeration
             if (!validatePassword($_POST['password'])) {
-                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
-                header('Location: register.php');
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?'); window.location.href = 'register.php';</script>"; 
                 exit();
             } else if (!validateFirstName($_POST['fname'])) {
-                echo "<script>alert('Email is invalid.')</script>";
-                header('Location: register.php');
+                echo "<script>alert('First name is invalid.'); window.location.href = 'register.php';</script>"; 
                 exit();
             } else if (!validateLastName($_POST['lname'])) {
-                echo "<script>alert('Email is invalid.')</script>";
-                header('Location: register.php');
+                echo "<script>alert('Last name is invalid.'); window.location.href = 'register.php';</script>"; 
                 exit();
             }
 
