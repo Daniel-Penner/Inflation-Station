@@ -27,9 +27,8 @@ function validatePassword($password) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['email'])) {
             // Validate password
-            if (!validatePassword($_POST['password'])) {           
-                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
-                header('Location: login.php');
+            if (!validatePassword($_POST['password'])) {    
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?'); window.location.href = 'login.php';</script>"; 
                 exit();
             }
             try {
@@ -48,8 +47,8 @@ function validatePassword($password) {
                 $emailMatch = false;
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     if ($row['isBanned'] == "true") {
-                        header('Location: index.php');
                         echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
+                        header('Location: index.php');
                         exit();
                     }
                     if ($_POST['email'] == $row['email']) {
