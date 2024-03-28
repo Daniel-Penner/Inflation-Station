@@ -16,9 +16,7 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
 }
 
 .container{
-  display: inline-block;
   border: solid black 1px;
-  padding-left: 200px;
 }
   
 .boxcaption{
