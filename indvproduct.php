@@ -206,7 +206,7 @@ date_default_timezone_set('Canada/Pacific');
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
                     remove(commentId);
-                    $(this).closest('.comment-container').remove();
+                    this.closest('.comment-container').remove();
                     console.log('Comment deleted successfully');
                 } else {
                     console.log('Failed to delete comment');
