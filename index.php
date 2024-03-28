@@ -163,7 +163,9 @@ function validateLastName($lname) {
             <div class="row justify-content-center mx-auto">
                 <p style="font-size:25px; color:white;"><strong>Trending Products</strong></p>
                 <hr style="color:white; height:8px;" />
+                <p>To be implemented in the final milestone.</p>
                 <?php
+                
                 // get products for home page
                 /*try {
                     $connectionString = "mysql:host=localhost;dbname=db_54925359";
