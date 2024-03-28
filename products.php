@@ -55,7 +55,7 @@ session_start();
             <h5 style="text-align:center; color:white; font-size:50px;">Products</h5>
         </div>
     </header>
-    <div class="container">
+    <div class="container-cards">
     <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
