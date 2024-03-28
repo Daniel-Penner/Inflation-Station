@@ -28,8 +28,8 @@ function validatePassword($password) {
         if (!empty($_POST['email'])) {
             // Validate password
             if (!validatePassword($_POST['password'])) {           
-                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
                 header('Location: login.php');
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
                 exit();
             }
             try {
