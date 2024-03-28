@@ -10,12 +10,13 @@ try {
             $changeUserId = $_POST['uuid'];
             $location = "admindashboard.php";
             $isAdmin = true; //if uuid is passed then process is admin 
-            echo "<script>alert(" . $changeUserId . ")</script>";
+            echo "<script>alert('hi')</script>";
 
         } elseif (isset($_SESSION['id'])) { // if true then the request is from a regular user changing their information
             $changeUserId = $_SESSION['id'];
             $location = "profile.php";
         }
+        echo "<script>alert('hello')</script>";
         if(isset($_POST['isBanned'])){
         //If isBaned == true 
         if(($_POST['isBanned']) == "true") {
