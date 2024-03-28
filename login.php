@@ -8,8 +8,6 @@ function validatePassword($password) {
     return preg_match($pattern, $password);
 }
 
-// Function to validate first and last names
-
 ?>
 <!DOCTYPE html>
 <html>
