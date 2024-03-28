@@ -30,6 +30,7 @@ try {
         $statement->bindValue(1, "true");
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
+        header('Location: admindashboard.php');
         echo "<script>alert('User has been banned from Inflation Station.')</script>";
         exit(); //exit if a user is banned, do not update other fields
         }
