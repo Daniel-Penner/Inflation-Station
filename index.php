@@ -166,9 +166,14 @@ function validateLastName($lname) {
                 <?php
                 // get products for home page
                 try {
-                    include 'dbonnection.php';
+                    $connectionString = "mysql:host=localhost;dbname=db_54925359";
+    $username = "54925359";
+    $password = "54925359";
+
+    // Create connection
+    $pdo = new PDO($connectionString, $username, $password);
                     $sql = "SELECT * FROM product LIMIT 4;";
-                    //$statement = $pdo->prepare($sql);
+                    $statement = $pdo->prepare($sql);
                     //$statement->execute();
                     //while ($row = $statement->fetch()) {
                         //echo $row['productId'];
