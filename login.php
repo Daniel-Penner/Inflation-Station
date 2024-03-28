@@ -44,12 +44,13 @@ function validatePassword($password) {
                 //If user is banned (0 -> not banned 1 -> banned)
                 $emailMatch = false;
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-                    if ($row['isBanned'] == "true") {
-                        echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
-                        header('Location: index.php');
-                        exit();
-                    }
                     if ($_POST['email'] == $row['email']) {
+                        if ($row['isBanned'] == "true") {
+                            echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.');</script>";
+                            header('Location: index.php');
+                            exit();
+                        }
+                        else{
                         $emailMatch = true;
                         if (md5($_POST['password']) == $row['password']) {
                             $_SESSION['pfp'] = $row['profilePicture'];
@@ -60,6 +61,7 @@ function validatePassword($password) {
                             $_SESSION['fname'] = $row['fname'];
                             $_SESSION['lname'] = $row['lname'];
                             $_SESSION['isBanned'] = $row['isBanned'];
+                        }
                         } else {
                             echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                         }
