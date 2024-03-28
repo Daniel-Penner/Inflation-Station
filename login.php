@@ -10,11 +10,8 @@ function validatePassword($password)
 }
 
 // Function to validate first and last names
-function validateEmail($email)
-{
-    // Email pattern
-    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-    return preg_match($pattern, $email);
+function validateEmail($email) {
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 ?>
 <!DOCTYPE html>
