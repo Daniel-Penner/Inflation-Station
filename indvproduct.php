@@ -205,6 +205,7 @@ date_default_timezone_set('Canada/Pacific');
             success: function(response) {
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
+                    alert("hi");
                     this.remove();
                     console.log('Comment deleted successfully');
                 } else {
