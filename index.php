@@ -164,7 +164,7 @@ function validateLastName($lname) {
                 // get products for home page
                 try {
                     include 'dbonnection.php';
-                    $sql = "SELECT * FROM product LIMIT 4";
+                    $sql = "SELECT * FROM product LIMIT 4;";
                     $statement = $pdo->prepare($sql);
                     $statement->execute();
                     while ($row = $statement->fetch()) {
