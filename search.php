@@ -21,7 +21,7 @@ session_start();
       <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="navborder">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light navround style = 'z-index: 1'">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
               <div class="container-fluid">
                 <div class="navbar-nav">
                   <?php 
