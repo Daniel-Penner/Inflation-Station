@@ -31,9 +31,22 @@ try {
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         header('Location: admindashboard.php');
-        echo "<script>alert('User has been banned from Inflation Station.')</script>";
+        echo "<script>alert('User has been BANNED from Inflation Station.')</script>";
+        exit(); //exit if a user is banned, do not update other fields
+        } else {
+        $sql = "UPDATE customer 
+        SET isBanned = ?
+        WHERE customerId = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1, "false");
+        $statement->bindValue(2, $changeUserId);
+        $statement->execute();
+        header('Location: admindashboard.php');
+        echo "<script>alert('User has been UNBANNED from Inflation Station.')</script>";
         exit(); //exit if a user is banned, do not update other fields
         }
+
+        
 
         // Update fname if entered
         if(!empty($_POST['fname'])) {
@@ -104,6 +117,7 @@ try {
     }
     header('Location: ' . $location);
     echo "<script>alert('Account data successfully updated.')</script>";
+    $pdo = null;
     exit();
 } catch (PDOException $e) {
     die($e->getMessage());
