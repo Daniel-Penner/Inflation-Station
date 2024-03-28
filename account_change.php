@@ -4,12 +4,6 @@ try {
     include 'dbconnection.php';
     $location = '';
     $isAdmin = false;
-    if (isset($_SESSION['type'])) { //check if admin
-
-    } else { // if user is not admin
-        header("Location: index.php");
-        exit();
-    }
     $changeUserId = 0;
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['uuid'])) { // if true the request is sent by admin dashboard
