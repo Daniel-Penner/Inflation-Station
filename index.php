@@ -160,7 +160,6 @@ function validateLastName($lname) {
             <div class="row justify-content-center mx-auto">
                 <p style="font-size:25px; color:white;"><strong>Trending Products</strong></p>
                 <hr style="color:white; height:8px;" />
-                <p>Hi</p>
                 <?php
                 // get products for home page
                 try {
@@ -170,7 +169,6 @@ function validateLastName($lname) {
                     $statement->execute();
                     while ($row = $statement->fetch()) {
                         echo $row['productId'];
-                        echo '<img src="' . $row["productImageURL"] . '"/>';
                     }
                 } catch (PDOException $e) {
                     die($e->getMessage());
@@ -178,6 +176,7 @@ function validateLastName($lname) {
 
 
                 ?>
+                <p>Hi</p>
                 <!--
                 <div class="col-3">
                     <div class="itembox"></div>
