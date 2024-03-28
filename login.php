@@ -59,6 +59,7 @@ function validateEmail($email)
                 $emailMatch = false;
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                     if ($row['isBanned'] == "true") {
+                        header('Location: index.php');
                         echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
                         exit();
                     }
