@@ -210,7 +210,6 @@ date_default_timezone_set('Canada/Pacific');
                     console.log('Failed to delete comment');
                 }
             }
-            $(this).closest('.row').remove();
         });
     });
     // load comments
