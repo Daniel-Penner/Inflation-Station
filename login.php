@@ -70,7 +70,6 @@ function validatePassword($password) {
                 if (!$emailMatch) {
                     echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
                 }
-                header('Location: index.php');
             } catch (PDOException $e) {
                 die($e->getMessage());
             }
