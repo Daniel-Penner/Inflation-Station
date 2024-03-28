@@ -52,16 +52,16 @@ function validateEmail($email)
                 $pdo = new PDO($connectionString, $username, $password);
                 $existingEmail = false;
                 $fileContent = file_get_contents($_POST['pfp']);
-                $sql = "SELECT customerId, email, fname, password, profilePicture, customerType, isBanned FROM customer";
+                $sql = "SELECT * FROM customer";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 //If user is banned (0 -> not banned 1 -> banned)
-                if($row['isBanned'] == "true") {
-                    echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
-                    exit();
-                }
                 $emailMatch = false;
                 while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    if ($row['isBanned'] == "true") {
+                        echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
+                        exit();
+                    }
                     if ($_POST['email'] == $row['email']) {
                         $emailMatch = true;
                         if (md5($_POST['password']) == $row['password']) {
