@@ -144,10 +144,10 @@ function validateLastName($lname)
     <br>
     <?php
     if (!isset($_SESSION['id'])) {
-        echo '<a href="logout.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log out</button></a>';
+        echo '<a href="login.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log in</button></a>';
 
     } else {
-        echo '<a href="login.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log in</button></a>';
+        echo '<a href="logout.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log out</button></a>';
     }
     ?>
     <br><br>
