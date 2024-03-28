@@ -203,7 +203,6 @@ date_default_timezone_set('Canada/Pacific');
             method: 'POST',
             data: { commentId: commentId },
             success: function(response) {
-                <?php header('Location: indvproduct.php'); exit(); ?>
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
                     console.log('Comment deleted successfully');
