@@ -53,7 +53,7 @@ try {
     } else {
         echo "No comments found for this product.";
     }
-
+    $pdo = null; //close db connection
 } catch (PDOException $e) {
     die($e->getMessage());
 }

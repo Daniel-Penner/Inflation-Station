@@ -113,12 +113,12 @@ session_start();
                 <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User:
                     <?php echo $fname;
                     echo " ";
-                    echo $lname; 
+                    echo $lname;
                     echo " ";
-                    if($isBanned == "true") {
+                    if ($isBanned == "true") {
                         echo '<span style="color:red;">[Banned]</span>';
                     }
-                   
+
                     ?>
                 </h1>
             </div>
@@ -152,7 +152,12 @@ session_start();
             <!-- Hidden input field -->
             <?php
             if (!empty($_POST['uuid'])) {
-                echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="banUser()">Ban User</button>';
+                if ($isBanned == "false") {
+                    echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="unbanUser()">Unban User</button>';
+                } else {
+                    echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="banUser()">Ban User</button>';
+                }
+
             } else {
                 echo '<p style="font-size:30px;">You must enter a User ID to make changes</p>';
             }
@@ -181,6 +186,15 @@ session_start();
         // If user confirms, update the hidden input value and submit the form
         if (confirmed) {
             document.getElementById("isBanned").value = "true";
+            document.getElementById("accountChange").submit();
+        }
+    }
+    function unbanUser() {
+        // Show confirmation dialog
+        var confirmed = window.confirm("Are you sure you want to unban this user?");
+        // If user confirms, update the hidden input value and submit the form
+        if (confirmed) {
+            document.getElementById("isBanned").value = "false";
             document.getElementById("accountChange").submit();
         }
     }
