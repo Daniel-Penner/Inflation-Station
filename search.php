@@ -87,7 +87,7 @@ session_start();
   <a href="search.php?category=4">Dairy</a>
   <a href="search.php?category=6">Beverages</a>
                     </div>
-  <div class="container">
+  <div class="container" id="prodcontainter">
     <div class="row justify-content-center row-cols-auto">
             <?php
             // Database connection
