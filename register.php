@@ -90,7 +90,9 @@ session_start();
                             <div class="col-6">
                                 <label for="password">
                                     <p style="font-size:25px;"><i>Password</i></p>
-                                </label><br>
+                                </label>
+                                <div id="passHelp" class="form-text">
+                Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div><br>
                               
                                 <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
 
