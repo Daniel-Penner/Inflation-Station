@@ -2,18 +2,14 @@
 session_start();
 
 // Function to validate password using regex
-function validatePassword($password)
-{
+function validatePassword($password) {
     // Password pattern
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
 
 // Function to validate first and last names
-function validateEmail($email) {
-    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-    return preg_match($pattern, $email);
-}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,12 +29,6 @@ function validateEmail($email) {
             // Validate password
             if (!validatePassword($_POST['password'])) {
                 echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
-                exit();
-            }
-
-            // Validate first and last names
-            if (!validateEmail($_POST['email'])) {
-                echo "<script>alert('Email is invalid.')</script>";
                 exit();
             }
             try {
