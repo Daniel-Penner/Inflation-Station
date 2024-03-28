@@ -9,7 +9,8 @@ function validatePassword($password) {
 }
 // validate email address
 function validateEmail($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
+    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+    return preg_match($pattern, $email);
 }
 
 function validateFirstName($fname) {
