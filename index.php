@@ -144,13 +144,10 @@ function validateLastName($lname)
     <br>
     <?php
     if (!isset($_SESSION['id'])) {
-        echo '<p style="font-size:150%;"><a href="login.php">Log in</a></p>
-    <p style="font-size:150%;">|</p>
-    <p style="font-size:150%;">Log out</p>';
+        echo '<a href="logout.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log out</button></a>';
+
     } else {
-        echo '<p style="font-size:150%;">Log in</a></p>
-    <p style="font-size:150%;">|</p>
-    <p style="font-size:150%;"><a href="logout.php">Log out</a></p>';
+        echo '<a href="login.php"><button type="button" style="font-size:150%;" class="btn btn-outline-secondary">Log in</button></a>';
     }
     ?>
     <br><br>
@@ -182,12 +179,13 @@ function validateLastName($lname)
                 <p style="font-size:25px; color:white;"><strong>Trending Products</strong></p>
                 <hr style="color:white; height:8px;" />
                 <?php
-                //get products for home page
+                // get products for home page
                 $sql = "SELECT * FROM product LIMIT 4";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 while ($row = $statement->fetch()) {
-                    echo '<img src=" . $row["productImageURL"] . "/>';
+                    echo $row['productId'];
+                    echo '<img src="' . $row["productImageURL"] . '"/>';
                 }
                 ?>
                 <!--
