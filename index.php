@@ -165,7 +165,7 @@ function validateLastName($lname) {
                 <hr style="color:white; height:8px;" />
                 <?php
                 // get products for home page
-                try {
+                /*try {
                     $connectionString = "mysql:host=localhost;dbname=db_54925359";
                     $username = "54925359";
                     $password = "54925359";
@@ -181,7 +181,7 @@ function validateLastName($lname) {
                     }
                 } catch (PDOException $e) {
                     die($e->getMessage());
-                }
+                }*/
 
 
                 ?>
