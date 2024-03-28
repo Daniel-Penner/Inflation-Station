@@ -5,6 +5,7 @@ try {
     $location = '';
     $isAdmin = false;
     $changeUserId = 0;
+    echo("<script>alert(" . $changeUserId . ");</script>");
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!empty($_POST['uuid'])) { // if true the request is sent by admin dashboard
             $changeUserId = $_POST['uuid'];
