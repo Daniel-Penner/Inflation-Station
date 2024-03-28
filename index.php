@@ -175,7 +175,7 @@ function validateLastName($lname) {
                     $sql = "SELECT * FROM product LIMIT 4;";
                     $statement = $pdo->prepare($sql);
                     $statement->execute();
-                /while ($row = $statement->fetch()) {
+                while ($row = $statement->fetch()) {
                         echo $row['productId'];
                         echo '<img src="' . $row["productImageURL"] . '"/>';
                     }
