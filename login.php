@@ -56,7 +56,7 @@ function validateEmail($email)
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
                 //If user is banned (0 -> not banned 1 -> banned)
-                if($row['isBanned'] == 1) {
+                if($row['isBanned'] == "true") {
                     echo "<script>alert('Your account is currently banned from Inflation Station, please contact an administrator for further details.')</script>";
                     exit();
                 }
