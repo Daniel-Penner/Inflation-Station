@@ -22,14 +22,17 @@ try {
             $location = "profile.php";
         }
         //If isBaned == true 
-        if(($_POST['isBanned']) == true || $_POST['isBanned']) {
-            $sql = "UPDATE customer 
+        if(($_POST['isBanned']) == true || $_POST['isBanned'] != false) {
+        $sql = "UPDATE customer 
         SET isBanned = 1
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
         $statement->bindValue(1, $changeUserId);
         $statement->execute();
+        echo "<script>alert('User has been banned from Inflation Station.')</script>";
+        exit(); //exit if a user is banned, do not update other fields
         }
+
         // Update fname if entered
         if(!empty($_POST['fname'])) {
             $sql = "UPDATE customer 
@@ -43,6 +46,7 @@ try {
         $_SESSION['fname'] = $_POST['fname'];
         }
         }
+
         //update lname if entered
         if(!empty($_POST['lname'])) {
             $sql = "UPDATE customer 
@@ -56,6 +60,7 @@ try {
         $_SESSION['lname'] = $_POST['lname'];
         }
         }
+
         //update email if entered
         if(!empty($_POST['email'])) {
             $sql = "UPDATE customer 
@@ -69,6 +74,7 @@ try {
         $_SESSION['email'] = $_POST['email'];
         }
         }
+
         //update password if entered
         if(!empty($_POST['pass'])) {
             $sql = "UPDATE customer 
@@ -79,6 +85,7 @@ try {
         $statement->bindValue(2, $changeUserId);
         $statement->execute();
         }
+
         if($_FILES['profilePicture']['error'] == UPLOAD_ERR_OK) {
             $profilePicture = file_get_contents($_FILES['profilePicture']['tmp_name']);
             $sql = "UPDATE customer 
