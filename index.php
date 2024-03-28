@@ -2,28 +2,17 @@
 session_start();
 
 // Function to validate password using regex
-function validatePassword($password)
-{
-    // Password pattern
+function validatePassword($password) {     // Password pattern
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
-// validate email address
-function validateEmail($email)
-{
-    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-    return preg_match($pattern, $email);
-}
-
-function validateFirstName($fname)
-{
+function validateFirstName($fname) {
     // first name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $fname);
 }
 
-function validateLastName($lname)
-{
+function validateLastName($lname) {
     // last name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $lname);
@@ -50,17 +39,10 @@ function validateLastName($lname)
             if (!validatePassword($_POST['password'])) {
                 echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
                 exit();
-            }
-
-            if (!validateEmail($_POST['email'])) {
+            } else if (!validateFirstName($_POST['fname'])) {
                 echo "<script>alert('Email is invalid.')</script>";
                 exit();
-            }
-            if (!validateFirstName($_POST['fname'])) {
-                echo "<script>alert('Email is invalid.')</script>";
-                exit();
-            }
-            if (!validateLastName($_POST['lname'])) {
+            } else if (!validateLastName($_POST['lname'])) {
                 echo "<script>alert('Email is invalid.')</script>";
                 exit();
             }
