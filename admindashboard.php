@@ -17,7 +17,7 @@ session_start();
     try {
         include 'dbconnection.php';
         if (isset($_SESSION['type'])) { //check if admin
-    
+            echo("<script>alert(" . $changeUserId . ");</script>");
         } else { // if user is not admin
             header("Location: index.php");
             exit();
