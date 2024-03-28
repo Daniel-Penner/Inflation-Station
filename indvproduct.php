@@ -201,17 +201,8 @@ date_default_timezone_set('Canada/Pacific');
         $.ajax({
             url: 'deletecomment.php', 
             method: 'POST',
-            data: { commentId: commentId },
-            success: function(response) {
-                // on comment deletion, remove comment from DOM
-                if (response === 'success') {
-                    alert("hi");
-                    this.remove();
-                    console.log('Comment deleted successfully');
-                } else {
-                    console.log('Failed to delete comment');
-                }
-            }
+            data: { commentId: commentId }
+            $(this).closest('.row').remove();
         });
     });
     // load comments
