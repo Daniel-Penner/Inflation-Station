@@ -39,6 +39,7 @@ session_start();
                     $pass = $row['password'];
                     $customerType = $row['customerType'];
                     $profilePicture = $row['profilePicture'];
+                    $isBanned = $row['isBanned'];
                 } else {
                     echo '<br><div class="container">No users exist with that username.</div>';
                 }
@@ -112,7 +113,10 @@ session_start();
                 <h1 style="position: relative; left:15rem; bottom: 5rem;">Editing User:
                     <?php echo $fname;
                     echo " ";
-                    echo $lname; ?>
+                    echo $lname; 
+                    echo " ";
+                    echo $isBanned;
+                    ?>
                 </h1>
             </div>
         </div>
@@ -141,7 +145,7 @@ session_start();
                 Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
             <br><br>
-            <input style="text-align:right;" type="hidden" name="isBanned" id="isBanned" value="false">
+            <input style="text-align:right;" type="hidden" name="isBanned" id="isBannedInput" value="false">
             <!-- Hidden input field -->
             <?php
             if (!empty($_POST['uuid'])) {
@@ -150,18 +154,7 @@ session_start();
                 echo '<p style="font-size:30px;">You must enter a User ID to make changes</p>';
             }
             ?>
-            
-            <script>
-                function banUser() {
-                    // Show confirmation dialog
-                    var confirmed = window.confirm("Are you sure you want to ban this user?");
-                    // If user confirms, update the hidden input value and submit the form
-                    if (confirmed) {
-                        document.getElementById("isBanned").value = "true";
-                        document.getElementById("userSearch").submit();
-                    }
-                }
-            </script>
+
             <?php
             if (!empty($_POST['uuid'])) {
                 echo "<button id='adminChangeSubmit' type='submit' class='btn btn-success btn-lg'>Submit</button>";
@@ -176,3 +169,16 @@ session_start();
 </body>
 
 </html>
+
+<script>
+    //function to confirm ban user and submit
+    function banUser() {
+        // Show confirmation dialog
+        var confirmed = window.confirm("Are you sure you want to ban this user?");
+        // If user confirms, update the hidden input value and submit the form
+        if (confirmed) {
+            document.getElementById("isBannedInput").value = "true";
+            document.getElementById("adminChangeSubmit").submit();
+        }
+    }
+</script>
