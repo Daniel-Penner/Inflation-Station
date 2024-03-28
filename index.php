@@ -7,11 +7,9 @@ function validatePassword($password) {
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
-
+// validate email address
 function validateEmail($email) {
-    // Email pattern without spaces
-    $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
-    return preg_match($pattern, $email);
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 function validateFirstName($fname) {
@@ -158,6 +156,7 @@ function validateLastName($lname) {
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>Top Reviews</strong></p>
                     <hr style="color:white; height:8px;" />
+                    <p>To be implemented in the final milestone.</p>
                 </div>
             </div>
             <div class="col-6">
@@ -167,6 +166,7 @@ function validateLastName($lname) {
                 <div class="sidecol">
                     <p style="font-size:25px; color:white;"><strong>News</strong></p>
                     <hr style="color:white; height:8px;" />
+                    <p>To be implemented in the final milestone.</p>
                 </div>
             </div>
         </div>
@@ -177,6 +177,7 @@ function validateLastName($lname) {
             <div class="row justify-content-center mx-auto">
                 <p style="font-size:25px; color:white;"><strong>Trending Products</strong></p>
                 <hr style="color:white; height:8px;" />
+
                 <div class="col-3">
                     <div class="itembox"></div>
                     <br>
