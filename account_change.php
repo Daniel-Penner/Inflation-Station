@@ -21,6 +21,7 @@ try {
             $changeUserId = $_SESSION['id'];
             $location = "profile.php";
         }
+        if(isset($_POST['isBanned'])){
         //If isBaned == true 
         if(($_POST['isBanned']) == "true") {
         $sql = "UPDATE customer 
@@ -45,6 +46,7 @@ try {
         echo "<script>alert('User has been UNBANNED from Inflation Station.')</script>";
         exit(); //exit if a user is banned, do not update other fields
         }
+    }
 
         
 
