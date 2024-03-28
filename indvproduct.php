@@ -203,7 +203,7 @@ date_default_timezone_set('Canada/Pacific');
             method: 'POST',
             data: { commentId: commentId },
             success: function(response) {
-                alert(this.HTML);
+                alert(this.innerHTML);
                 this.delete();
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
