@@ -185,7 +185,6 @@ function validateLastName($lname) {
 
 
                 ?>
-                <p>Hi</p>
                 <!--
                 <div class="col-3">
                     <div class="itembox"></div>
