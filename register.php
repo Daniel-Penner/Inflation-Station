@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-    <title>Login - Inflation Station</title>
+    <title>Register - Inflation Station</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -94,7 +94,7 @@ session_start();
                                 <div id="passHelp" class="form-text">
                 Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div><br>
                               
-                                <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required><br>
 
                             </div>
                         </div>
