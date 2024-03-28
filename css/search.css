@@ -14,6 +14,11 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
   .card{
   margin-top: 1.5rem;
 }
+
+.container-cards{
+  display: inline-block;
+  width: 80%;
+}
   
 .boxcaption{
   height: 40px;
