@@ -148,7 +148,7 @@ session_start();
                 Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
             <br><br>
-            <input style="text-align:right;" type="hidden" name="isBanned" id="isBannedInput" value="false">
+            <input style="text-align:right;" type="hidden" name="isBanned" id="isBannedInput" value="0">
             <!-- Hidden input field -->
             <?php
             if (!empty($_POST['uuid'])) {
@@ -180,7 +180,7 @@ session_start();
         var confirmed = window.confirm("Are you sure you want to ban this user?");
         // If user confirms, update the hidden input value and submit the form
         if (confirmed) {
-            document.getElementById("isBannedInput").value = "true";
+            document.getElementById("isBannedInput").value = "1";
             document.getElementById("adminChangeSubmit").submit();
         }
     }
