@@ -203,8 +203,7 @@ date_default_timezone_set('Canada/Pacific');
             method: 'POST',
             data: { commentId: commentId },
             success: function(response) {
-                alert(this.tagName);
-                this.delete();
+                <?php header('Content: loadcomments.php')?>
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
                     console.log('Comment deleted successfully');
