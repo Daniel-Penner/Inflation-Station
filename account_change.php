@@ -10,6 +10,7 @@ try {
             $changeUserId = $_POST['uuid'];
             $location = "admindashboard.php";
             $isAdmin = true; //if uuid is passed then process is admin 
+            echo "<script>alert(" . $changeUserId . ")</script>";
 
         } elseif (isset($_SESSION['id'])) { // if true then the request is from a regular user changing their information
             $changeUserId = $_SESSION['id'];
