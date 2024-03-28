@@ -115,7 +115,7 @@ session_start();
                     echo " ";
                     echo $lname; 
                     echo " ";
-                    if($isBanned == 1) {
+                    if($isBanned == "true") {
                         echo '<span style="color:red;">[Banned]</span>';
                     }
                    
@@ -181,7 +181,7 @@ session_start();
         // If user confirms, update the hidden input value and submit the form
         if (confirmed) {
             document.getElementById("isBanned").value = "true";
-            document.getElementById("adminChangeSubmit").submit();
+            document.getElementById("accountChange").submit();
         }
     }
 </script>
