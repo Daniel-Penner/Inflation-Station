@@ -28,9 +28,11 @@ function validatePassword($password) {
         if (!empty($_POST['email'])) {
             // Validate password
             if (!validatePassword($_POST['password'])) {           
-                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
-                header('Location: login.php');
+                header('Location: login.php?error=1');
                 exit();
+            }
+            if($_GET['error'] == 1) {
+                echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
             }
             try {
                 $connectionString = "mysql:host=localhost;dbname=db_54925359";
