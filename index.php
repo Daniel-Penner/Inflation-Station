@@ -169,6 +169,7 @@ function validateLastName($lname) {
                     $statement->execute();
                     while ($row = $statement->fetch()) {
                         echo $row['productId'];
+                        //echo '<img src="' . $row["productImageURL"] . '"/>';
                     }
                 } catch (PDOException $e) {
                     die($e->getMessage());
