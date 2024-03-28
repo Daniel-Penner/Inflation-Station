@@ -16,12 +16,12 @@ session_start();
     <?php
     try {
         include 'dbconnection.php';
-        if (isset($_SESSION['type'])) { //check if admin
+        /*if (isset($_SESSION['type'])) { //check if admin
     
         } else { // if user is not admin
             header("Location: index.php");
             exit();
-        }
+        }*/
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (!empty($_POST['uuid'])) {
 
@@ -141,18 +141,33 @@ session_start();
                 Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div>
             <br>
             <br><br>
-            <input type="hidden" name="isBanned" id="isBannedInput" value="false"> <!-- Hidden input field -->
-            <button class="btn btn-lg btn-outline-danger mt-3" type="button" onclick="banUser()">Ban User</button>
+            <input style="text-align:right;" type="hidden" name="isBanned" id="isBannedInput" value="false">
+            <!-- Hidden input field -->
+            <?php
+            if (!empty($_POST['uuid'])) {
+                echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="banUser()">Ban User</button>';
+            } else {
+                echo '<p style="font-size:30px;">You must enter a User ID to make changes</p>';
+            }
+            ?>
+            
             <script>
                 function banUser() {
-                    // Set the value of the hidden input field to "true"
-                    document.getElementById("isBannedInput").value = "true";
-                    // Submit the form
-                    document.getElementById("adminChangeSubmit").submit();
+                    // Show confirmation dialog
+                    var confirmed = window.confirm("Are you sure you want to ban this user?");
+
+                    // If user confirms, update the hidden input value and submit the form
+                    if (confirmed) {
+                        document.getElementById("isBannedInput").value = "true";
+                        document.getElementById("userSearch").submit();
+                    }
                 }
             </script>
-            <br><br>
-            <button id="adminChangeSubmit" type='submit' class='btn btn-success btn-lg'>Submit</button>
+            <?php
+            if (!empty($_POST['uuid'])) {
+                echo "<button id='adminChangeSubmit' type='submit' class='btn btn-success btn-lg'>Submit</button>";
+            }
+            ?>
 
         </form>
         <br>

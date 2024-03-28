@@ -22,7 +22,7 @@ try {
             $location = "profile.php";
         }
         //If isBaned == true 
-        if(($_POST['isBanned']) == true) {
+        if(($_POST['isBanned']) == true || $_POST['isBanned']) {
             $sql = "UPDATE customer 
         SET isBanned = 1
         WHERE customerId = ?";
