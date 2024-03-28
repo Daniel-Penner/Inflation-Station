@@ -188,15 +188,7 @@ function validateLastName($lname)
                 $statement->bindValue(1, $searchFor);
                 $statement->execute();
                 while ($row = $statement->fetch()) {
-                    echo '<div class="col-3">
-                    <div class="itembox">';
-                    echo '<div class="col">';
-                    echo "<div class='card' style='width: 18rem;'>";
-                    echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" /><div class="card-body">';
-                    echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
-                    echo "<p class='card-text'>$" . $row['productPrice'] . "/lb</p>";
-                    echo "<a href='indvproduct.php?prod=" . $row['productId'] . "' class='button'>More Info</a></div></div></div>";
-                    echo '</div><br></div>';
+                    echo '<img src=' . $row['productImageURL'] . '/>';
                 }
                 ?>
                 <!--
