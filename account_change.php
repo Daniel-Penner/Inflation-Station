@@ -22,12 +22,13 @@ try {
             $location = "profile.php";
         }
         //If isBaned == true 
-        if(($_POST['isBanned']) == "1") {
+        if(($_POST['isBanned']) == "true") {
         $sql = "UPDATE customer 
-        SET isBanned = 1
+        SET isBanned = ?
         WHERE customerId = ?";
         $statement = $pdo->prepare($sql);
-        $statement->bindValue(1, $changeUserId);
+        $statement->bindValue(1, "true");
+        $statement->bindValue(2, $changeUserId);
         $statement->execute();
         echo "<script>alert('User has been banned from Inflation Station.')</script>";
         exit(); //exit if a user is banned, do not update other fields
