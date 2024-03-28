@@ -188,7 +188,7 @@ function validateLastName($lname)
                 $statement->bindValue(1, $searchFor);
                 $statement->execute();
                 while ($row = $statement->fetch()) {
-                    echo '<img src=' . $row['productImageURL'] . '/>';
+                    echo '<img src=" . $row["productImageURL"] . "/>';
                 }
                 ?>
                 <!--
