@@ -15,7 +15,7 @@ border: rgba(127.96927481889725, 158.31250101327896, 130.66644608974457, 1) soli
   margin-top: 1.5rem;
 }
 
-#prodcontainer{
+.container #prodcontainer{
   float: right;
   border: solid black 1px;
 }
