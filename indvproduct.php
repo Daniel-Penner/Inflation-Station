@@ -198,6 +198,7 @@ date_default_timezone_set('Canada/Pacific');
     //on red x click delete the comment asynchronously
     $(document).on('click', '.deleteComment', function() {
         var commentId = $(this).data('commentId');
+        alert(commentId);
         $.ajax({
             url: 'deletecomment.php', 
             method: 'POST',
@@ -205,11 +206,9 @@ date_default_timezone_set('Canada/Pacific');
             success: function(response) {
                 // on comment deletion, remove comment from DOM
                 if (response === 'success') {
-                    alert("hello");
                     $(this).closest('.comment-container').remove();
                     console.log('Comment deleted successfully');
                 } else {
-                    alert("hi");
                     console.log('Failed to delete comment');
                 }
             }
