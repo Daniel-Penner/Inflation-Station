@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-    <title>Login - Inflation Station</title>
+    <title>Register - Inflation Station</title>
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/register.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <header>
-        <div class="container">
+    <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="navborder">
@@ -32,7 +32,7 @@ session_start();
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
                                     <a class="nav-link" href="contact.php">Contact</a>
-                                    <a class="nav-link" href="products.php">Products</a>
+                                    <a class="nav-link" href="storeselector.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                     <?php
                                     if(isset($_SESSION['type'])) {
@@ -94,7 +94,7 @@ session_start();
                                 <div id="passHelp" class="form-text">
                 Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?</div><br>
                               
-                                <input type="password" class="form-control" id="pass" placeholder="Password" name="password" required><br>
+                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required><br>
 
                             </div>
                         </div>
