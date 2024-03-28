@@ -152,7 +152,7 @@ session_start();
             <!-- Hidden input field -->
             <?php
             if (!empty($_POST['uuid'])) {
-                if ($isBanned == "false") {
+                if ($isBanned == "true") {
                     echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="unbanUser()">Unban User</button>';
                 } else {
                     echo '<button class="btn btn-lg btn-outline-danger" type="button" onclick="banUser()">Ban User</button>';
