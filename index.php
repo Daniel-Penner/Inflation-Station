@@ -2,24 +2,28 @@
 session_start();
 
 // Function to validate password using regex
-function validatePassword($password) {
+function validatePassword($password)
+{
     // Password pattern
     $pattern = '/^[a-zA-Z1-9!?]{5,30}$/';
     return preg_match($pattern, $password);
 }
 // validate email address
-function validateEmail($email) {
+function validateEmail($email)
+{
     $pattern = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
     return preg_match($pattern, $email);
 }
 
-function validateFirstName($fname) {
+function validateFirstName($fname)
+{
     // first name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $fname);
 }
 
-function validateLastName($lname) {
+function validateLastName($lname)
+{
     // last name pattern
     $pattern = '/^[A-Z][a-z]{0,39}$/';
     return preg_match($pattern, $lname);
@@ -36,11 +40,12 @@ function validateLastName($lname) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--Bootstrap 5-->
 </head>
+
 <body>
-<?php
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-            
-        if (!empty($_POST['fname'])){
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if (!empty($_POST['fname'])) {
             //validate attempted registeration
             if (!validatePassword($_POST['password'])) {
                 echo "<script>alert('Password must be 5-30 characters long and contain only letters, digits 1-9, !, and ?')</script>";
@@ -60,42 +65,41 @@ function validateLastName($lname) {
                 exit();
             }
 
-        try{
-            $connectionString = "mysql:host=localhost;dbname=db_54925359"; 
-            $username = "54925359";
-            $password = "54925359"; 
-    
-            // Create connection
-            $pdo = new PDO($connectionString, $username, $password);
-            $existingEmail = false;
-            $fileContent=file_get_contents($_FILES['pfp']['tmp_name']);
-            $sql = "SELECT email FROM customer";
-            $statement = $pdo->prepare($sql);
-            $statement->execute();
-            while($row = $statement->fetch())
-              {
-                if($_POST['email'] == $row['email']){
-                    $existingEmail = true;
+            try {
+                $connectionString = "mysql:host=localhost;dbname=db_54925359";
+                $username = "54925359";
+                $password = "54925359";
+
+                // Create connection
+                $pdo = new PDO($connectionString, $username, $password);
+                $existingEmail = false;
+                $fileContent = file_get_contents($_FILES['pfp']['tmp_name']);
+                $sql = "SELECT email FROM customer";
+                $statement = $pdo->prepare($sql);
+                $statement->execute();
+                while ($row = $statement->fetch()) {
+                    if ($_POST['email'] == $row['email']) {
+                        $existingEmail = true;
+                    }
                 }
-              }
-            if(!$existingEmail){
-            echo "<script>alert('Your account has been successfully created!')</script>";
-            $sql = "INSERT INTO customer (fname, lname, email, password, profilePicture) VALUES (?,?,?,?,?)";
-            $statement = $pdo->prepare($sql);
-            $statement->bindValue(1, $_POST['fname']);
-            $statement->bindValue(2, $_POST['lname']);
-            $statement->bindValue(3, $_POST['email']);
-            $statement->bindValue(4, md5($_POST['password']));
-            $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
-            $statement->execute();
-        }
-    }
-            catch(PDOException $e){
+                if (!$existingEmail) {
+                    echo "<script>alert('Your account has been successfully created!')</script>";
+                    $sql = "INSERT INTO customer (fname, lname, email, password, profilePicture) VALUES (?,?,?,?,?)";
+                    $statement = $pdo->prepare($sql);
+                    $statement->bindValue(1, $_POST['fname']);
+                    $statement->bindValue(2, $_POST['lname']);
+                    $statement->bindValue(3, $_POST['email']);
+                    $statement->bindValue(4, md5($_POST['password']));
+                    $statement->bindParam(5, $fileContent, PDO::PARAM_LOB);
+                    $statement->execute();
+                }
+
+            } catch (PDOException $e) {
                 die($e->getMessage());
-              }
+            }
         }
     }
-        ?>
+    ?>
     <header>
         <div class="container">
             <div class="row justify-content-center">
@@ -104,10 +108,10 @@ function validateLastName($lname) {
                         <nav class="navbar navbar-expand-lg navbar-light bg-light navround">
                             <div class="container-fluid">
                                 <div class="navbar-nav">
-                                    <?php 
-                                    if(isset($_SESSION['id'])) {
-                                    echo '<a class="navbar-brand" href="profile.php">
-                                        <img src="data:image/jpeg;base64,'.base64_encode($_SESSION['pfp']).'" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
+                                    <?php
+                                    if (isset($_SESSION['id'])) {
+                                        echo '<a class="navbar-brand" href="profile.php">
+                                        <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
                                     </a>';
                                     }
                                     ?>
@@ -117,7 +121,7 @@ function validateLastName($lname) {
                                     <a class="nav-link" href="products.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                     <?php
-                                    if(isset($_SESSION['type'])) {
+                                    if (isset($_SESSION['type'])) {
                                         echo '<a class="nav-link" style="color: rgb(232, 39, 39);" href="admindashboard.php">Admin</a>';
                                     }
                                     ?>
@@ -139,12 +143,11 @@ function validateLastName($lname) {
     </header>
     <br>
     <?php
-    if(!isset($_SESSION['id'])) {
-    echo '<p style="font-size:150%;"><a href="login.php">Log in</a></p>
+    if (!isset($_SESSION['id'])) {
+        echo '<p style="font-size:150%;"><a href="login.php">Log in</a></p>
     <p style="font-size:150%;">|</p>
     <p style="font-size:150%;">Log out</p>';
-    }
-    else{
+    } else {
         echo '<p style="font-size:150%;">Log in</a></p>
     <p style="font-size:150%;">|</p>
     <p style="font-size:150%;"><a href="logout.php">Log out</a></p>';
@@ -178,7 +181,25 @@ function validateLastName($lname) {
             <div class="row justify-content-center mx-auto">
                 <p style="font-size:25px; color:white;"><strong>Trending Products</strong></p>
                 <hr style="color:white; height:8px;" />
-
+                <?php
+                //get products for home page
+                $sql = "SELECT * FROM product LIMIT 4";
+                $statement = $pdo->prepare($sql);
+                $statement->bindValue(1, $searchFor);
+                $statement->execute();
+                while ($row = $statement->fetch()) {
+                    echo '<div class="col-3">
+                    <div class="itembox">';
+                    echo '<div class="col">';
+                    echo "<div class='card' style='width: 18rem;'>";
+                    echo '<img src=' . $row['productImageURL'] . ' class="card-img-top" alt="" /><div class="card-body">';
+                    echo "<h5 class='card-title'>" . $row['productName'] . "</h5>";
+                    echo "<p class='card-text'>$" . $row['productPrice'] . "/lb</p>";
+                    echo "<a href='indvproduct.php?prod=" . $row['productId'] . "' class='button'>More Info</a></div></div></div>";
+                    echo '</div><br></div>';
+                }
+                ?>
+                <!--
                 <div class="col-3">
                     <div class="itembox"></div>
                     <br>
@@ -194,7 +215,7 @@ function validateLastName($lname) {
                 <div class="col-3">
                     <div class="itembox"></div>
                     <br>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
