@@ -231,6 +231,6 @@ date_default_timezone_set('Canada/Pacific');
     }
     loadComments();
     // call every 5s
-    setInterval(loadComments, 5000); 
+    setInterval(loadComments, 500); 
     
 </script>
