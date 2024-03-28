@@ -69,7 +69,7 @@ function validatePassword($password) {
                 }
 
                 if(isset($_SESSION['id'])) {
-                    header('Location: index.php')
+                    header('Location: index.php');
                 }
                 if (!$emailMatch) {
                     echo "<script>alert('Unable to Log in: Email and Password do not match.')</script>";
