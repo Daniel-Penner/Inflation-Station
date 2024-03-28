@@ -15,7 +15,7 @@ session_start();
 
 <body>
     <header>
-        <div class="container">
+    <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="navborder">
@@ -32,7 +32,7 @@ session_start();
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
                                     <a class="nav-link" href="contact.php">Contact</a>
-                                    <a class="nav-link" href="products.php">Products</a>
+                                    <a class="nav-link" href="storeselector.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                     <?php
                                     if(isset($_SESSION['type'])) {

@@ -27,14 +27,14 @@ date_default_timezone_set('Canada/Pacific');
                                     <?php
                                     if (isset($_SESSION['id'])) {
                                         echo '<a class="navbar-brand" href="profile.php">
-                    <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
-                </a>';
+                                        <img src="data:image/jpeg;base64,' . base64_encode($_SESSION['pfp']) . '" alt="" width="30" height="30" style="border: 1px black solid; border-radius: 50%;">
+                                    </a>';
                                     }
                                     ?>
                                     <a class="nav-link" href="index.php">Home</a>
                                     <a class="nav-link" href="about.php">About</a>
                                     <a class="nav-link" href="contact.php">Contact</a>
-                                    <a class="nav-link" href="products.php">Products</a>
+                                    <a class="nav-link" href="storeselector.php">Products</a>
                                     <a class="nav-link" href="search.php">Explore</a>
                                     <?php
                                     if (isset($_SESSION['type'])) {
@@ -55,17 +55,22 @@ date_default_timezone_set('Canada/Pacific');
         </div>
         <div class=homehb>
             <h5 style="text-align:center; color:white; font-size:50px;">
-                Select a Store
+                Stores
             </h5>
         </div>
     </header>
     <div class="container mt-5">
-        <br><br><br><br><br><br>
-    <a href="products.php"><button style="font-size:400%;" type="button" class="btn btn-success mx-2">Costco</button></a>
-    <a href="products.php"><button style="font-size:400%;" type="button" class="btn btn-success mx-2">Walmart</button></a>
-    <a href="products.php"><button style="font-size:400%;" type="button" class="btn btn-success mx-2">Safeway</button></a>
-    <a href="products.php"><button style="font-size:400%;" type="button" class="btn btn-success mx-2">Superstore</button></a>
-</div>
+        <br><br><br>
+        <br><br><br>
+        <a href="products.php"><button style="font-size:400%;" type="button"
+                class="btn btn-success mx-2">Costco</button></a>
+        <a href="products.php"><button style="font-size:400%;" type="button"
+                class="btn btn-success mx-2">Walmart</button></a>
+        <a href="products.php"><button style="font-size:400%;" type="button"
+                class="btn btn-success mx-2">Safeway</button></a>
+        <a href="products.php"><button style="font-size:400%;" type="button"
+                class="btn btn-success mx-2">Superstore</button></a>
+    </div>
 </body>
 
 </html>
